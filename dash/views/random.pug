@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    title= title
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+    script(type='text/javascript', src='http://code.highcharts.com/highcharts.js')
+    script(type='text/javascript', src='http://code.highcharts.com/modules/exporting.js')
+    script(type='text/javascript').
+      $(window).load(function(){
+        console.log("!{JSON.stringify(vdd)}");
+
+        Highcharts.chart('container', {
+        title: {
+        text: 'Solar Employment Growth by Sector, 2010-2016'
+        },
+        subtitle: {
+        text: 'Source: thesolarfoundation.com'
+        },
+        yAxis: {
+        title: {
+        text: 'Number of Employees'
+        }
+        },
+        legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+        },
+        plotOptions: {
+        series: {
+        label: {
+        connectorAllowed: false
+        },
+        pointStart: 2010
+        }
+        },
+        series: "#{vdd}",
+        responsive: {
+        rules: [{
+        condition: {
+        maxWidth: 500
+        },
+        chartOptions: {
+        legend: {
+        layout: 'horizontal',
+        align: 'center',
+        verticalAlign: 'bottom'
+        }
+        }
+        }]
+        }
+        });
+      }); // Closes window.load
+  body
+    //script(src='https://code.highcharts.com/highcharts.js')
+    //script(src='https://code.highcharts.com/modules/series-label.js')
+    //script(src='https://code.highcharts.com/modules/exporting.js')
+    #container
