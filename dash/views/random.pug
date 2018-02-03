@@ -7,7 +7,8 @@ html
     script(type='text/javascript', src='http://code.highcharts.com/modules/exporting.js')
     script(type='text/javascript').
       $(window).load(function(){
-        console.log("!{JSON.stringify(vdd)}");
+        var json = !{JSON.stringify(vdd)}
+        console.log(json);
 
         Highcharts.chart('container', {
         title: {
@@ -34,7 +35,7 @@ html
         pointStart: 2010
         }
         },
-        series: "#{vdd}",
+        series: json,
         responsive: {
         rules: [{
         condition: {
