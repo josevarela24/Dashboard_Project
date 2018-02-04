@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var vdd = require('../vd.json')
+var data = require('../vd.json')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  //console.log(vdd);
+  //console.log(data);
   
-  res.render('random', { title: 'Random', vdd: vdd });
+  res.render('random', { title: 'Alliance Data', data: data });
 });
 
 module.exports = router;
