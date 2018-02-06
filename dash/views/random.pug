@@ -16,6 +16,17 @@ html
       }); // Closes window.load
 
   body
+
+    p
+      | Use the form below to upload a list of countries. Click 
+      a(href='/template') here
+      |  for an example template.
+    form(action='/', method='POST', enctype='multipart/form-data')
+      input(type='file', name='file', accept='*.csv')
+      br
+      br
+      input(type='submit', value='Upload Countries')
+
     #container(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
     br
     #container1(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
