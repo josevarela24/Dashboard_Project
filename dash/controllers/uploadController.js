@@ -7,8 +7,30 @@ var data = require('../vd.json')
 var pie = require('../pie.json')
 
 exports.get_detail = function(req, res, next) {
-
-	res.render('random', { title: 'Alliance Data', data: data, pie: pie });
+	Country.aggregate([
+		{
+		  $match: {
+			name: { $in: ["USA", "China"]}
+		  }
+		},
+		{
+		  $project: {
+			_id: 0,
+			name: 1,
+			//year: 1,
+			'y' : '$nominalGDP'
+		  }
+		}
+	  ], function(err, recs){
+		if(err){
+		  console.log(err);
+		} else {
+			console.log(recs);
+			res.render('random', { title: 'Alliance Data', data: data, pie: recs });
+		}
+	  });
+	  
+	//res.render('random', { title: 'Alliance Data', data: data, pie: pie });
 }
 
 exports.post_detail = function (req, res, next) {
