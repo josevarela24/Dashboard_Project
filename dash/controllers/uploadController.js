@@ -6,7 +6,7 @@ var Country = require('../models/country');
 var data = require('../vd.json')
 
 exports.get_detail = function(req, res, next) {
-	console.log("Hello you");
+	
 	res.render('random', { title: 'Alliance Data', data: data });
 }
 

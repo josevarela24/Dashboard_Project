@@ -16,7 +16,7 @@ var countrySchema = mongoose.Schema({
     populationGrowth: Number, 
     consumerSpending: Number, 
     easeOfDoingBusiness: Number, 
-    unemploymment: Number, 
+    unemployment: Number, 
     retailSalesGrowth: Number
 });
 
