@@ -6,6 +6,7 @@ var Country = require('../models/country');
 var data = require('../vd.json')
 
 exports.get_detail = function(req, res, next) {
+	console.log("Hello you");
 	res.render('random', { title: 'Alliance Data', data: data });
 }
 
@@ -35,7 +36,8 @@ exports.post_detail = function (req, res, next) {
 		 Country.create(countries, function(err, documents) {
 			if (err) throw err;
 			//console.log(countries);
-			res.send(countries.length + ' countries have been successfully uploaded.');
-		 });
+			//res.send(countries.length + ' countries have been successfully uploaded.');
+			res.redirect('/users');
+		});
 	 });
 };

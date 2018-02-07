@@ -21,7 +21,8 @@ html
       | Use the form below to upload a list of countries. Click 
       a(href='/template') here
       |  for an example template.
-    form(action='/', method='POST', enctype='multipart/form-data')
+    // action is where you want to send information to
+    form(action='/users', method='POST', enctype='multipart/form-data')
       input(type='file', name='file', accept='*.csv')
       br
       br
