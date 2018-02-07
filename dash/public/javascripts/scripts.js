@@ -2,7 +2,18 @@
 
 //line chart function
 function makeLine(data){
-    console.log(data)
+    console.log("***************");
+    //summing values of data array for each entry
+    for (var p in data){
+        var sum=0;
+        for (var x in data[p].data){
+            //console.log(data[p].data[x]);
+            
+            sum+=data[p].data[x];
+        }
+        console.log(sum);
+    }
+
     Highcharts.chart('container', {
         title: {
             text: 'Solar Employment Growth by Sector, 2010-2016'
@@ -47,7 +58,7 @@ function makeLine(data){
 }
 
 //pie chart function
-function makePie(){
+function makePie(pie){
     Highcharts.chart('container1', {
         chart: {
             plotBackgroundColor: null,
@@ -77,27 +88,7 @@ function makePie(){
         series: [{
             name: 'Brands',
             colorByPoint: true,
-            data: [{
-                name: 'IE',
-                y: 56.33
-            }, {
-                name: 'Chrome',
-                y: 24.03,
-                sliced: true,
-                selected: true
-            }, {
-                name: 'Firefox',
-                y: 10.38
-            }, {
-                name: 'Safari',
-                y: 4.77
-            }, {
-                name: 'Opera',
-                y: 0.91
-            }, {
-                name: 'Other',
-                y: 0.2
-            }]
+            data: pie
         }]
     });
 }

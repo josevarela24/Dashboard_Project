@@ -4,10 +4,11 @@ var mongoose = require('mongoose');
 var Country = require('../models/country');
 //*fixed..this upload does not delete what is already inside db, need to implement drop feature
 var data = require('../vd.json')
+var pie = require('../pie.json')
 
 exports.get_detail = function(req, res, next) {
-	
-	res.render('random', { title: 'Alliance Data', data: data });
+
+	res.render('random', { title: 'Alliance Data', data: data, pie: pie });
 }
 
 exports.post_detail = function (req, res, next) {

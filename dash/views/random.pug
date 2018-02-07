@@ -10,9 +10,10 @@ html
     script(type='text/javascript').
       $(window).load(function(){
         var data = !{JSON.stringify(data)}
+        var pie = !{JSON.stringify(pie)}
         //console.log(json);
         makeLine(data);
-        makePie();
+        makePie(pie);
       }); // Closes window.load
 
   body
