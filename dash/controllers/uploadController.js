@@ -7,11 +7,56 @@ var data = require('../vd.json')
 var pie = require('../pie.json')
 
 exports.get_detail = function(req, res, next) {
+	var s;
 	Country.aggregate([
 		{
 		  $match: {
-			name: { $in: ["USA", "China"]}
+			name: { $in: ["USA", "China", "India", "France", "Japan"]},
 		  }
+		},
+		{
+			$group: {
+				_id: '$name',
+				nominalGDP: {$push: "$nominalGDP"}
+		  }
+		}, 
+		{
+			$project: {
+			_id: 0,
+			name: "$_id",
+			realGDP: 1
+			//year: 1,
+			}
+		}
+	  ], function(err, recs){
+		if(err){
+		  console.log(err);
+		} else {
+			//console.log(recs);
+			s=recs;
+			//res.render('random', { title: 'Alliance Data', data: data, pie: recs });
+		}
+	});
+		
+	console.log(s);
+
+	Country.aggregate([
+		{
+		  /* $match: {
+			name: { $in: ["USA", "China", "India", "France", "Japan"]},
+			} */
+			
+			$match: {
+				$and: [
+					{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
+					{year: 2017}
+				]
+		  }
+		},
+		{
+			$sort: {
+				"nominalGDP": -1
+			}
 		},
 		{
 		  $project: {
@@ -20,12 +65,12 @@ exports.get_detail = function(req, res, next) {
 			//year: 1,
 			'y' : '$nominalGDP'
 		  }
-		}
+		}		
 	  ], function(err, recs){
 		if(err){
 		  console.log(err);
 		} else {
-			console.log(recs);
+			//console.log(recs);
 			res.render('random', { title: 'Alliance Data', data: data, pie: recs });
 		}
 	  });
