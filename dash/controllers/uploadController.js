@@ -4,15 +4,19 @@ var mongoose = require('mongoose');
 var Country = require('../models/country');
 //*fixed..this upload does not delete what is already inside db, need to implement drop feature
 var data = require('../vd.json')
-var pie = require('../pie.json')
 
 exports.get_detail = function(req, res, next) {
-	var s;
+	
 	Country.aggregate([
 		{
 		  $match: {
 			name: { $in: ["USA", "China", "India", "France", "Japan"]},
 		  }
+		},
+		{
+			$sort: {
+				year: 1
+			}
 		},
 		{
 			$group: {
@@ -24,28 +28,19 @@ exports.get_detail = function(req, res, next) {
 			$project: {
 			_id: 0,
 			name: "$_id",
-			realGDP: 1
-			//year: 1,
+			nominalGDP: 1
 			}
 		}
 	  ], function(err, recs){
 		if(err){
 		  console.log(err);
 		} else {
-			//console.log(recs);
-			s=recs;
-			//res.render('random', { title: 'Alliance Data', data: data, pie: recs });
+			console.log(recs);
 		}
 	});
-		
-	console.log(s);
 
 	Country.aggregate([
-		{
-		  /* $match: {
-			name: { $in: ["USA", "China", "India", "France", "Japan"]},
-			} */
-			
+		{			
 			$match: {
 				$and: [
 					{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
@@ -62,7 +57,6 @@ exports.get_detail = function(req, res, next) {
 		  $project: {
 			_id: 0,
 			name: 1,
-			//year: 1,
 			'y' : '$nominalGDP'
 		  }
 		}		
@@ -70,12 +64,9 @@ exports.get_detail = function(req, res, next) {
 		if(err){
 		  console.log(err);
 		} else {
-			//console.log(recs);
 			res.render('random', { title: 'Alliance Data', data: data, pie: recs });
 		}
 	  });
-	  
-	//res.render('random', { title: 'Alliance Data', data: data, pie: pie });
 }
 
 exports.post_detail = function (req, res, next) {
