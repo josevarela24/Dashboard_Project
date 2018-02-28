@@ -4,69 +4,70 @@ var mongoose = require('mongoose');
 var Country = require('../models/country');
 //*fixed..this upload does not delete what is already inside db, need to implement drop feature
 var data = require('../vd.json')
+var async = require('async');
 
 exports.get_detail = function(req, res, next) {
 	
-	Country.aggregate([
-		{
-		  $match: {
-			name: { $in: ["USA", "China", "India", "France", "Japan"]},
-		  }
+	async.parallel({
+		one: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["USA", "China", "India", "France", "Japan"]},
+					}
+				},
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						nominalGDP: {$push: "$nominalGDP"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$nominalGDP'
+					}
+				}
+				], callback);
 		},
-		{
-			$sort: {
-				year: 1
-			}
-		},
-		{
-			$group: {
-				_id: '$name',
-				nominalGDP: {$push: "$nominalGDP"}
-		  }
-		}, 
-		{
-			$project: {
-			_id: 0,
-			name: "$_id",
-			nominalGDP: 1
-			}
+
+		two: function(callback){
+			Country.aggregate([
+				{			
+					$match: {
+						$and: [
+							{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
+							{year: 2017}
+						]
+					}
+				},
+				{
+					$sort: {
+						"nominalGDP": -1
+					}
+				},
+				{
+					$project: {
+					_id: 0,
+					name: 1,
+					'y' : '$nominalGDP'
+					}
+				}		
+				], callback);
 		}
-	  ], function(err, recs){
-		if(err){
-		  console.log(err);
-		} else {
-			console.log(recs);
-		}
+	}, function(err, results){
+		res.render('random', { title: 'Test', data: results.one, pie: results.two });
 	});
 
-	Country.aggregate([
-		{			
-			$match: {
-				$and: [
-					{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
-					{year: 2017}
-				]
-		  }
-		},
-		{
-			$sort: {
-				"nominalGDP": -1
-			}
-		},
-		{
-		  $project: {
-			_id: 0,
-			name: 1,
-			'y' : '$nominalGDP'
-		  }
-		}		
-	  ], function(err, recs){
-		if(err){
-		  console.log(err);
-		} else {
-			res.render('random', { title: 'Alliance Data', data: data, pie: recs });
-		}
-	  });
+	
+
+	
 }
 
 exports.post_detail = function (req, res, next) {
