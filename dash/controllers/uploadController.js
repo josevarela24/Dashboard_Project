@@ -4,78 +4,70 @@ var mongoose = require('mongoose');
 var Country = require('../models/country');
 //*fixed..this upload does not delete what is already inside db, need to implement drop feature
 var data = require('../vd.json')
-var pie = require('../pie.json')
+var async = require('async');
 
 exports.get_detail = function(req, res, next) {
-	var s;
-	Country.aggregate([
-		{
-		  $match: {
-			name: { $in: ["USA", "China", "India", "France", "Japan"]},
-		  }
+	
+	async.parallel({
+		one: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["USA", "China", "India", "France", "Japan"]},
+					}
+				},
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						nominalGDP: {$push: "$nominalGDP"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$nominalGDP'
+					}
+				}
+				], callback);
 		},
-		{
-			$group: {
-				_id: '$name',
-				nominalGDP: {$push: "$nominalGDP"}
-		  }
-		}, 
-		{
-			$project: {
-			_id: 0,
-			name: "$_id",
-			realGDP: 1
-			//year: 1,
-			}
-		}
-	  ], function(err, recs){
-		if(err){
-		  console.log(err);
-		} else {
-			//console.log(recs);
-			s=recs;
-			//res.render('random', { title: 'Alliance Data', data: data, pie: recs });
-		}
-	});
-		
-	console.log(s);
 
-	Country.aggregate([
-		{
-		  /* $match: {
-			name: { $in: ["USA", "China", "India", "France", "Japan"]},
-			} */
-			
-			$match: {
-				$and: [
-					{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
-					{year: 2017}
-				]
-		  }
-		},
-		{
-			$sort: {
-				"nominalGDP": -1
-			}
-		},
-		{
-		  $project: {
-			_id: 0,
-			name: 1,
-			//year: 1,
-			'y' : '$nominalGDP'
-		  }
-		}		
-	  ], function(err, recs){
-		if(err){
-		  console.log(err);
-		} else {
-			//console.log(recs);
-			res.render('random', { title: 'Alliance Data', data: data, pie: recs });
+		two: function(callback){
+			Country.aggregate([
+				{			
+					$match: {
+						$and: [
+							{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
+							{year: 2017}
+						]
+					}
+				},
+				{
+					$sort: {
+						"nominalGDP": -1
+					}
+				},
+				{
+					$project: {
+					_id: 0,
+					name: 1,
+					'y' : '$nominalGDP'
+					}
+				}		
+				], callback);
 		}
-	  });
-	  
-	//res.render('random', { title: 'Alliance Data', data: data, pie: pie });
+	}, function(err, results){
+		res.render('random', { title: 'Test', data: results.one, pie: results.two });
+	});
+
+	
+
+	
 }
 
 exports.post_detail = function (req, res, next) {
