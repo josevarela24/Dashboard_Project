@@ -11,11 +11,11 @@ exports.get_detail = function(req, res, next) {
 	async.parallel({
 		one: function(callback){
 			Country.aggregate([
-				{
+				/* {
 					$match: {
 					name: { $in: ["USA", "China", "India", "France", "Japan"]},
 					}
-				},
+				}, */
 				{
 					$sort: {
 						year: 1
@@ -41,10 +41,11 @@ exports.get_detail = function(req, res, next) {
 			Country.aggregate([
 				{			
 					$match: {
-						$and: [
-							{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
-							{year: 2017}
-						]
+						// $and: [
+						// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
+						// 	{year: 2017}
+						// ]
+						year: 2014
 					}
 				},
 				{
@@ -62,12 +63,10 @@ exports.get_detail = function(req, res, next) {
 				], callback);
 		}
 	}, function(err, results){
-		res.render('random', { title: 'Test', data: results.one, pie: results.two });
+		console.log(results.one);
+		console.log(results.two);
+		res.render('hello', { title: 'Test', data: results.one, pie: results.two });
 	});
-
-	
-
-	
 }
 
 exports.post_detail = function (req, res, next) {

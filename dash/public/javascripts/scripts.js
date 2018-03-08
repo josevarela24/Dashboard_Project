@@ -3,27 +3,20 @@
 //line chart function
 function makeLine(data){
     console.log("***************");
-    //summing values of data array for each entry
-    for (var p in data){
-        var sum=0;
-        for (var x in data[p].data){
-            //console.log(data[p].data[x]);
-            
-            sum+=data[p].data[x];
-        }
-        console.log(sum);
-    }
 
-    Highcharts.chart('container', {
+    Highcharts.chart('char1', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
         title: {
-            text: 'Solar Employment Growth by Sector, 2010-2016'
+            text: 'Nominal GDP'
         },
         subtitle: {
-            text: 'Source: thesolarfoundation.com'
+            text: 'World Economy Dashboard'
         },
         yAxis: {
             title: {
-                text: 'Number of Employees'
+                text: 'Nominal GDP'
             }
         },
         legend: {
@@ -59,36 +52,75 @@ function makeLine(data){
 
 //pie chart function
 function makePie(pie){
-    Highcharts.chart('container1', {
+
+    Highcharts.chart('char2', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false,
+            backgroundColor: 'transparent',
             type: 'pie'
         },
         title: {
-            text: 'Browser market shares January, 2015 to May, 2015'
+            text: 'Nominal GDP'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '{series.name}: <b>${point.y:.1f}</b>'
         },
         plotOptions: {
             pie: {
                 allowPointSelect: true,
                 cursor: 'pointer',
                 dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.y:.1f} ',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                }
+                    enabled: false
+                },
+                showInLegend: true
             }
         },
         series: [{
-            name: 'Brands',
+            name: 'GDP',
             colorByPoint: true,
             data: pie
         }]
     });
+}
+
+function getMap(){
+    console.log("Here at map");
+    //basic map config with custom fills, mercator projection
+    var map = new Datamap({
+        scope: 'world',
+        element: document.getElementById('random'),
+        //height: 500,
+        responsive: true,
+        projection: 'mercator',
+        height: 500,
+        fills: {
+            defaultFill: '#f0af0a',
+            lt50: 'rgba(26, 188, 156,1.0)',
+            gt50: 'rgba(231, 76, 60,1.0)'
+        },
+        data: {
+            USA: {fillKey: 'lt50' },
+            RUS: {fillKey: 'lt50' },
+            CAN: {fillKey: 'lt50' },
+            BRA: {fillKey: 'gt50' },
+            ARG: {fillKey: 'gt50'},
+            COL: {fillKey: 'gt50' },
+            AUS: {fillKey: 'gt50' },
+            ZAF: {fillKey: 'gt50' },
+            MAD: {fillKey: 'gt50' }
+        },
+        done: function(datamap) {
+            datamap.svg.call(d3.behavior.zoom().on("zoom", redraw));
+
+            function redraw() {
+                    datamap.svg.selectAll("g").attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+            }
+
+            window.addEventListener('resize', function(event){
+                map.resize();
+        });
+    }
+    })
 }
