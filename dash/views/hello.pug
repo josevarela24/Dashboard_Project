@@ -1,0 +1,165 @@
+doctype html
+
+html
+  head
+    title Alliance Dashboard
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //if lte IE 8
+      script(src='assets/js/ie/html5shiv.js')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    //if lte IE 8
+      link(rel='stylesheet', href='/stylesheets/ie8.css')
+    //if lte IE 9
+      link(rel='stylesheet', href='/stylesheets/ie9.css')
+    script(src='http://d3js.org/d3.v3.min.js')
+    script(src='http://d3js.org/topojson.v1.min.js')
+    script(src='/javascripts/datamaps.world.min.js')
+    script(src='/javascripts/jquery.min.js')
+    script(type='text/javascript', src='http://code.highcharts.com/highcharts.js')
+    script(type='text/javascript', src='http://code.highcharts.com/modules/exporting.js')
+    
+    script(type='text/javascript').
+      $(window).load(function(){
+        
+        var data = !{JSON.stringify(data)}
+        var pie = !{JSON.stringify(pie)}
+        //console.log(json);
+        makeLine(data);
+        makePie(pie);
+        getMap();
+      }); // Closes window.load
+  body
+    // Nav
+    nav#nav
+      ul.container
+        li
+          a(href='#top') Alliance
+        li
+          a(href='#work') World
+        li
+          a(href='#portfolio') Data
+        li
+          a(href='#contact') Upload
+    // Home
+    .wrapper.style1.first
+      article#top.container
+        .row
+          div(class='4u 12u(mobile)')
+            span.image.fit
+              img(src='images/pic00.jpg', alt='')
+          div(class='8u 12u(mobile)')
+            header
+              h1
+                | Alliance 
+                strong Data
+                | .
+            p
+              | And this is 
+              strong World Alliance
+              | , a fully responsive economic dashboard designed by  
+              a(href='#') Team 3?
+              |  for 
+              a(href='https://www.alliancedata.com/') Alliance Data
+    // Work
+    .wrapper.style2
+        article#work
+          div
+            #random(style='border:1px solid black;width: 80%;position: relative; text-align: left; margin-left: auto; margin-right: auto; padding-bottom: 0em;')
+
+    // Portfolio HERERERE
+    .wrapper.style3
+      article#portfolio
+        header
+          h2 Economic Visualization
+          p
+            | Different charts displaying data for important decisions
+        .container
+          #char1(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char2(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+    //here
+    //- // Contact
+    //- .wrapper.style4
+    //-   article#contact.container(class='75%')
+    //-     header
+    //-       h2 Have me make stuff for you.
+    //-       p Ornare nulla proin odio consequat sapien vestibulum ipsum sed lorem.
+    //-     div
+    //-       .row
+    //-         div(class='12u')
+    //-           form(method='post', action='#')
+    //-             div
+    //-               .row
+    //-                 div(class='6u 12u(mobile)')
+    //-                   input#name(type='text', name='name', placeholder='Name')
+    //-                 div(class='6u 12u(mobile)')
+    //-                   input#email(type='text', name='email', placeholder='Email')
+    //-               .row
+    //-                 div(class='12u')
+    //-                   input#subject(type='text', name='subject', placeholder='Subject')
+    //-               .row
+    //-                 div(class='12u')
+    //-                   textarea#message(name='message', placeholder='Message')
+    //-               .row(class='200%')
+    //-                 div(class='12u')
+    //-                   ul.actions
+    //-                     li
+    //-                       input(type='submit', value='Send Message')
+    //-                     li
+    //-                       input.alt(type='reset', value='Clear Form')
+    //-       .row
+    //-         div(class='12u')
+    //-           hr
+    //-           h3 Find me on ...
+    //-           ul.social
+    //-             li
+    //-               a.icon.fa-twitter(href='#')
+    //-                 span.label Twitter
+    //-             li
+    //-               a.icon.fa-facebook(href='#')
+    //-                 span.label Facebook
+    //-             li
+    //-               a.icon.fa-dribbble(href='#')
+    //-                 span.label Dribbble
+    //-             li
+    //-               a.icon.fa-linkedin(href='#')
+    //-                 span.label LinkedIn
+    //-             li
+    //-               a.icon.fa-tumblr(href='#')
+    //-                 span.label Tumblr
+    //-             li
+    //-               a.icon.fa-google-plus(href='#')
+    //-                 span.label Google+
+    //-             li
+    //-               a.icon.fa-github(href='#')
+    //-                 span.label Github
+    //-             //
+    //-               <li><a href="#" class="icon fa-rss"><span>RSS</span></a></li>
+    //-               <li><a href="#" class="icon fa-instagram"><span>Instagram</span></a></li>
+    //-               <li><a href="#" class="icon fa-foursquare"><span>Foursquare</span></a></li>
+    //-               <li><a href="#" class="icon fa-skype"><span>Skype</span></a></li>
+    //-               <li><a href="#" class="icon fa-soundcloud"><span>Soundcloud</span></a></li>
+    //-               <li><a href="#" class="icon fa-youtube"><span>YouTube</span></a></li>
+    //-               <li><a href="#" class="icon fa-blogger"><span>Blogger</span></a></li>
+    //-               <li><a href="#" class="icon fa-flickr"><span>Flickr</span></a></li>
+    //-               <li><a href="#" class="icon fa-vimeo"><span>Vimeo</span></a></li>
+    //-           hr
+    //-     footer
+    //-       ul#copyright
+    //-         li © Untitled. All rights reserved.
+    //-         li
+    //-           | Design: 
+    //-           a(href='http://html5up.net') HTML5 UP
+    //here
+    
+    // Scripts
+    
+    script(src='/javascripts/jquery.scrolly.min.js')
+    script(src='/javascripts/skel.min.js')
+    script(src='/javascripts/skel-viewport.min.js')
+    script(src='/javascripts/util.js')
+    //if lte IE 8
+      script(src='assets/js/ie/respond.min.js')
+    script(src='/javascripts/main.js')
+    script(type='text/javascript', src='/javascripts/scripts.js')
