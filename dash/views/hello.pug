@@ -79,78 +79,18 @@ html
           br
           #char2(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
     //here
-    //- // Contact
-    //- .wrapper.style4
-    //-   article#contact.container(class='75%')
-    //-     header
-    //-       h2 Have me make stuff for you.
-    //-       p Ornare nulla proin odio consequat sapien vestibulum ipsum sed lorem.
-    //-     div
-    //-       .row
-    //-         div(class='12u')
-    //-           form(method='post', action='#')
-    //-             div
-    //-               .row
-    //-                 div(class='6u 12u(mobile)')
-    //-                   input#name(type='text', name='name', placeholder='Name')
-    //-                 div(class='6u 12u(mobile)')
-    //-                   input#email(type='text', name='email', placeholder='Email')
-    //-               .row
-    //-                 div(class='12u')
-    //-                   input#subject(type='text', name='subject', placeholder='Subject')
-    //-               .row
-    //-                 div(class='12u')
-    //-                   textarea#message(name='message', placeholder='Message')
-    //-               .row(class='200%')
-    //-                 div(class='12u')
-    //-                   ul.actions
-    //-                     li
-    //-                       input(type='submit', value='Send Message')
-    //-                     li
-    //-                       input.alt(type='reset', value='Clear Form')
-    //-       .row
-    //-         div(class='12u')
-    //-           hr
-    //-           h3 Find me on ...
-    //-           ul.social
-    //-             li
-    //-               a.icon.fa-twitter(href='#')
-    //-                 span.label Twitter
-    //-             li
-    //-               a.icon.fa-facebook(href='#')
-    //-                 span.label Facebook
-    //-             li
-    //-               a.icon.fa-dribbble(href='#')
-    //-                 span.label Dribbble
-    //-             li
-    //-               a.icon.fa-linkedin(href='#')
-    //-                 span.label LinkedIn
-    //-             li
-    //-               a.icon.fa-tumblr(href='#')
-    //-                 span.label Tumblr
-    //-             li
-    //-               a.icon.fa-google-plus(href='#')
-    //-                 span.label Google+
-    //-             li
-    //-               a.icon.fa-github(href='#')
-    //-                 span.label Github
-    //-             //
-    //-               <li><a href="#" class="icon fa-rss"><span>RSS</span></a></li>
-    //-               <li><a href="#" class="icon fa-instagram"><span>Instagram</span></a></li>
-    //-               <li><a href="#" class="icon fa-foursquare"><span>Foursquare</span></a></li>
-    //-               <li><a href="#" class="icon fa-skype"><span>Skype</span></a></li>
-    //-               <li><a href="#" class="icon fa-soundcloud"><span>Soundcloud</span></a></li>
-    //-               <li><a href="#" class="icon fa-youtube"><span>YouTube</span></a></li>
-    //-               <li><a href="#" class="icon fa-blogger"><span>Blogger</span></a></li>
-    //-               <li><a href="#" class="icon fa-flickr"><span>Flickr</span></a></li>
-    //-               <li><a href="#" class="icon fa-vimeo"><span>Vimeo</span></a></li>
-    //-           hr
-    //-     footer
-    //-       ul#copyright
-    //-         li © Untitled. All rights reserved.
-    //-         li
-    //-           | Design: 
-    //-           a(href='http://html5up.net') HTML5 UP
+    .wrapper.style4
+      p
+        | Use the form below to upload a list of countries. Click 
+        a(href='/template') here
+        |  for an example template.
+      // action is where you want to send information to
+      form(action='/users', method='POST', enctype='multipart/form-data')
+        input(type='file', name='file', accept='*.csv')
+        br
+        br
+        input(type='submit', value='Upload Countries')
+
     //here
     
     // Scripts

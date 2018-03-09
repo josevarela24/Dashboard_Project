@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 //var Author = require('./author');
 var Country = require('../models/country');
 //*fixed..this upload does not delete what is already inside db, need to implement drop feature
-var data = require('../vd.json')
 var async = require('async');
 
 exports.get_detail = function(req, res, next) {
