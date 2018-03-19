@@ -6,7 +6,10 @@ var countrySchema = mongoose.Schema({
         type: String,
         required: true
     },
-    year: Number, 
+    year: { 
+        type: Number, 
+        required: true
+    },
     nominalGDP: Number,
     realGDP: Number, 
     nominalGDPGrowth: Number,

@@ -40,7 +40,7 @@ html
         li
           a(href='#portfolio') Data
         li
-          a(href='/login') Login
+          a(href='#contact') Upload
     // Home
     .wrapper.style1.first
       article#top.container
@@ -78,6 +78,20 @@ html
           #char1(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
           br
           #char2(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto') 
+
+    // Upload Here
+    .wrapper.style4
+      article#portfolio
+        p
+        | Use the form below to upload a list of countries. Click 
+        a(href='/template') here
+        |  for an example template.
+      // action is where you want to send information to
+      form(action='/users', method='POST', enctype='multipart/form-data')
+        input(type='file', name='file', accept='*.csv')
+        br
+        br
+        input(type='submit', value='Upload Countries')      
     // Scripts
     
     script(src='/javascripts/jquery.scrolly.min.js')

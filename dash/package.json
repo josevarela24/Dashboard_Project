@@ -20,6 +20,7 @@
     "morgan": "~1.9.0",
     "npm": "^5.6.0",
     "pug": "2.0.0-beta11",
+    "pug-layout": "^1.2.3",
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {

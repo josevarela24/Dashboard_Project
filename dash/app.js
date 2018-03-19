@@ -9,6 +9,7 @@ var fileUpload = require('express-fileupload');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var template = require('./routes/template');
+var login = require('./routes/login');
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/template', template);
+app.use('/login', login);
 //app.get('/template', template.get);
 
 /* // catch 404 and forward to error handler
