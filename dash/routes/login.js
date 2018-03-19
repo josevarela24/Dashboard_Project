@@ -1,9 +1,7 @@
-var mongoose = require('mongoose');
-var Login = require('../models/login');
+var express = require('express');
+var router = express.Router();
 
-module.exports.controller = function(app) {
-    app.get('/login', function(req, res) {
-        // any logic goes here
-        res.render('login', { title: 'Test'});
-    });
-}
+var loginController = require('../controllers/loginController');
+router.get('/', loginController.get);
+
+module.exports = router;
