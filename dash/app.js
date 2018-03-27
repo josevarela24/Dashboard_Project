@@ -41,7 +41,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/template', template);
 app.use('/login', login);
-//app.get('/template', template.get);
+app.get('/template', template.get);
 
 /* // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "csvtojson": "^1.1.9",
@@ -13,14 +14,17 @@
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "express-fileupload": "^0.4.0",
+    "express-session": "^1.15.6",
     "fast-csv": "^2.4.1",
     "install": "^0.10.4",
     "json2csv": "^3.11.5",
     "mongoose": "^5.0.3",
     "morgan": "~1.9.0",
+    "nodemailer": "^4.6.3",
     "npm": "^5.6.0",
     "pug": "2.0.0-beta11",
     "pug-layout": "^1.2.3",
+    "pug-mailer": "^1.0.1",
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {

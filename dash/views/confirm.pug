@@ -24,8 +24,6 @@ html
       ul.container
         li
           a(href='/') Home
-        li
-          a(href='register') Register  
 
     .wrapper.style1.first
       article#top.contain      
@@ -34,19 +32,16 @@ html
             .row.middle-xs.around-md 
               .col-md-6.col-md-offset-3
                 h1.display-4.m-b-2 Log In
-                form(method='POST' action='/login')
+                form(method='POST' action='/registrationComplete')
                   div.form-group
-                    label(for='email') Email
-                    input.form-control(type='text' id='email' placeholder='email' name='email')
-                  div.form-group
-                    label(for='password') Password
-                    input.form-control(type='password' id='password' placeholder='password' name='password')
-                    .container
-                      #char1(style='min-width: 310px; height: 50px; max-width: 600px; margin: 0 auto')
-                    button.btn.btn-primary(type='submit') Log in  
-                  | Or request access
-                form(method='GET' action='/register')
-                   button.btn.btn-primary(type='submit') Register
+                    label(for='confirmEmail') input the user's email
+                    input.form-control(type='text' id='confirmEmail' placeholder='email' name='confirmEmail')
+                    label(for='confirm') Confrim User
+                       button.btn.btn-primary(type='submit') Confrim   
+                form(method='GET' action='/deny')
+                    div.form-group
+                        label(for='deny') Deny User
+                            button.btn.btn-primary(type='submit') Deny
       
     
     

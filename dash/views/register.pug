@@ -25,7 +25,7 @@ html
         li
           a(href='/') Home
         li
-          a(href='register') Register  
+          a(href='login') Login  
 
     .wrapper.style1.first
       article#top.contain      
@@ -33,20 +33,20 @@ html
           .main.container
             .row.middle-xs.around-md 
               .col-md-6.col-md-offset-3
-                h1.display-4.m-b-2 Log In
-                form(method='POST' action='/login')
+                h1.display-4.m-b-2 Register
+                form(method='POST' action='/register')
                   div.form-group
                     label(for='email') Email
                     input.form-control(type='text' id='email' placeholder='email' name='email')
                   div.form-group
                     label(for='password') Password
                     input.form-control(type='password' id='password' placeholder='password' name='password')
+                  div.form-group
+                    label(for='pw2') Confirm Password:
+                    input#pw2.form-control(type='password' name='confirmPassword' placeholder='password')
                     .container
                       #char1(style='min-width: 310px; height: 50px; max-width: 600px; margin: 0 auto')
-                    button.btn.btn-primary(type='submit') Log in  
-                  | Or request access
-                form(method='GET' action='/register')
-                   button.btn.btn-primary(type='submit') Register
+                  button.btn.btn-primary(type='submit') Sign up
       
     
     

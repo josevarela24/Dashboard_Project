@@ -1,0 +1,31 @@
+doctype html
+
+html
+  head
+    title Alliance Dashboard
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //if lte IE 8
+      script(src='assets/js/ie/html5shiv.js')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    //if lte IE 8
+      link(rel='stylesheet', href='/stylesheets/ie8.css')
+    //if lte IE 9
+      link(rel='stylesheet', href='/stylesheets/ie9.css')
+      
+    script(src='http://d3js.org/d3.v3.min.js')
+    script(src='http://d3js.org/topojson.v1.min.js')
+    script(src='/javascripts/datamaps.world.min.js')
+    script(src='/javascripts/jquery.min.js')
+    script(type='text/javascript', src='http://code.highcharts.com/highcharts.js')
+    script(type='text/javascript', src='http://code.highcharts.com/modules/exporting.js')
+  body
+    nav#nav
+      ul.container
+
+    block content
+    .main.container.clearfix
+        .row
+        .col-md-8.col-md-offset-2
+            h1.display-4
+            |Registration Complete!

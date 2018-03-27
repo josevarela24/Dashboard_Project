@@ -8,4 +8,6 @@ router.get('/', uploadController.get_detail);
 
 router.post('/', uploadController.post_detail);
 
+
+
 module.exports = router;
