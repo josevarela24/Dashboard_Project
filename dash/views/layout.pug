@@ -1,0 +1,104 @@
+doctype html
+
+html
+  head
+    title Alliance Dashboard
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //if lte IE 8
+      script(src='assets/js/ie/html5shiv.js')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    //if lte IE 8
+      link(rel='stylesheet', href='/stylesheets/ie8.css')
+    //if lte IE 9
+      link(rel='stylesheet', href='/stylesheets/ie9.css')
+    script(src='http://d3js.org/d3.v3.min.js')
+    script(src='http://d3js.org/topojson.v1.min.js')
+    script(src='/javascripts/datamaps.world.min.js')
+    script(src='/javascripts/jquery.min.js')
+    script(type='text/javascript', src='http://code.highcharts.com/highcharts.js')
+    script(type='text/javascript', src='http://code.highcharts.com/modules/exporting.js')
+
+    //- script(src='https://code.highcharts.com/maps/highmaps.js')
+    //- script(src='https://code.highcharts.com/maps/modules/data.js')
+    //- script(src='https://code.highcharts.com/maps/modules/exporting.js')
+    //- script(src='https://code.highcharts.com/maps/modules/offline-exporting.js')
+    //- script(src='https://code.highcharts.com/mapdata/custom/world.js')
+
+    script(type='text/javascript').
+      $(window).load(function(){
+        
+        var data = !{JSON.stringify(data)}
+        var pie = !{JSON.stringify(pie)}
+        //console.log(json);
+        makeLine(data);
+        makePie(pie);
+        getMap();
+        //getWorld();
+      }); // Closes window.load
+  body
+    // Nav
+    nav#nav
+      ul.container
+        li
+          a(href='#top') Alliance
+        li
+          a(href='#work') World
+        li
+          a(href='#portfolio') Data
+        block navigation
+        
+    // Home
+    .wrapper.style1.first
+      article#top.container
+        .row
+          div(class='4u 12u(mobile)')
+            span.image.fit
+              img(src='images/pic00.jpg', alt='')
+          div(class='8u 12u(mobile)')
+            header
+              h1
+                | Alliance 
+                strong Data
+                | .
+            p
+              | And this is 
+              strong World Alliance
+              | , a fully responsive economic dashboard designed by  
+              a(href='#') Team 3?
+              |  for 
+              a(href='https://www.alliancedata.com/') Alliance Data
+    // Work
+    .wrapper.style2
+        article#work
+          div
+            //- #worldMap
+            //-   .loading
+            //-     i.icon-spinner.icon-spin.icon-large
+            //-     |         Loading data from Google Spreadsheets...
+            #random(style='border:1px solid black;width: 80%;position: relative; text-align: left; margin-left: auto; margin-right: auto; padding-bottom: 0em;')
+
+    // Portfolio HERERERE
+    .wrapper.style3
+      article#portfolio
+        header
+          h2 Economic Visualization
+          p
+            | Different charts displaying data for important decisions
+        .container
+          #char1(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char2(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')       
+    .wrapper.style4 
+      article#upload
+        block content
+    // Scripts
+    
+    script(src='/javascripts/jquery.scrolly.min.js')
+    script(src='/javascripts/skel.min.js')
+    script(src='/javascripts/skel-viewport.min.js')
+    script(src='/javascripts/util.js')
+    //if lte IE 8
+      script(src='assets/js/ie/respond.min.js')
+    script(src='/javascripts/main.js')
+    script(type='text/javascript', src='/javascripts/scripts.js')

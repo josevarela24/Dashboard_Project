@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next){
-  return res.render('login', {title: 'Log In'});
+  res.render('login', {title: 'Log In'});
 });
 
 router.post('/login', function(req, res, next){
@@ -42,7 +42,7 @@ router.post('/login', function(req, res, next){
       } else {
         req.session = {}; //dangerous??
         req.session.userid = user._id;
-        return res.redirect('/admin');
+        return res.redirect('/login/admin');
       }
     });
    

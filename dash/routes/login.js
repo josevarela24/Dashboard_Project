@@ -1,10 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
+var uploadController = require('../controllers/uploadController');
+
 // GET home page.
-router.get('/admin', function(req, res, next) {
-  res.redirect("/users");
-});
+router.get('/admin', 
+    function(req, res, next){
+        res.locals.admin=true
+        next()
+    } ,
+    uploadController.get_detail
+);
 
 router.post('/admin', function(req, res, next){
     if(req.body.email && req.body.password){

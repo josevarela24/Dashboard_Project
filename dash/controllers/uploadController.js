@@ -62,9 +62,16 @@ exports.get_detail = function(req, res, next) {
 				], callback);
 		}
 	}, function(err, results){
-		console.log(results.one);
-		console.log(results.two);
-		res.render('hello', { title: 'Test', data: results.one, pie: results.two });
+		if(res.locals.admin){
+			console.log("I am admin")
+			res.render('admin', { title: 'Test', data: results.one, pie: results.two });
+		} else {
+			console.log("I am NOT admin")
+			res.render('hello', { title: 'Test', data: results.one, pie: results.two });
+		}
+		// console.log(results.one);
+		// console.log(results.two);
+		
 	});
 }
 
