@@ -28,11 +28,22 @@ html
     script(type='text/javascript').
       $(window).load(function(){
         
-        var data = !{JSON.stringify(data)}
-        var pie = !{JSON.stringify(pie)}
+        var p1 = !{JSON.stringify(p1)}
+        var p2 = !{JSON.stringify(p2)}
+        var p3 = !{JSON.stringify(p3)}
+        var l2 = !{JSON.stringify(l2)}
+        var l3 = !{JSON.stringify(l3)}
+        var graph = !{JSON.stringify(graph)}
+        var spend = !{JSON.stringify(spend)}
         //console.log(json);
-        makeLine(data);
-        makePie(pie);
+        //makeLine(data);
+        pieGDP(p1);
+        piePPP(p2);
+        piePopulation(p3);
+        lineGDPGrowth1(l2);
+        lineGDPGrowth2(l3);
+        livingStand(graph);
+        ConsumSpend(spend);
         getMap();
         //getWorld();
       }); // Closes window.load
@@ -88,7 +99,17 @@ html
         .container
           #char1(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
           br
-          #char2(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')       
+          #char2(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char3(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char4(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char5(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char6(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char7(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')         
     .wrapper.style4 
       article#upload
         block content
