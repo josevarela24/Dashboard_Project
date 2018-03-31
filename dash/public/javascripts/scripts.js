@@ -1,6 +1,7 @@
 //js file that holds the chart scripts
 
 //line chart function
+/*
 function makeLine(data){
     console.log("***************");
 
@@ -49,11 +50,11 @@ function makeLine(data){
         }
     });
 }
-
+*/
 //pie chart function
-function makePie(pie){
+function pieGDP(p1){
 
-    Highcharts.chart('char2', {
+    Highcharts.chart('char1', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -80,7 +81,297 @@ function makePie(pie){
         series: [{
             name: 'GDP',
             colorByPoint: true,
-            data: pie
+            data: p1
+        }]
+    });
+}
+
+function piePPP(p2){
+
+    Highcharts.chart('char2', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'pie'
+        },
+        title: {
+            text: 'GDP PPP'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>${point.y:.1f}</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP PPP',
+            colorByPoint: true,
+            data: p2
+        }]
+    });
+}
+
+function piePopulation(p3){
+
+    Highcharts.chart('char3', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'pie'
+        },
+        title: {
+            text: 'Population'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>${point.y:.1f}</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP PPP',
+            colorByPoint: true,
+            data: p3
+        }]
+    });
+}
+
+function lineGDPGrowth1(l2){
+    console.log("***************");
+
+    Highcharts.chart('char6', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l2,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function lineGDPGrowth2(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function livingStand(graph){
+
+    Highcharts.chart('char4', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Standard of Living'
+        },
+        subtitle: {
+            text: 'GDP per Capita in US dollars on a purchasing power parity(PPP)'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}k</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: '$USD',
+                align: 'high'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP',
+            colorByPoint: true,
+            data: graph
+        }]
+    });
+}
+
+function cSpend(spend){
+
+    Highcharts.chart('char5', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Significance of Consumer Spending'
+        },
+        subtitle: {
+            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: '$USD',
+                align: 'high'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP',
+            colorByPoint: true,
+            data: spend
         }]
     });
 }

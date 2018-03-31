@@ -3,17 +3,18 @@ var router = express.Router();
 var userLogin = require('../models/userLogin');
 var mid = require('../Logout/Logout');
 var email = require('../models/email');
-var MongoClient = require('mongodb').MongoClient
-var url = "mongodb://localhost:27017/UserLogin";
+//var MongoClient = require('mongodb').MongoClient
+//var url = "mongodb://localhost:27017/UserLogin";
 
 const mailer = require('pug-mailer')
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.redirect("/users");
 });
 
 router.get('/login', function(req, res, next){
-  res.render('login', {title: 'Log In'});
+  return res.render('login', {title: 'Log In'});
 });
 
 router.post('/login', function(req, res, next){
@@ -33,6 +34,7 @@ router.post('/login', function(req, res, next){
       db.close();
     })
   });*/
+
    if(req.body.email && req.body.password /*&&*confirm*/){
     userLogin.authenticate(req.body.email, req.body.password, function(error,user){
       if (error || !user){
@@ -42,7 +44,7 @@ router.post('/login', function(req, res, next){
       } else {
         req.session = {}; //dangerous??
         req.session.userid = user._id;
-        return res.redirect('/login/admin');
+        return res.redirect('/admin');
       }
     });
    
@@ -102,8 +104,7 @@ router.post('/register', function(req, res, next) {
           let mailOptions = {
               from: '"Alliance Data Dashboard" <naomihbeltrand@gmail.com>', // sender address
               to: 'naomihbeltrand@gmail.com', // list of receivers
-              subject: 'Confirm Registration of ' + req.body.email + 'UserId = ' , // Subject line
-              html: '<form> http://localhost:3000/login" </form>' 
+              subject: 'Confirm Registration of ' + req.body.email, // Subject line              html: '<form> http://localhost:3000/login" </form>' 
           };
       
           // send mail with defined transport object
