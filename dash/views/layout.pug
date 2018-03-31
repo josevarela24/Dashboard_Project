@@ -19,6 +19,15 @@ html
     script(type='text/javascript', src='http://code.highcharts.com/highcharts.js')
     script(type='text/javascript', src='http://code.highcharts.com/modules/exporting.js')
 
+    //Map
+    //script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+    script(type='text/javascript',src='http://code.highcharts.com/maps/modules/map.js')
+    script(type='text/javascript',src='https://code.highcharts.com/maps/modules/data.js')
+    //script(src='https://code.highcharts.com/maps/modules/exporting.js')
+    script(type='text/javascript',src='https://code.highcharts.com/maps/modules/offline-exporting.js')
+    script(type='text/javascript',src='https://code.highcharts.com/mapdata/custom/world.js')
+    
+
     //- script(src='https://code.highcharts.com/maps/highmaps.js')
     //- script(src='https://code.highcharts.com/maps/modules/data.js')
     //- script(src='https://code.highcharts.com/maps/modules/exporting.js')
@@ -87,8 +96,10 @@ html
             //-   .loading
             //-     i.icon-spinner.icon-spin.icon-large
             //-     |         Loading data from Google Spreadsheets...
-            #random(style='border:1px solid black;width: 80%;position: relative; text-align: left; margin-left: auto; margin-right: auto; padding-bottom: 0em;')
-
+            //#random(style='border:1px solid black;width: 80%;position: relative; text-align: left; margin-left: auto; margin-right: auto; padding-bottom: 0em;')
+            // Flag sprites service provided by Martijn Lafeber, https://github.com/lafeber/world-flags-sprite/blob/master/LICENSE
+            link(rel='stylesheet', type='text/css', href='//github.com/downloads/lafeber/world-flags-sprite/flags32.css')
+            #random(style='border:1px solid black;height: 600px;width: 800px;min-width: 70%; max-width: 100%;position: relative; text-align: left; margin: 0 auto;')
     // Portfolio HERERERE
     .wrapper.style3
       article#portfolio
