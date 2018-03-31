@@ -429,7 +429,8 @@ function getMap(){
         Highcharts.mapChart('random', {
 
             chart: {
-                map: 'custom/world'
+                map: 'custom/world',
+                backgroundColor: null
             },
 
             title: {
