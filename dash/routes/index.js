@@ -8,6 +8,8 @@ var email = require('../models/email');
 
 const mailer = require('pug-mailer')
 
+var uploadController = require('../controllers/uploadController');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.redirect("/users");
@@ -202,9 +204,17 @@ router.get('/registrationComplete', function(req, res, next){
   return res.render('deny', {title: 'deny'});
  });
 
-router.get('/admin', function(req, res, next){
- return res.render('admin', {title: 'admin'});
-});
+// router.get('/admin', function(req, res, next){
+//  return res.render('admin', {title: 'admin'});
+// });
+
+router.get('/admin', 
+    function(req, res, next){
+        res.locals.admin=true
+        next()
+    } ,
+    uploadController.get_detail
+);
 
 router.get('/success', function(req, res, next){
   return res.render('success', {title: 'success'});

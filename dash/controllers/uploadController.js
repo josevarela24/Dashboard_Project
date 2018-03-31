@@ -283,7 +283,7 @@ exports.get_detail = function(req, res, next) {
 	}, function(err, results){
 		if(res.locals.admin){
 			console.log("I am admin")
-			res.render('admin', { title: 'Test', data: results.one, pie: results.two });
+			res.render('admin', { title: 'Test', p1: results.one, p2: results.two, p3: results.three, graph:results.four, spend:results.five, l2: results.ten, l3: results.eleven});
 		} else {
 			console.log("I am NOT admin")
 			res.render('hello', { title: 'Test', p1: results.one, p2: results.two, p3: results.three, graph:results.four, spend:results.five, l2: results.ten, l3: results.eleven});
