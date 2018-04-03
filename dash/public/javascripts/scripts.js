@@ -280,7 +280,7 @@ function cSpend(spend){
 
 function easeDB(ease){
 
-    Highcharts.chart('char5', {
+    Highcharts.chart('char6', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -289,10 +289,10 @@ function easeDB(ease){
             type: 'column'
         },
         title: {
-            text: 'Significance of Consumer Spending'
+            text: 'Ease of Doing Business'
         },
         subtitle: {
-            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+            text: 'When obstacles and the burden of doing business are high, profitability and growth are hindered'
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -340,6 +340,7 @@ function easeDB(ease){
     });
 }
 
+//7
 function GroupGPDreal(l2){
     console.log("***************");
 
@@ -389,11 +390,12 @@ function GroupGPDreal(l2){
     });
 }
 
+//8
 function GroupGPDnom(){
     //stacked area chart
 }
 
-
+//9
 function GroupPop(graph){
 
     Highcharts.chart('char4', {
@@ -457,10 +459,10 @@ function GroupPop(graph){
 }
 
 //US, Canada, Japan
-function G7realGDP1(l3){
+function G7realGDP1(g7gdp1){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char10', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -488,7 +490,7 @@ function G7realGDP1(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: g7gdp1,
         responsive: {
             rules: [{
                 condition: {
@@ -507,10 +509,10 @@ function G7realGDP1(l3){
 }
 
 //France, Germany, Italy, UK
-function G7realGDP2(l3){
+function G7realGDP2(g7gdp2){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char11', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -538,7 +540,7 @@ function G7realGDP2(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: g7gdp2,
         responsive: {
             rules: [{
                 condition: {
@@ -557,15 +559,15 @@ function G7realGDP2(l3){
 }
 
 //US, Canada, Japan
-function G7_CPI1(l3){
+function G7_CPI1(g7cpi1){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char12', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'CPI YOY Change'
         },
         subtitle: {
             text: 'World Economy Dashboard'
@@ -588,7 +590,7 @@ function G7_CPI1(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: g7cpi1,
         responsive: {
             rules: [{
                 condition: {
@@ -607,15 +609,15 @@ function G7_CPI1(l3){
 }
 
 //France, Germany, Italy, UK
-function G7_CPI2(l3){
+function G7_CPI2(g7cpi2){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char13', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'CPI YOY Change'
         },
         subtitle: {
             text: 'World Economy Dashboard'
@@ -638,7 +640,7 @@ function G7_CPI2(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: g7cpi2,
         responsive: {
             rules: [{
                 condition: {
@@ -656,10 +658,10 @@ function G7_CPI2(l3){
     });
 }
 
-function BRICrealGDP(l3){
+function BRICrealGDP(bricgdp){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char14', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -687,7 +689,7 @@ function BRICrealGDP(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: bricgdp,
         responsive: {
             rules: [{
                 condition: {
@@ -705,15 +707,15 @@ function BRICrealGDP(l3){
     });
 }
 
-function BRIC_CPI(l3){
+function BRIC_CPI(briccpi){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char15', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'CPI YOY Change'
         },
         subtitle: {
             text: 'World Economy Dashboard'
@@ -736,7 +738,7 @@ function BRIC_CPI(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: briccpi,
         responsive: {
             rules: [{
                 condition: {
@@ -755,9 +757,9 @@ function BRIC_CPI(l3){
 }
 
 //India, China
-function BRICpop1(spend){
+function BRICpop1(bricpop1){
 
-    Highcharts.chart('char5', {
+    Highcharts.chart('char15', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -766,10 +768,10 @@ function BRICpop1(spend){
             type: 'column'
         },
         title: {
-            text: 'Significance of Consumer Spending'
+            text: 'Population'
         },
         subtitle: {
-            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+            text: ' '
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -812,15 +814,15 @@ function BRICpop1(spend){
         series: [{
             name: 'GDP',
             colorByPoint: true,
-            data: spend
+            data: bricpop1
         }]
     });
 }
 
 //Brazil, Russia
-function BRICpop2(spend){
+function BRICpop2(bricpop2){
 
-    Highcharts.chart('char5', {
+    Highcharts.chart('char16', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -829,10 +831,10 @@ function BRICpop2(spend){
             type: 'column'
         },
         title: {
-            text: 'Significance of Consumer Spending'
+            text: 'Population'
         },
         subtitle: {
-            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+            text: ' '
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -875,7 +877,7 @@ function BRICpop2(spend){
         series: [{
             name: 'GDP',
             colorByPoint: true,
-            data: spend
+            data: bricpop2
         }]
     });
 }
