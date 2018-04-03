@@ -38,6 +38,11 @@ html
         var spend = !{JSON.stringify(spend)}
         var ease = !{JSON.stringify(ease)}
 
+        var gdpreala = !{JSON.stringify(gdpreala)}
+        var gdprealb = !{JSON.stringify(gdprealb)}
+        var gdprealc = !{JSON.stringify(gdprealc)}
+        var gdpreald = !{JSON.stringify(gdpreald)}
+
         var g7gdp1 = !{JSON.stringify(g7gdp1)}
         var g7gdp2 = !{JSON.stringify(g7gdp2)}
         var g7cpi1 = !{JSON.stringify(g7cpi1)}
@@ -45,8 +50,10 @@ html
 
         var bricgdp = !{JSON.stringify(bricgdp)}
         var briccpi = !{JSON.stringify(briccpi)}
-        var bricpop1 = !{JSON.stringify(bricpop1)}
-        var bricpop2 = !{JSON.stringify(bricpop2)}
+        var bricpop1a = !{JSON.stringify(bricpop1a)}
+        var bricpop1b = !{JSON.stringify(bricpop1b)}
+        var bricpop2a = !{JSON.stringify(bricpop2a)}
+        var bricpop2b = !{JSON.stringify(bricpop2b)}
 
         //console.log(json);
         //makeLine(data);
@@ -56,8 +63,9 @@ html
         livStand(liv);
         cSpend(spend);
         easeDB(ease);
+        
+        GroupGPDreal(gdpreala, gdprealb, gdprealc, gdpreald);
         /*
-        //GroupGPDreal(gdpreal);
         //GroupGPDnom(gdpnom);
         //GroupPop(grpop);
         */
@@ -67,8 +75,8 @@ html
         //G7_CPI2(g7cpi2);
         BRICrealGDP(bricgdp);
         //BRIC_CPI(briccpi);
-        BRICpop1(bricpop1);
-        BRICpop2(bricpop2);
+        BRICpop1(bricpop1a, bricpop1b); 
+        BRICpop2(bricpop2a, bricpop2b);
         /*
         MISTrealGDP(mistgdp);
         MIST_CPI(mistcpi);

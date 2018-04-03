@@ -193,6 +193,118 @@ exports.get_detail = function(req, res, next) {
 				], callback);
 		},
 
+		sevenA: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["USA", "Japan", "Canada", "France", "Germany", "Italy", "UK"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						realGDPGrowth: {$push: "$realGDPGrowth"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$realGDPGrowth'
+					}
+				}
+				], callback);
+		},
+
+		sevenB: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["Brazil", "Russia", "India", "China"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						realGDPGrowth: {$push: "$realGDPGrowth"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$realGDPGrowth'
+					}
+				}
+				], callback);
+		},
+	
+		sevenC: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["Mexico", "Indonesia", "South Korea", "Turkey"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						realGDPGrowth: {$push: "$realGDPGrowth"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$realGDPGrowth'
+					}
+				}
+				], callback);
+		},
+
+		sevenD: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["Singapore", "Hong Kong", "Australia", "South Africa", "Nigeria", "Saudi Arabia"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						realGDPGrowth: {$push: "$realGDPGrowth"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$realGDPGrowth'
+					}
+				}
+				], callback);
+		},
+
 		ten: function(callback){
 			Country.aggregate([
 				{
@@ -361,11 +473,11 @@ exports.get_detail = function(req, res, next) {
 				], callback);
 		},
 
-		sixteen: function(callback){
+		sixteenA: function(callback){
 			Country.aggregate([
 				{			
 					$match: {
-					name: { $in: ["India", "China"]},		
+					name: { $in: ["India"]},		
 					}
 				},
 				{
@@ -383,11 +495,55 @@ exports.get_detail = function(req, res, next) {
 				], callback);
 		},
 
-		seventeen: function(callback){
+		sixteenB: function(callback){
 			Country.aggregate([
 				{			
 					$match: {
-					name: { $in: ["Brazil", "Russia"]},		
+					name: { $in: ["China"]},		
+					}
+				},
+				{
+					$sort: {
+						"population": -1
+					}
+				},
+				{
+					$project: {
+					_id: 0,
+					name: 1,
+					'y' : '$population'
+					}
+				}		
+				], callback);
+		},
+
+		seventeenA: function(callback){
+			Country.aggregate([
+				{			
+					$match: {
+					name: { $in: ["Brazil"]},		
+					}
+				},
+				{
+					$sort: {
+						"population": -1
+					}
+				},
+				{
+					$project: {
+					_id: 0,
+					name: 1,
+					'y' : '$population'
+					}
+				}		
+				], callback);
+		},
+
+		seventeenB: function(callback){
+			Country.aggregate([
+				{			
+					$match: {
+					name: { $in: ["Russia"]},		
 					}
 				},
 				{
@@ -409,10 +565,16 @@ exports.get_detail = function(req, res, next) {
 	}, function(err, results){
 		if(res.locals.admin){
 			console.log("I am admin")
-			res.render('admin', { title: 'Test', gdp: results.one, ppp: results.two, pop: results.three, liv:results.four, spend:results.five, ease:results.six, g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1:results.sixteen, bricpop2:results.seventeen});
+			res.render('admin', { title: 'Test', gdp: results.one, ppp: results.two, pop: results.three, liv:results.four, spend:results.five, ease:results.six,
+			gdpreala: results.sevenA, gdprealb: results.sevenB, gdprealc: results.sevenC, gdpreald: results.sevenD,  
+			g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, bricgdp:results.fourteen, 
+			briccpi:results.fifteen, bricpop1a:results.sixteenA, bricpop1b:results.sixteenB, bricpop2a:results.seventeenA, bricpop2b:results.seventeenB});
 		} else {
-			console.log("I am NOT admin")
-			res.render('hello', { title: 'Test', gdp: results.one, ppp: results.two, pop: results.three, liv:results.four, spend:results.five, ease:results.six, g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1:results.sixteen, bricpop2:results.seventeen});
+			console.log("I am NOT admin") 
+			res.render('hello', { title: 'Test', gdp: results.one, ppp: results.two, pop: results.three, liv:results.four, spend:results.five, ease:results.six,
+			gdpreala: results.sevenA, gdprealb: results.sevenB, gdprealc: results.sevenC, gdpreald: results.sevenD,  
+			g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, bricgdp:results.fourteen, 
+			briccpi:results.fifteen, bricpop1a:results.sixteenA, bricpop1b:results.sixteenB, bricpop2a:results.seventeenA, bricpop2b:results.seventeenB});
 		}
 		// console.log(results.one);
 		// console.log(results.two);

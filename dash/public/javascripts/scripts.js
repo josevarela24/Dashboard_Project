@@ -341,7 +341,7 @@ function easeDB(ease){
 }
 
 //7
-function GroupGPDreal(l2){
+function GroupGPDreal(gdpreala, gdprealb, gdprealc, gdpreald){
     console.log("***************");
 
     Highcharts.chart('char6', {
@@ -372,7 +372,19 @@ function GroupGPDreal(l2){
             pointStart: 2010
             }
         },
-        series: l2,
+        series: [{
+            name: 'G7',
+            data: gdpreala
+        }, {
+            name: 'BRIC',
+            data: gdprealb
+        }, {
+            name: 'MIST',
+            data: gdprealc
+        }, {
+            name: 'Tier4',
+            data: gdpreald
+        }],
         responsive: {
             rules: [{
                 condition: {
@@ -757,7 +769,7 @@ function BRIC_CPI(briccpi){
 }
 
 //India, China
-function BRICpop1(bricpop1){
+function BRICpop1(bricpop1a, bricpop1b){
 
     Highcharts.chart('char15', {
         chart: {
@@ -812,15 +824,17 @@ function BRICpop1(bricpop1){
             }
         },
         series: [{
-            name: 'GDP',
-            colorByPoint: true,
-            data: bricpop1
+            name: 'India',
+            data: bricpop1a
+        }, {
+            name: 'China',
+            data: bricpop1b
         }]
     });
 }
 
 //Brazil, Russia
-function BRICpop2(bricpop2){
+function BRICpop2(bricpop2a, bricpop2b){
 
     Highcharts.chart('char16', {
         chart: {
@@ -875,9 +889,11 @@ function BRICpop2(bricpop2){
             }
         },
         series: [{
-            name: 'GDP',
-            colorByPoint: true,
-            data: bricpop2
+            name: 'Brazil',
+            data: bricpop2a
+        }, {
+            name: 'Russia',
+            data: bricpop2b
         }]
     });
 }
