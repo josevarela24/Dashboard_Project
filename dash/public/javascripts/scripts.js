@@ -771,7 +771,7 @@ function BRIC_CPI(briccpi){
 //India, China
 function BRICpop1(bricpop1a, bricpop1b){
 
-    Highcharts.chart('char15', {
+    Highcharts.chart('char16', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -836,7 +836,7 @@ function BRICpop1(bricpop1a, bricpop1b){
 //Brazil, Russia
 function BRICpop2(bricpop2a, bricpop2b){
 
-    Highcharts.chart('char16', {
+    Highcharts.chart('char17', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -898,10 +898,10 @@ function BRICpop2(bricpop2a, bricpop2b){
     });
 }
 
-function MISTrealGDP(l3){
+function MISTrealGDP(mistgdp){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char18', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -929,7 +929,7 @@ function MISTrealGDP(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: mistgdp,
         responsive: {
             rules: [{
                 condition: {
@@ -947,15 +947,15 @@ function MISTrealGDP(l3){
     });
 }
 
-function MIST_CPI(l3){
+function MIST_CPI(mistcpi){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char19', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'CPI YOY Change'
         },
         subtitle: {
             text: 'World Economy Dashboard'
@@ -978,7 +978,7 @@ function MIST_CPI(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: mistcpi,
         responsive: {
             rules: [{
                 condition: {
@@ -996,9 +996,9 @@ function MIST_CPI(l3){
     });
 }
 
-function MISTpop(spend){
+function MISTpop(mistpopa, mistpopb, mistpopc, mistpopd){
 
-    Highcharts.chart('char5', {
+    Highcharts.chart('char20', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -1007,10 +1007,10 @@ function MISTpop(spend){
             type: 'column'
         },
         title: {
-            text: 'Significance of Consumer Spending'
+            text: 'Population'
         },
         subtitle: {
-            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+            text: ' '
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -1051,17 +1051,25 @@ function MISTpop(spend){
             }
         },
         series: [{
-            name: 'GDP',
-            colorByPoint: true,
-            data: spend
+            name: 'Mexico',
+            data: mistpopa
+        }, {
+            name: 'Indonesia',
+            data: mistpopb
+        },{  
+            name: 'South Korea',
+            data: mistpopc
+        }, {
+            name: 'Turkey',
+            data: mistpopd
         }]
     });
 }
 
-function Tier4realGDP(l3){
+function Tier4realGDP(gdp4){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char21', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -1089,7 +1097,7 @@ function Tier4realGDP(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: gdp4,
         responsive: {
             rules: [{
                 condition: {
@@ -1107,15 +1115,15 @@ function Tier4realGDP(l3){
     });
 }
 
-function Tier4_CPI(l3){
+function Tier4_CPI(cpi4){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char22', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'CPI YOY Change'
         },
         subtitle: {
             text: 'World Economy Dashboard'
@@ -1138,7 +1146,7 @@ function Tier4_CPI(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: cpi4,
         responsive: {
             rules: [{
                 condition: {
@@ -1156,9 +1164,9 @@ function Tier4_CPI(l3){
     });
 }
 
-function Tier4pop(spend){
+function Tier4pop(pop4a, pop4b, pop4c, pop4d, pop4e, pop4f){
 
-    Highcharts.chart('char5', {
+    Highcharts.chart('char23', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -1167,7 +1175,7 @@ function Tier4pop(spend){
             type: 'column'
         },
         title: {
-            text: 'Significance of Consumer Spending'
+            text: 'Population'
         },
         subtitle: {
             text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
@@ -1211,9 +1219,23 @@ function Tier4pop(spend){
             }
         },
         series: [{
-            name: 'GDP',
-            colorByPoint: true,
-            data: spend
+            name: 'Singapore',
+            data: pop4a
+        }, {
+            name: 'Hong Kong',
+            data: pop4b
+        },{  
+            name: 'Australia',
+            data: pop4c
+        },{  
+            name: 'South Africa',
+            data: pop4d
+        },{  
+            name: 'Nigeria',
+            data: pop4e    
+        }, {
+            name: 'Saudi Arabia',
+            data: pop4f
         }]
     });
 }
