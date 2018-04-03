@@ -52,7 +52,7 @@ function makeLine(data){
 }
 */
 //pie chart function
-function pieGDP(p1){
+function GDP(gdp){
 
     Highcharts.chart('char1', {
         chart: {
@@ -81,12 +81,12 @@ function pieGDP(p1){
         series: [{
             name: 'GDP',
             colorByPoint: true,
-            data: p1
+            data: gdp
         }]
     });
 }
 
-function piePPP(p2){
+function PPP(ppp){
 
     Highcharts.chart('char2', {
         chart: {
@@ -115,12 +115,12 @@ function piePPP(p2){
         series: [{
             name: 'GDP PPP',
             colorByPoint: true,
-            data: p2
+            data: ppp
         }]
     });
 }
 
-function piePopulation(p3){
+function Popul(pop){
 
     Highcharts.chart('char3', {
         chart: {
@@ -149,110 +149,12 @@ function piePopulation(p3){
         series: [{
             name: 'GDP PPP',
             colorByPoint: true,
-            data: p3
+            data: pop
         }]
     });
 }
 
-function lineGDPGrowth1(l2){
-    console.log("***************");
-
-    Highcharts.chart('char6', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Real GDP YOY Growth'
-        },
-        subtitle: {
-            text: 'World Economy Dashboard'
-        },
-        yAxis: {
-            title: {
-                text: 'GDP'
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: l2,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function lineGDPGrowth2(l3){
-    console.log("***************");
-
-    Highcharts.chart('char7', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Real GDP YOY Growth'
-        },
-        subtitle: {
-            text: 'World Economy Dashboard'
-        },
-        yAxis: {
-            title: {
-                text: 'GDP'
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: l3,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function livingStand(graph){
+function livStand(liv){
 
     Highcharts.chart('char4', {
         chart: {
@@ -309,7 +211,7 @@ function livingStand(graph){
         series: [{
             name: 'GDP',
             colorByPoint: true,
-            data: graph
+            data: liv
         }]
     });
 }
@@ -373,6 +275,1320 @@ function cSpend(spend){
             colorByPoint: true,
             data: spend
         }]
+    });
+}
+
+function easeDB(ease){
+
+    Highcharts.chart('char5', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Significance of Consumer Spending'
+        },
+        subtitle: {
+            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: '$USD',
+                align: 'high'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP',
+            colorByPoint: true,
+            data: ease
+        }]
+    });
+}
+
+function GroupGPDreal(l2){
+    console.log("***************");
+
+    Highcharts.chart('char6', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l2,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function GroupGPDnom(){
+    //stacked area chart
+}
+
+
+function GroupPop(graph){
+
+    Highcharts.chart('char4', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Standard of Living'
+        },
+        subtitle: {
+            text: 'GDP per Capita in US dollars on a purchasing power parity(PPP)'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}k</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: '$USD',
+                align: 'high'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP',
+            colorByPoint: true,
+            data: graph
+        }]
+    });
+}
+
+//US, Canada, Japan
+function G7realGDP1(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+//France, Germany, Italy, UK
+function G7realGDP2(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+//US, Canada, Japan
+function G7_CPI1(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+//France, Germany, Italy, UK
+function G7_CPI2(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function BRICrealGDP(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function BRIC_CPI(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+//India, China
+function BRICpop1(spend){
+
+    Highcharts.chart('char5', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Significance of Consumer Spending'
+        },
+        subtitle: {
+            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: '$USD',
+                align: 'high'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP',
+            colorByPoint: true,
+            data: spend
+        }]
+    });
+}
+
+//Brazil, Russia
+function BRICpop2(spend){
+
+    Highcharts.chart('char5', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Significance of Consumer Spending'
+        },
+        subtitle: {
+            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: '$USD',
+                align: 'high'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP',
+            colorByPoint: true,
+            data: spend
+        }]
+    });
+}
+
+function MISTrealGDP(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function MIST_CPI(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function MISTpop(spend){
+
+    Highcharts.chart('char5', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Significance of Consumer Spending'
+        },
+        subtitle: {
+            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: '$USD',
+                align: 'high'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP',
+            colorByPoint: true,
+            data: spend
+        }]
+    });
+}
+
+function Tier4realGDP(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function Tier4_CPI(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function Tier4pop(spend){
+
+    Highcharts.chart('char5', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Significance of Consumer Spending'
+        },
+        subtitle: {
+            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: '$USD',
+                align: 'high'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'GDP',
+            colorByPoint: true,
+            data: spend
+        }]
+    });
+}
+
+function G7unemp(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function BRICunemp(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function MISTunemp(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function Tier4unemp(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function G7retail(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function BRICretail(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function MISTretail(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function Tier4retail(l3){
+    console.log("***************");
+
+    Highcharts.chart('char7', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: l3,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
     });
 }
 

@@ -283,10 +283,10 @@ exports.get_detail = function(req, res, next) {
 	}, function(err, results){
 		if(res.locals.admin){
 			console.log("I am admin")
-			res.render('admin', { title: 'Test', p1: results.one, p2: results.two, p3: results.three, graph:results.four, spend:results.five, l2: results.ten, l3: results.eleven});
+			res.render('admin', { title: 'Test', gdp: results.one, ppp: results.two, pop: results.three, liv:results.four, spend:results.five});
 		} else {
 			console.log("I am NOT admin")
-			res.render('hello', { title: 'Test', p1: results.one, p2: results.two, p3: results.three, graph:results.four, spend:results.five, l2: results.ten, l3: results.eleven});
+			res.render('hello', { title: 'Test', gdp: results.one, ppp: results.two, pop: results.three, liv:results.four, spend:results.five});
 		}
 		// console.log(results.one);
 		// console.log(results.two);

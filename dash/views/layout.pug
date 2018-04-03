@@ -30,22 +30,51 @@ html
     script(type='text/javascript').
       $(window).load(function(){
         
-        var p1 = !{JSON.stringify(p1)}
-        var p2 = !{JSON.stringify(p2)}
-        var p3 = !{JSON.stringify(p3)}
-        var l2 = !{JSON.stringify(l2)}
-        var l3 = !{JSON.stringify(l3)}
-        var graph = !{JSON.stringify(graph)}
+        var gdp = !{JSON.stringify(gdp)}
+        var ppp = !{JSON.stringify(ppp)}
+        var pop = !{JSON.stringify(pop)}
+        var liv = !{JSON.stringify(liv)}
         var spend = !{JSON.stringify(spend)}
+        //var l2 = !{JSON.stringify(l2)}
+        //var l3 = !{JSON.stringify(l3)}
+        
         //console.log(json);
         //makeLine(data);
-        pieGDP(p1);
-        piePPP(p2);
-        piePopulation(p3);
-        lineGDPGrowth1(l2);
-        lineGDPGrowth2(l3);
-        livingStand(graph);
+        GDP(gdp);
+        PPP(ppp);
+        Popul(pop);
+        livStand(liv);
         cSpend(spend);
+        /*
+        easeDB(ease);
+        /*
+        //GroupGPDreal(gdpreal);
+        //GroupGPDnom(gdpnom);
+        //GroupPop(grpop);
+        G7realGDP1(g7gdp1);
+        G7realGDP2()g7gdp2;
+        G7_CPI1(g7cpi1);
+        G7_CPI2(g7cpi2);
+        BRICrealGDP(bricgdp);
+        BRIC_CPI(briccpi);
+        BRICpop1(bricpop1);
+        BRICpop2(bricpop2);
+        MISTrealGDP(mistgdp);
+        MIST_CPI(mistcpi);
+        MISTpop(mistpop);
+        Tier4realGDP(gdp4);
+        Tier4_CPI(cpi4);
+        Tier4pop(pop4);
+        G7unemp(ug7);
+        BRICunemp(ubric);
+        MISTunemp(umist);
+        Tier4unemp(u4);
+        G7retail(retg7);
+        BRICretail(retbric);
+        MISTretail(retmist);
+        Tier4retail(ret4);
+
+        */
         getMap();
         //getWorld();
       }); // Closes window.load
@@ -78,7 +107,7 @@ html
               | And this is 
               strong World Alliance
               | , a fully responsive economic dashboard designed by  
-              a(href='#') Team 3?
+              a(href='#') UT-Dallas Software Engineering Capstone Project Team
               |  for 
               a(href='https://www.alliancedata.com/') Alliance Data
     // Work
@@ -113,7 +142,56 @@ html
           br
           #char6(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
           br
-          #char7(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')         
+          #char7(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto') 
+          br
+          #char8(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char9(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char10(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char11(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char12(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char13(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char14(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char15(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char16(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char17(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char18(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char19(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char20(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char21(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')  
+          br
+          #char22(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char22(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char23(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char24(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char25(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char26(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char27(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char28(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char29(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char30(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')   
+                  
     .wrapper.style4 
       article#upload
         block content
