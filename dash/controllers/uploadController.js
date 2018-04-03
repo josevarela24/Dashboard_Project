@@ -1003,6 +1003,118 @@ exports.get_detail = function(req, res, next) {
 					}
 				}
 				], callback);
+		},
+
+		twentyeight: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["USA", "Canada", "Japan", "France", "Germany", "Italy", "UK"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						retailSalesGrowth: {$push: "$retailSalesGrowth"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$retailSalesGrowth'
+					}
+				}
+				], callback);
+		},
+
+		twentynine: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["Brazil", "Russia", "India", "China"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						retailSalesGrowth: {$push: "$retailSalesGrowth"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$retailSalesGrowth'
+					}
+				}
+				], callback);
+		},
+
+		thirty: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["Mexico", "Inodonesia", "South Korea", "Turkey"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						retailSalesGrowth: {$push: "$retailSalesGrowth"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$retailSalesGrowth'
+					}
+				}
+				], callback);
+		},
+
+		thirtyone: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["Singaore", "Hong Kong", "South Africa", "Nigeria", "Saudi Arabia"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						retailSalesGrowth: {$push: "$retailSalesGrowth"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$retailSalesGrowth'
+					}
+				}
+				], callback);
 		}
 
 	}, function(err, results){
@@ -1015,7 +1127,8 @@ exports.get_detail = function(req, res, next) {
 			bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1a:results.sixteenA, bricpop1b:results.sixteenB, bricpop2a:results.seventeenA, bricpop2b:results.seventeenB,
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpopa:results.twentyA, mistpopb:results.twentyB, mistpopc:results.twentyC, mistpopd:results.twentyD,
 			gdp4:results.twentyone, cpi4:results.twentytwo, pop4a:results.twentythreeA, pop4b:results.twentythreeB, pop4c:results.twentythreeC, pop4d:results.twentythreeD, pop4E:results.twentythreeE, pop4F:results.twentythreeF,
-			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven});
+			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven,
+			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven});
 		} else {
 			console.log("I am NOT admin") 
 			res.render('hello', { title: 'Test', gdp:results.one, ppp:results.two,pop: results.three, 
@@ -1025,7 +1138,8 @@ exports.get_detail = function(req, res, next) {
 			bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1a:results.sixteenA, bricpop1b:results.sixteenB, bricpop2a:results.seventeenA, bricpop2b:results.seventeenB,
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpopa:results.twentyA, mistpopb:results.twentyB, mistpopc:results.twentyC, mistpopd:results.twentyD,
 			gdp4:results.twentyone, cpi4:results.twentytwo, pop4a:results.twentythreeA, pop4b:results.twentythreeB, pop4c:results.twentythreeC, pop4d:results.twentythreeD, pop4e:results.twentythreeE, pop4f:results.twentythreeF,
-			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven});
+			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven,
+			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven});
 		}
 		// console.log(results.one);
 		// console.log(results.two);

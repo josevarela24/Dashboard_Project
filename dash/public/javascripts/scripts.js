@@ -1436,22 +1436,22 @@ function Tier4unemp(u4){
     });
 }
 
-function G7retail(l3){
+function G7retail(retg7){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char28', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Retail Sales'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'G7'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: ''
             }
         },
         legend: {
@@ -1467,7 +1467,7 @@ function G7retail(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: retg7,
         responsive: {
             rules: [{
                 condition: {
@@ -1485,18 +1485,18 @@ function G7retail(l3){
     });
 }
 
-function BRICretail(l3){
+function BRICretail(retbric){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char29', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Retail Sales'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'BRIC'
         },
         yAxis: {
             title: {
@@ -1516,7 +1516,7 @@ function BRICretail(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: retbric,
         responsive: {
             rules: [{
                 condition: {
@@ -1534,18 +1534,18 @@ function BRICretail(l3){
     });
 }
 
-function MISTretail(l3){
+function MISTretail(retmist){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char30', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Retail Sales'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'MIST'
         },
         yAxis: {
             title: {
@@ -1565,7 +1565,7 @@ function MISTretail(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: retmist,
         responsive: {
             rules: [{
                 condition: {
@@ -1583,18 +1583,18 @@ function MISTretail(l3){
     });
 }
 
-function Tier4retail(l3){
+function Tier4retail(ret4){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char31', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Retail Sales'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'Tier 4'
         },
         yAxis: {
             title: {
@@ -1614,7 +1614,7 @@ function Tier4retail(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: ret4,
         responsive: {
             rules: [{
                 condition: {
