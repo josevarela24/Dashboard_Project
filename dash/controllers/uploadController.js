@@ -891,6 +891,118 @@ exports.get_detail = function(req, res, next) {
 					}
 				}		
 				], callback);
+		},
+
+		twentyfour: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["USA", "Canada", "Japan", "France", "Germany", "Italy", "UK"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						unemployment: {$push: "$unemployment"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$unemployment'
+					}
+				}
+				], callback);
+		},
+
+		twentyfive: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["Brazil", "Russia", "India", "China"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						unemployment: {$push: "$unemployment"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$unemployment'
+					}
+				}
+				], callback);
+		},
+
+		twentysix: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["Mexico", "Inodonesia", "South Korea", "Turkey"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						unemployment: {$push: "$unemployment"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$unemployment'
+					}
+				}
+				], callback);
+		},
+
+		twentyseven: function(callback){
+			Country.aggregate([
+				{
+					$match: {
+					name: { $in: ["Singaore", "Hong Kong", "South Africa", "Nigeria", "Saudi Arabia"]},
+					}
+				}, 
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group: {
+						_id: '$name',
+						unemployment: {$push: "$unemployment"}
+					}
+				}, 
+				{
+					$project: {
+					_id: 0,
+					name: "$_id",
+					'data' : '$unemployment'
+					}
+				}
+				], callback);
 		}
 
 	}, function(err, results){
@@ -902,7 +1014,8 @@ exports.get_detail = function(req, res, next) {
 			g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, 
 			bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1a:results.sixteenA, bricpop1b:results.sixteenB, bricpop2a:results.seventeenA, bricpop2b:results.seventeenB,
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpopa:results.twentyA, mistpopb:results.twentyB, mistpopc:results.twentyC, mistpopd:results.twentyD,
-			gdp4:results.twentyone, cpi4:results.twentytwo, pop4a:results.twentythreeA, pop4b:results.twentythreeB, pop4c:results.twentythreeC, pop4d:results.twentythreeD, pop4E:results.twentythreeE, pop4F:results.twentythreeF});
+			gdp4:results.twentyone, cpi4:results.twentytwo, pop4a:results.twentythreeA, pop4b:results.twentythreeB, pop4c:results.twentythreeC, pop4d:results.twentythreeD, pop4E:results.twentythreeE, pop4F:results.twentythreeF,
+			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven});
 		} else {
 			console.log("I am NOT admin") 
 			res.render('hello', { title: 'Test', gdp:results.one, ppp:results.two,pop: results.three, 
@@ -911,7 +1024,8 @@ exports.get_detail = function(req, res, next) {
 			g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, 
 			bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1a:results.sixteenA, bricpop1b:results.sixteenB, bricpop2a:results.seventeenA, bricpop2b:results.seventeenB,
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpopa:results.twentyA, mistpopb:results.twentyB, mistpopc:results.twentyC, mistpopd:results.twentyD,
-			gdp4:results.twentyone, cpi4:results.twentytwo, pop4a:results.twentythreeA, pop4b:results.twentythreeB, pop4c:results.twentythreeC, pop4d:results.twentythreeD, pop4e:results.twentythreeE, pop4f:results.twentythreeF});
+			gdp4:results.twentyone, cpi4:results.twentytwo, pop4a:results.twentythreeA, pop4b:results.twentythreeB, pop4c:results.twentythreeC, pop4d:results.twentythreeD, pop4e:results.twentythreeE, pop4f:results.twentythreeF,
+			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven});
 		}
 		// console.log(results.one);
 		// console.log(results.two);

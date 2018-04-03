@@ -1240,22 +1240,22 @@ function Tier4pop(pop4a, pop4b, pop4c, pop4d, pop4e, pop4f){
     });
 }
 
-function G7unemp(l3){
+function G7unemp(ug7){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char24', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'G7'
         },
         subtitle: {
             text: 'World Economy Dashboard'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Unemployment'
             }
         },
         legend: {
@@ -1271,7 +1271,7 @@ function G7unemp(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: ug7,
         responsive: {
             rules: [{
                 condition: {
@@ -1289,22 +1289,22 @@ function G7unemp(l3){
     });
 }
 
-function BRICunemp(l3){
+function BRICunemp(ubric){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char25', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Unemployment'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'BRIC'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Unemployment'
             }
         },
         legend: {
@@ -1320,7 +1320,7 @@ function BRICunemp(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: ubric,
         responsive: {
             rules: [{
                 condition: {
@@ -1338,22 +1338,22 @@ function BRICunemp(l3){
     });
 }
 
-function MISTunemp(l3){
+function MISTunemp(umist){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char26', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Unemployment'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'MIST'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Unemployment'
             }
         },
         legend: {
@@ -1369,7 +1369,7 @@ function MISTunemp(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: umist,
         responsive: {
             rules: [{
                 condition: {
@@ -1387,22 +1387,22 @@ function MISTunemp(l3){
     });
 }
 
-function Tier4unemp(l3){
+function Tier4unemp(u4){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char27', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Unemployment'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'Tier 4'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Unemployment'
             }
         },
         legend: {
@@ -1418,7 +1418,7 @@ function Tier4unemp(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: u4,
         responsive: {
             rules: [{
                 condition: {
