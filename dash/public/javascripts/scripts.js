@@ -344,7 +344,7 @@ function easeDB(ease){
 function GroupGPDreal(gdpreala, gdprealb, gdprealc, gdpreald){
     console.log("***************");
 
-    Highcharts.chart('char6', {
+    Highcharts.chart('char7', {
         chart: {
             backgroundColor: 'transparent'
         },
