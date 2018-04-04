@@ -3,6 +3,8 @@ var router = express.Router();
 var userLogin = require('../models/userLogin');
 var mid = require('../Logout/Logout');
 var email = require('../models/email');
+
+var User = require('../models/userLogin');
 //var MongoClient = require('mongodb').MongoClient
 //var url = "mongodb://localhost:27017/UserLogin";
 
@@ -126,17 +128,18 @@ router.post('/register', function(req, res, next) {
               // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
           });
       });
-// use schema's `create` method to insert document into Mongo
-userLogin.create(userData, function (error, user) {
-  if (error) {
-    return next(error);
-  } else {
-    req.session = {}; //is this dangerous?
-    req.session.userId = user._id;
-    var err = new Error('All fields required.');
-    err.status = 400;
-  }
-});
+
+      // use schema's `create` method to insert document into Mongo
+      userLogin.create(userData, function (error, user) {
+        if (error) {
+          return next(error);
+        } else {
+          req.session = {}; //is this dangerous?
+          req.session.userId = user._id;
+          var err = new Error('All fields required.');
+          err.status = 400;
+        }
+      });
    
       return res.redirect('/success');
 
@@ -162,24 +165,36 @@ router.get('/logout', function(req, res, next) {
 });
 
 router.post('/registrationComplete', function(req, res, next) {
+   console.log("okay");
+  User.findOne({email: req.body.confirmEmail}, function(err, user){
+    console.log(user);
+    console.log(req.body.confirmEmail);
+  });
+
+  User.update({email: req.body.confirmEmail}, {$set: {confirm: true}}, function(err, user){
+    console.log(user);
+    res.redirect('/registrationComplete');
+  });
+
+  
+
+  //   req.session = {}; //is this dangerous?
+  //   req.session.userId = user._id;
+  //  // user.email = req.session.confirmEmail
    
-    req.session = {}; //is this dangerous?
-    req.session.userId = user._id;
-   // user.email = req.session.confirmEmail
-   
-    app.put('../models/userLogin', function(req, res) {
-      var user = {
-        email: req.body.confirmEmail,
-        password: 'password',
-        confrim: true
-      }
-      userLogin.update({_id: req.params.id}, user, function(err, raw) {
-        if (err) {
-          res.send(err);
-        }
-        res.send(raw);
-      });
-    });
+  //   app.put('../models/userLogin', function(req, res) {
+  //     var user = {
+  //       email: req.body.confirmEmail,
+  //       password: 'password',
+  //       confrim: true
+  //     }
+  //     userLogin.update({_id: req.params.id}, user, function(err, raw) {
+  //       if (err) {
+  //         res.send(err);
+  //       }
+  //       res.send(raw);
+  //     });
+  //   });
     /* 
     MongoClient.connect('mongodb://127.0.0.1:27017/Userlogin', function(err, db) {
     if(err) throw err;
@@ -229,4 +244,11 @@ router.get('/success', function(req, res, next){
  router.get('/confirm', function(req, res, next){
   return res.render('confirm', {title: 'confirm'});
  });
+
+router.post('/confirm', function(req,res,next){
+  User.find({email: 'fake'}, function(err, user){
+    console.log(user);
+  })
+});
+
 module.exports = router;
