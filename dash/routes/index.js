@@ -166,15 +166,20 @@ router.get('/logout', function(req, res, next) {
 
 router.post('/registrationComplete', function(req, res, next) {
    console.log("okay");
-  User.findOne({email: req.body.confirmEmail}, function(err, user){
-    console.log(user);
-    console.log(req.body.confirmEmail);
-  });
 
-  User.update({email: req.body.confirmEmail}, {$set: {confirm: true}}, function(err, user){
-    console.log(user);
-    res.redirect('/registrationComplete');
-  });
+  if(req.body.type == 'c'){
+    User.update({email: req.body.confirmEmail}, {$set: {confirm: true}}, function(err, user){
+      console.log(user);
+      res.redirect('/registrationComplete');
+    });
+  } else if(req.body.type == 'd'){
+    User.update({email: req.body.confirmEmail}, {$set: {confirm: false}}, function(err, user){
+      console.log(user);
+      res.redirect('/deny');
+    });
+  }
+
+  
 
   
 
@@ -244,11 +249,5 @@ router.get('/success', function(req, res, next){
  router.get('/confirm', function(req, res, next){
   return res.render('confirm', {title: 'confirm'});
  });
-
-router.post('/confirm', function(req,res,next){
-  User.find({email: 'fake'}, function(err, user){
-    console.log(user);
-  })
-});
 
 module.exports = router;
