@@ -11,9 +11,13 @@ const mailer = require('pug-mailer')
 var uploadController = require('../controllers/uploadController');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.redirect("/users");
-});
+router.get('/', 
+    function(req, res, next){
+        res.locals.admin=false
+        next()
+    } ,
+    uploadController.get_detail
+);
 
 router.get('/login', function(req, res, next){
   return res.render('login', {title: 'Log In'});
@@ -46,7 +50,7 @@ router.post('/login', function(req, res, next){
       } else {
         req.session = {}; //dangerous??
         req.session.userid = user._id;
-        return res.redirect('/admin');
+        res.redirect('/admin');
       }
     });
    
@@ -215,6 +219,8 @@ router.get('/admin',
     } ,
     uploadController.get_detail
 );
+
+router.post('/admin', uploadController.post_detail);
 
 router.get('/success', function(req, res, next){
   return res.render('success', {title: 'success'});

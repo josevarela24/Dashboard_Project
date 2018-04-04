@@ -20,7 +20,8 @@ var countrySchema = mongoose.Schema({
     consumerSpending: Number, 
     easeOfDoingBusiness: Number, 
     unemployment: Number, 
-    retailSalesGrowth: Number
+    retailSalesGrowth: Number,
+    cpiGrowth: Number
 });
 
 var Country = mongoose.model('Country', countrySchema);
