@@ -207,14 +207,14 @@ exports.get_detail = function(req, res, next) {
 				},
 				{
 					$group: {
-						_id: {year: '$year'},
+						_id: '$year',
 						realGDPGrowth: {$sum: '$realGDPGrowth'}
 					}
 				}, 
 				{
-					$project: {
-					_id: 0,
-					data : '$realGDPGrowth'
+					$group: {
+						_id: 0, 
+						data: {$push: '$realGDPGrowth'} 
 					}
 				}
 				], callback);
