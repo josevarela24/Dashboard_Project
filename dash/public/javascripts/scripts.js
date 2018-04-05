@@ -341,7 +341,7 @@ function easeDB(ease){
 }
 
 //7
-function GroupGPDreal(gdpreala, gdprealb, gdprealc, gdpreald){
+function GroupGPDreal(gdpreala){
     console.log("***************");
 
     Highcharts.chart('char7', {
@@ -375,15 +375,6 @@ function GroupGPDreal(gdpreala, gdprealb, gdprealc, gdpreald){
         series: [{
             name: 'G7',
             data: gdpreala
-        }, {
-            name: 'BRIC',
-            data: gdprealb
-        }, {
-            name: 'MIST',
-            data: gdprealc
-        }, {
-            name: 'Tier4',
-            data: gdpreald
         }],
         responsive: {
             rules: [{

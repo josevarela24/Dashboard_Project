@@ -198,7 +198,7 @@ exports.get_detail = function(req, res, next) {
 				{
 					$match: {
 					name: { $in: ["USA", "Japan", "Canada", "France", "Germany", "Italy", "UK"]},
-					}
+			        }
 				}, 
 				{
 					$sort: {
@@ -207,20 +207,18 @@ exports.get_detail = function(req, res, next) {
 				},
 				{
 					$group: {
-						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						_id: {year: '$year'},
+						realGDPGrowth: {$sum: '$realGDPGrowth'}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
-					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data : '$realGDPGrowth'
 					}
 				}
 				], callback);
 		},
-
 		sevenB: function(callback){
 			Country.aggregate([
 				{
@@ -1131,6 +1129,7 @@ exports.get_detail = function(req, res, next) {
 			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven});
 		} else {
 			console.log("I am NOT admin") 
+			console.log(results.sevenA)
 			res.render('hello', { title: 'Test', gdp:results.one, ppp:results.two,pop: results.three, 
 			liv:results.four, spend:results.five, ease:results.six,
 			gdpreala:results.sevenA, gdprealb:results.sevenB, gdprealc: results.sevenC, gdpreald: results.sevenD,  
