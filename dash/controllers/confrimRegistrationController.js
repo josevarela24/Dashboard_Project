@@ -83,7 +83,7 @@ exports.post_detail = function (req, res, next) {
 			if (err) throw err;
 			//console.log(countries);
 			//res.send(countries.length + ' countries have been successfully uploaded.');
-			res.redirect('/users');
+			res.redirect('/');
 		});
 	 });
 };

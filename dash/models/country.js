@@ -20,7 +20,8 @@ var countrySchema = mongoose.Schema({
     consumerSpending: Number, 
     easeOfDoingBusiness: Number, 
     unemployment: Number, 
-    retailSalesGrowth: Number
+    retailSalesGrowth: Number,
+    cpiGrowth: Number
 });
 //custom method, can even do queries here I think
 //dudify is method name

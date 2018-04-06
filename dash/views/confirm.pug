@@ -36,12 +36,14 @@ html
                   div.form-group
                     label(for='confirmEmail') input the user's email
                     input.form-control(type='text' id='confirmEmail' placeholder='email' name='confirmEmail')
-                    label(for='confirm') Confrim User
-                       button.btn.btn-primary(type='submit') Confrim   
-                form(method='GET' action='/deny')
-                    div.form-group
-                        label(for='deny') Deny User
-                            button.btn.btn-primary(type='submit') Deny
+                    label(for='confirm') Confirm User
+                       button.btn.btn-primary(type='submit' name='type' value='c') Confirm  
+                    label(for='deny') Deny User
+                            button.btn.btn-primary(type='submit' name='type' value='d') Deny 
+                //- form(method='GET' action='/deny')
+                //-     div.form-group
+                //-         label(for='deny') Deny User
+                //-             button.btn.btn-primary(type='submit') Deny
       
     
     

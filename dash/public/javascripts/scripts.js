@@ -341,10 +341,10 @@ function easeDB(ease){
 }
 
 //7
-function GroupGPDreal(gdpreala, gdprealb, gdprealc, gdpreald){
+function GroupGPDreal(gdpreala){
     console.log("***************");
 
-    Highcharts.chart('char6', {
+    Highcharts.chart('char7', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -375,15 +375,6 @@ function GroupGPDreal(gdpreala, gdprealb, gdprealc, gdpreald){
         series: [{
             name: 'G7',
             data: gdpreala
-        }, {
-            name: 'BRIC',
-            data: gdprealb
-        }, {
-            name: 'MIST',
-            data: gdprealc
-        }, {
-            name: 'Tier4',
-            data: gdpreald
         }],
         responsive: {
             rules: [{
@@ -771,7 +762,7 @@ function BRIC_CPI(briccpi){
 //India, China
 function BRICpop1(bricpop1a, bricpop1b){
 
-    Highcharts.chart('char15', {
+    Highcharts.chart('char16', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -836,7 +827,7 @@ function BRICpop1(bricpop1a, bricpop1b){
 //Brazil, Russia
 function BRICpop2(bricpop2a, bricpop2b){
 
-    Highcharts.chart('char16', {
+    Highcharts.chart('char17', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -898,10 +889,10 @@ function BRICpop2(bricpop2a, bricpop2b){
     });
 }
 
-function MISTrealGDP(l3){
+function MISTrealGDP(mistgdp){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char18', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -929,7 +920,7 @@ function MISTrealGDP(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: mistgdp,
         responsive: {
             rules: [{
                 condition: {
@@ -947,15 +938,15 @@ function MISTrealGDP(l3){
     });
 }
 
-function MIST_CPI(l3){
+function MIST_CPI(mistcpi){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char19', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'CPI YOY Change'
         },
         subtitle: {
             text: 'World Economy Dashboard'
@@ -978,7 +969,7 @@ function MIST_CPI(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: mistcpi,
         responsive: {
             rules: [{
                 condition: {
@@ -996,9 +987,9 @@ function MIST_CPI(l3){
     });
 }
 
-function MISTpop(spend){
+function MISTpop(mistpopa, mistpopb, mistpopc, mistpopd){
 
-    Highcharts.chart('char5', {
+    Highcharts.chart('char20', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -1007,7 +998,175 @@ function MISTpop(spend){
             type: 'column'
         },
         title: {
-            text: 'Significance of Consumer Spending'
+            text: 'Population'
+        },
+        subtitle: {
+            text: ' '
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: '$USD',
+                align: 'high'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Mexico',
+            data: mistpopa
+        }, {
+            name: 'Indonesia',
+            data: mistpopb
+        },{  
+            name: 'South Korea',
+            data: mistpopc
+        }, {
+            name: 'Turkey',
+            data: mistpopd
+        }]
+    });
+}
+
+function Tier4realGDP(gdp4){
+    console.log("***************");
+
+    Highcharts.chart('char21', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: gdp4,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function Tier4_CPI(cpi4){
+    console.log("***************");
+
+    Highcharts.chart('char22', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'CPI YOY Change'
+        },
+        subtitle: {
+            text: 'World Economy Dashboard'
+        },
+        yAxis: {
+            title: {
+                text: 'GDP'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: cpi4,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function Tier4pop(pop4a, pop4b, pop4c, pop4d, pop4e, pop4f){
+
+    Highcharts.chart('char23', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Population'
         },
         subtitle: {
             text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
@@ -1051,29 +1210,43 @@ function MISTpop(spend){
             }
         },
         series: [{
-            name: 'GDP',
-            colorByPoint: true,
-            data: spend
+            name: 'Singapore',
+            data: pop4a
+        }, {
+            name: 'Hong Kong',
+            data: pop4b
+        },{  
+            name: 'Australia',
+            data: pop4c
+        },{  
+            name: 'South Africa',
+            data: pop4d
+        },{  
+            name: 'Nigeria',
+            data: pop4e    
+        }, {
+            name: 'Saudi Arabia',
+            data: pop4f
         }]
     });
 }
 
-function Tier4realGDP(l3){
+function G7unemp(ug7){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char24', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'G7'
         },
         subtitle: {
             text: 'World Economy Dashboard'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Unemployment'
             }
         },
         legend: {
@@ -1089,7 +1262,7 @@ function Tier4realGDP(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: ug7,
         responsive: {
             rules: [{
                 condition: {
@@ -1107,22 +1280,22 @@ function Tier4realGDP(l3){
     });
 }
 
-function Tier4_CPI(l3){
+function BRICunemp(ubric){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char25', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Unemployment'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'BRIC'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Unemployment'
             }
         },
         legend: {
@@ -1138,7 +1311,7 @@ function Tier4_CPI(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: ubric,
         responsive: {
             rules: [{
                 condition: {
@@ -1156,84 +1329,22 @@ function Tier4_CPI(l3){
     });
 }
 
-function Tier4pop(spend){
-
-    Highcharts.chart('char5', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            backgroundColor: 'transparent',
-            type: 'column'
-        },
-        title: {
-            text: 'Significance of Consumer Spending'
-        },
-        subtitle: {
-            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        xAxis:{
-            categories: null,
-            title:{
-                text:['Countries']
-            },
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
-            title:{
-                text: '$USD',
-                align: 'high'}
-                ,
-                labels: {
-                    overflow: 'justify'
-                }
-            }
-        ,
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth:0,
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            name: 'GDP',
-            colorByPoint: true,
-            data: spend
-        }]
-    });
-}
-
-function G7unemp(l3){
+function MISTunemp(umist){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char26', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Unemployment'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'MIST'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Unemployment'
             }
         },
         legend: {
@@ -1249,7 +1360,7 @@ function G7unemp(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: umist,
         responsive: {
             rules: [{
                 condition: {
@@ -1267,22 +1378,22 @@ function G7unemp(l3){
     });
 }
 
-function BRICunemp(l3){
+function Tier4unemp(u4){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char27', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Unemployment'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'Tier 4'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Unemployment'
             }
         },
         legend: {
@@ -1298,7 +1409,7 @@ function BRICunemp(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: u4,
         responsive: {
             rules: [{
                 condition: {
@@ -1316,22 +1427,22 @@ function BRICunemp(l3){
     });
 }
 
-function MISTunemp(l3){
+function G7retail(retg7){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char28', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Retail Sales'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'G7'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: ''
             }
         },
         legend: {
@@ -1347,7 +1458,7 @@ function MISTunemp(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: retg7,
         responsive: {
             rules: [{
                 condition: {
@@ -1365,18 +1476,18 @@ function MISTunemp(l3){
     });
 }
 
-function Tier4unemp(l3){
+function BRICretail(retbric){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char29', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Retail Sales'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'BRIC'
         },
         yAxis: {
             title: {
@@ -1396,7 +1507,7 @@ function Tier4unemp(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: retbric,
         responsive: {
             rules: [{
                 condition: {
@@ -1414,18 +1525,18 @@ function Tier4unemp(l3){
     });
 }
 
-function G7retail(l3){
+function MISTretail(retmist){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char30', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Retail Sales'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'MIST'
         },
         yAxis: {
             title: {
@@ -1445,7 +1556,7 @@ function G7retail(l3){
             pointStart: 2010
             }
         },
-        series: l3,
+        series: retmist,
         responsive: {
             rules: [{
                 condition: {
@@ -1463,18 +1574,18 @@ function G7retail(l3){
     });
 }
 
-function BRICretail(l3){
+function Tier4retail(ret4){
     console.log("***************");
 
-    Highcharts.chart('char7', {
+    Highcharts.chart('char31', {
         chart: {
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Retail Sales'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'Tier 4'
         },
         yAxis: {
             title: {
@@ -1494,105 +1605,7 @@ function BRICretail(l3){
             pointStart: 2010
             }
         },
-        series: l3,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function MISTretail(l3){
-    console.log("***************");
-
-    Highcharts.chart('char7', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Real GDP YOY Growth'
-        },
-        subtitle: {
-            text: 'World Economy Dashboard'
-        },
-        yAxis: {
-            title: {
-                text: 'GDP'
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: l3,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function Tier4retail(l3){
-    console.log("***************");
-
-    Highcharts.chart('char7', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Real GDP YOY Growth'
-        },
-        subtitle: {
-            text: 'World Economy Dashboard'
-        },
-        yAxis: {
-            title: {
-                text: 'GDP'
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: l3,
+        series: ret4,
         responsive: {
             rules: [{
                 condition: {

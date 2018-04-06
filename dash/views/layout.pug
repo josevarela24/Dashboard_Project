@@ -55,6 +55,32 @@ html
         var bricpop2a = !{JSON.stringify(bricpop2a)}
         var bricpop2b = !{JSON.stringify(bricpop2b)}
 
+        var mistgdp = !{JSON.stringify(mistgdp)}
+        var mistcpi = !{JSON.stringify(mistcpi)}
+        var mistpopa = !{JSON.stringify(mistpopa)}
+        var mistpopb = !{JSON.stringify(mistpopb)}
+        var mistpopc = !{JSON.stringify(mistpopc)}
+        var mistpopd = !{JSON.stringify(mistpopd)}
+
+        var gdp4 = !{JSON.stringify(gdp4)}
+        var cpi4 = !{JSON.stringify(cpi4)}
+        var pop4a = !{JSON.stringify(pop4a)}
+        var pop4b = !{JSON.stringify(pop4b)}
+        var pop4c = !{JSON.stringify(pop4c)}
+        var pop4d = !{JSON.stringify(pop4d)}
+        var pop4e = !{JSON.stringify(pop4e)}
+        var pop4f = !{JSON.stringify(pop4f)}
+
+        var ug7 = !{JSON.stringify(ug7)}
+        var ubric = !{JSON.stringify(ubric)}
+        var umist = !{JSON.stringify(umist)}
+        var u4 = !{JSON.stringify(u4)}
+
+        var retg7 = !{JSON.stringify(retg7)}
+        var retbric = !{JSON.stringify(retbric)}
+        var retmist = !{JSON.stringify(retmist)}
+        var ret4 = !{JSON.stringify(ret4)}
+
         //console.log(json);
         //makeLine(data);
         GDP(gdp);
@@ -64,7 +90,7 @@ html
         cSpend(spend);
         easeDB(ease);
         
-        GroupGPDreal(gdpreala, gdprealb, gdprealc, gdpreald);
+        GroupGPDreal(gdpreala);
         /*
         //GroupGPDnom(gdpnom);
         //GroupPop(grpop);
@@ -73,27 +99,30 @@ html
         G7realGDP2(g7gdp2);
         //G7_CPI1(g7cpi1);
         //G7_CPI2(g7cpi2);
+
         BRICrealGDP(bricgdp);
         //BRIC_CPI(briccpi);
         BRICpop1(bricpop1a, bricpop1b); 
         BRICpop2(bricpop2a, bricpop2b);
-        /*
+        
         MISTrealGDP(mistgdp);
         MIST_CPI(mistcpi);
-        MISTpop(mistpop);
+        MISTpop(mistpopa, mistpopb, mistpopc, mistpopd);
+
         Tier4realGDP(gdp4);
         Tier4_CPI(cpi4);
-        Tier4pop(pop4);
+        Tier4pop(pop4a, pop4b, pop4c, pop4d, pop4e, pop4f);
+
         G7unemp(ug7);
         BRICunemp(ubric);
         MISTunemp(umist);
         Tier4unemp(u4);
+
         G7retail(retg7);
         BRICretail(retbric);
         MISTretail(retmist);
         Tier4retail(ret4);
 
-        */
         getMap();
         //getWorld();
       }); // Closes window.load
@@ -209,6 +238,7 @@ html
           br
           #char29(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
           br
+<<<<<<< HEAD
           #char30(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')   
 
     ul
@@ -217,6 +247,12 @@ html
           li#layout
             a(href='#') #{country.name} : Year #{country.year}
 
+=======
+          #char30(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          br
+          #char31(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')    
+                  
+>>>>>>> 06af8e908c5c7d57fd7f23988b6a9a3d9fe01067
     .wrapper.style4 
       article#upload
         block content

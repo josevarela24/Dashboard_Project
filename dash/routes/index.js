@@ -3,6 +3,8 @@ var router = express.Router();
 var userLogin = require('../models/userLogin');
 var mid = require('../Logout/Logout');
 var email = require('../models/email');
+
+var User = require('../models/userLogin');
 //var MongoClient = require('mongodb').MongoClient
 //var url = "mongodb://localhost:27017/UserLogin";
 
@@ -11,9 +13,13 @@ const mailer = require('pug-mailer')
 var uploadController = require('../controllers/uploadController');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.redirect("/users");
-});
+router.get('/', 
+    function(req, res, next){
+        res.locals.admin=false
+        next()
+    } ,
+    uploadController.get_detail
+);
 
 router.get('/login', function(req, res, next){
   return res.render('login', {title: 'Log In'});
@@ -46,7 +52,7 @@ router.post('/login', function(req, res, next){
       } else {
         req.session = {}; //dangerous??
         req.session.userid = user._id;
-        return res.redirect('/admin');
+        res.redirect('/admin');
       }
     });
    
@@ -122,17 +128,18 @@ router.post('/register', function(req, res, next) {
               // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
           });
       });
-// use schema's `create` method to insert document into Mongo
-userLogin.create(userData, function (error, user) {
-  if (error) {
-    return next(error);
-  } else {
-    req.session = {}; //is this dangerous?
-    req.session.userId = user._id;
-    var err = new Error('All fields required.');
-    err.status = 400;
-  }
-});
+
+      // use schema's `create` method to insert document into Mongo
+      userLogin.create(userData, function (error, user) {
+        if (error) {
+          return next(error);
+        } else {
+          req.session = {}; //is this dangerous?
+          req.session.userId = user._id;
+          var err = new Error('All fields required.');
+          err.status = 400;
+        }
+      });
    
       return res.redirect('/success');
 
@@ -158,24 +165,41 @@ router.get('/logout', function(req, res, next) {
 });
 
 router.post('/registrationComplete', function(req, res, next) {
-   
-    req.session = {}; //is this dangerous?
-    req.session.userId = user._id;
-   // user.email = req.session.confirmEmail
-   
-    app.put('../models/userLogin', function(req, res) {
-      var user = {
-        email: req.body.confirmEmail,
-        password: 'password',
-        confrim: true
-      }
-      userLogin.update({_id: req.params.id}, user, function(err, raw) {
-        if (err) {
-          res.send(err);
-        }
-        res.send(raw);
-      });
+   console.log("okay");
+
+  if(req.body.type == 'c'){
+    User.update({email: req.body.confirmEmail}, {$set: {confirm: true}}, function(err, user){
+      console.log(user);
+      res.redirect('/registrationComplete');
     });
+  } else if(req.body.type == 'd'){
+    User.update({email: req.body.confirmEmail}, {$set: {confirm: false}}, function(err, user){
+      console.log(user);
+      res.redirect('/deny');
+    });
+  }
+
+  
+
+  
+
+  //   req.session = {}; //is this dangerous?
+  //   req.session.userId = user._id;
+  //  // user.email = req.session.confirmEmail
+   
+  //   app.put('../models/userLogin', function(req, res) {
+  //     var user = {
+  //       email: req.body.confirmEmail,
+  //       password: 'password',
+  //       confrim: true
+  //     }
+  //     userLogin.update({_id: req.params.id}, user, function(err, raw) {
+  //       if (err) {
+  //         res.send(err);
+  //       }
+  //       res.send(raw);
+  //     });
+  //   });
     /* 
     MongoClient.connect('mongodb://127.0.0.1:27017/Userlogin', function(err, db) {
     if(err) throw err;
@@ -216,6 +240,8 @@ router.get('/admin',
     uploadController.get_detail
 );
 
+router.post('/admin', uploadController.post_detail);
+
 router.get('/success', function(req, res, next){
   return res.render('success', {title: 'success'});
  });
@@ -223,4 +249,5 @@ router.get('/success', function(req, res, next){
  router.get('/confirm', function(req, res, next){
   return res.render('confirm', {title: 'confirm'});
  });
+
 module.exports = router;
