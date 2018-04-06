@@ -30,26 +30,21 @@ router.post('/login', function(req, res, next){
   var userData = {
     email: req.body.email,
     password: req.body.password,
-    confirm: false
-  };
-
- /* MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db("mydb"); // what is db name?
-    dbo.collection("UserLogin").findOne({}, function(err, result) {
+    confirm: userLogin.find({}, {email: req.body.email, confirm: 1}, function(err, result) {
       if (err) throw err;
-     confirm = result.confirm;
-      db.close();
+      console.log(result);
     })
-  });*/
-
-   if(req.body.email && req.body.password /*&&*confirm*/){
+  };
+   if(req.body.email && req.body.password && userData.confirm){
     userLogin.authenticate(req.body.email, req.body.password, function(error,user){
       if (error || !user){
        var err = new Error('Wrong email or password,');
        err.status = 401;
        return next (err);
-      } else {
+      } if(!userData.confirm){
+        var err =  new Error('Registration not confirmed contact admin.');
+        return next(err);
+       } else {
         req.session = {}; //dangerous??
         req.session.userid = user._id;
         res.redirect('/admin');
@@ -61,10 +56,7 @@ router.post('/login', function(req, res, next){
         var err =  new Error('Email and password are required.');
        err.status = 401;
        return next(err);
-      }if(!confirm){
-        var err =  new Error('Registration not confirmed contact admin.');
-        return next(err);
-       }
+      }
     }
 });
 
@@ -112,7 +104,8 @@ router.post('/register', function(req, res, next) {
           let mailOptions = {
               from: '"Alliance Data Dashboard" <naomihbeltrand@gmail.com>', // sender address
               to: 'naomihbeltrand@gmail.com', // list of receivers
-              subject: 'Confirm Registration of ' + req.body.email, // Subject line              html: '<form> http://localhost:3000/login" </form>' 
+              subject: 'Confirm Registration of ' + req.body.email, // Subject line        
+              html: '<form> http://localhost:3000/login" </form>' 
           };
       
           // send mail with defined transport object
