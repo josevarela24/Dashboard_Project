@@ -45,7 +45,7 @@ exports.get_detail = function(req, res, next) {
 						// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
 						// 	{year: 2017}
 						// ]
-						year: 2014
+						year: 2017
 					}
 				},
 				{
@@ -71,7 +71,7 @@ exports.get_detail = function(req, res, next) {
 						// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
 						// 	{year: 2017}
 						// ]
-						year: 2014
+						year: 2017
 					}
 				},
 				{
@@ -97,7 +97,7 @@ exports.get_detail = function(req, res, next) {
 						// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
 						// 	{year: 2017}
 						// ]
-						year: 2014
+						year: 2017
 					}
 				},
 				{
@@ -123,7 +123,7 @@ exports.get_detail = function(req, res, next) {
 						// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
 						// 	{year: 2017}
 						// ]
-						year: 2014
+						year: 2017
 					}
 				},
 				{
@@ -149,7 +149,7 @@ exports.get_detail = function(req, res, next) {
 						// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
 						// 	{year: 2017}
 						// ]
-						year: 2014
+						year: 2017
 					}
 				},
 				{
@@ -175,7 +175,7 @@ exports.get_detail = function(req, res, next) {
 						// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
 						// 	{year: 2017}
 						// ]
-						year: 2014
+						year: 2017
 					}
 				},
 				{
@@ -1054,7 +1054,7 @@ exports.get_detail = function(req, res, next) {
 			Country.aggregate([
 				{
 					$match: {
-					name: { $in: ["Singaore", "Hong Kong", "South Africa", "Nigeria", "Saudi Arabia"]},
+					name: { $in: ["Singapore", "Hong Kong", "South Africa", "Nigeria", "Saudi Arabia"]},
 					}
 				}, 
 				{
