@@ -23,7 +23,9 @@ html
     nav#nav
       ul.container
         li
-          a(href='/') Home
+          a(href='/admin') Home
+        li
+          a(href='/logout') Logout
 
     .wrapper.style1.first
       article#top.contain      
@@ -36,14 +38,12 @@ html
                   div.form-group
                     label(for='confirmEmail') input the user's email
                     input.form-control(type='text' id='confirmEmail' placeholder='email' name='confirmEmail')
-                    label(for='confirm') Confirm User
-                       button.btn.btn-primary(type='submit' name='type' value='c') Confirm  
-                    label(for='deny') Deny User
-                            button.btn.btn-primary(type='submit' name='type' value='d') Deny 
-                //- form(method='GET' action='/deny')
-                //-     div.form-group
-                //-         label(for='deny') Deny User
-                //-             button.btn.btn-primary(type='submit') Deny
+                    label(for='confirm') Confrim User
+                       button.btn.btn-primary(type='submit') Confirm   
+                form(method='GET' action='/deny')
+                    div.form-group
+                        label(for='deny') Deny User
+                            button.btn.btn-primary(type='submit') Deny
       
     
     

@@ -341,7 +341,7 @@ function easeDB(ease){
 }
 
 //7
-function GroupGPDreal(gdpreala){
+function GroupGPDreal(gdpreal){
     console.log("***************");
 
     Highcharts.chart('char7', {
@@ -372,10 +372,7 @@ function GroupGPDreal(gdpreala){
             pointStart: 2010
             }
         },
-        series: [{
-            name: 'G7',
-            data: gdpreala
-        }],
+        series: gdpreal,
         responsive: {
             rules: [{
                 condition: {
