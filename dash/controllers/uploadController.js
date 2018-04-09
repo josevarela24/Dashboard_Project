@@ -1113,7 +1113,11 @@ exports.get_detail = function(req, res, next) {
 					}
 				}
 				], callback);
-		}
+			},
+
+			thirtytwo: function(callback){
+				Country.find().distinct('year', callback);
+			}
 
 	}, function(err, results){
 		if(res.locals.admin){
@@ -1126,7 +1130,7 @@ exports.get_detail = function(req, res, next) {
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpopa:results.twentyA, mistpopb:results.twentyB, mistpopc:results.twentyC, mistpopd:results.twentyD,
 			gdp4:results.twentyone, cpi4:results.twentytwo, pop4a:results.twentythreeA, pop4b:results.twentythreeB, pop4c:results.twentythreeC, pop4d:results.twentythreeD, pop4e:results.twentythreeE, pop4f:results.twentythreeF,
 			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven,
-			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven});
+			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven, year:results.thirtytwo});
 		} else {
 			console.log("I am NOT admin") 
 			console.log(results.sevenA)
@@ -1138,7 +1142,7 @@ exports.get_detail = function(req, res, next) {
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpopa:results.twentyA, mistpopb:results.twentyB, mistpopc:results.twentyC, mistpopd:results.twentyD,
 			gdp4:results.twentyone, cpi4:results.twentytwo, pop4a:results.twentythreeA, pop4b:results.twentythreeB, pop4c:results.twentythreeC, pop4d:results.twentythreeD, pop4e:results.twentythreeE, pop4f:results.twentythreeF,
 			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven,
-			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven});
+			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven, year:results.thirtytwo});
 		}
 		// console.log(results.one);
 		// console.log(results.two);

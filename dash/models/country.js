@@ -32,12 +32,7 @@ countrySchema.methods.dudify = function() {
     return this.name;
   };
 
-countrySchema.find({}, function(err, name) {
-    if (err) throw err;
-  
-    // object of all the users
-    console.log(name);
-  });
+
 
 var Country = mongoose.model('Country', countrySchema);
 

@@ -158,6 +158,31 @@ html
               a(href='#') UT-Dallas Software Engineering Capstone Project Team
               |  for 
               a(href='https://www.alliancedata.com/') Alliance Data
+
+        //- label Year  
+        //-   select(class='selectpicker' data-style='btn-info' name='selectpicker')
+        //-     option(name='year', id= '2017', value='2017') 2017
+        //-     option(name='year', id= '2016', value='2016') 2016 
+        //-     option(name='year', id= '2015', value='2015') 2015 
+        //-     option(name='year', id= '2014', value='2014') 2014
+        
+          //variables will be the passed-in "array" that we want to read from, the field year in mongo
+
+          br
+
+          -var qbs = ['Romo', 'Tony', 'Best', 'Ever', '9']
+          
+          select#year
+            each qb in qbs
+              option= qb
+      label Year  
+        select 
+          if year
+            each yr in year
+              option #{yr}
+              //country or countries, doesn't work 
+        
+
     // Work
     .wrapper.style2
         article#work
@@ -238,7 +263,6 @@ html
           br
           #char29(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
           br
-<<<<<<< HEAD
           #char30(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')   
 
     ul
@@ -247,12 +271,10 @@ html
           li#layout
             a(href='#') #{country.name} : Year #{country.year}
 
-=======
           #char30(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
           br
           #char31(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')    
                   
->>>>>>> 06af8e908c5c7d57fd7f23988b6a9a3d9fe01067
     .wrapper.style4 
       article#upload
         block content
