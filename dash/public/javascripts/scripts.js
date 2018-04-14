@@ -1844,11 +1844,11 @@ $('#one').change(function() {
     alert(id);
     $.ajax({
         type: "POST",
-        url: "http://localhost:4485", //Your required php page
+        url: "/sss", //Your required php page
         data: {val, id}, //pass your required data here
         success: function () { //You obtain the response that you echo from your controller
             console.log('success');
-            GDP(data);
+            //GDP(data);
         },
         error: function () {
             alert("Failed to pass in year and function id");
