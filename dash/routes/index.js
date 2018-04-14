@@ -21,15 +21,20 @@ router.get('/',
     uploadController.get_detail
 );
 
-router.get('/sss', function(req, res, next){
+router.post('/sss', function(req, res, next){
   console.log("sss");
-  
-  var s = function(yr, callback){
-    uploadController.getGDPfunc(yr, callback);
+  var yr = req.body.val;
+  console.log(yr);
+
+  var funnn = function(year, callback){
+    uploadController.getGDPfunc(year, callback);
   }
 
-  s(2017, function(err,results){
-    console.log(results);
+  funnn(yr, function(err,results){
+    if(err) console.log("err");
+    else
+      console.log(results);
+      res.json(results);
   });
   //console.log();
 });
