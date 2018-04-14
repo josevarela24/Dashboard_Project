@@ -1836,3 +1836,22 @@ function getMap(){
     });
 
 } */
+
+$('#one').change(function() {
+    var val = $("#one option:selected").text();
+    alert(val);
+    var id = 'one';
+    alert(id);
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:4485", //Your required php page
+        data: {val, id}, //pass your required data here
+        success: function () { //You obtain the response that you echo from your controller
+            console.log('success');
+            GDP(data);
+        },
+        error: function () {
+            alert("Failed to pass in year and function id");
+        }
+    }
+)});

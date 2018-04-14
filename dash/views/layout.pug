@@ -172,13 +172,13 @@ html
           select#year
             each qb in qbs
               option= qb
-      label Year  
-        select 
-          if year
-            each yr in year
-              option #{yr}
-              //country or countries, doesn't work 
-        
+
+        label Year  
+          select#one 
+            if year
+              each yr in year
+                option #{yr}
+
 
     // Work
     .wrapper.style2

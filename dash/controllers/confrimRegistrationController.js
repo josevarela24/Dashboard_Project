@@ -8,7 +8,13 @@ exports.get_detail = function(req, res, next) {
 	
 	async.parallel({
 		one: function(callback){
-			Country.aggregate([{$sort: { email: 1 }},{
+			Country.aggregate([
+			{
+				$sort: { 
+					email: 1 
+				}
+			},
+			{
 					$group: {
 						_id: '$name',
 						nominalGDP: {$push: "$nominalGDP"}

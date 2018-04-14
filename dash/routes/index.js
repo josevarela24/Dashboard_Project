@@ -21,6 +21,17 @@ router.get('/',
     uploadController.get_detail
 );
 
+router.post('/', function(req,res){
+  var year = req.body.year,
+  functionid = req.body.id
+
+  console.log(year);
+  console.log(id);
+  //is it possible to have the value of array correspond to the passed id?
+  //--> uploadController[one]();
+
+});
+
 router.get('/login', function(req, res, next){
   return res.render('login', {title: 'Log In'});
 });
