@@ -173,11 +173,11 @@ html
             each qb in qbs
               option= qb
 
-        label Year  
-          select#one 
-            if year
-              each yr in year
-                option #{yr}
+        //- label Year  
+        //-   select#one 
+        //-     if year
+        //-       each yr in year
+        //-         option #{yr}
 
 
     // Work
@@ -201,6 +201,11 @@ html
             | Different charts displaying data for important decisions
         .container
           #char1(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+          label Year  
+            select#one 
+              if year
+                each yr in year
+                  option #{yr}
           br
           #char2(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
           br

@@ -30,11 +30,12 @@ router.post('/sss', function(req, res, next){
     uploadController.getGDPfunc(year, callback);
   }
 
-  funnn(yr, function(err,results){
+  funnn(Number(yr), function(err,results){
     if(err) console.log("err");
-    else
-      console.log(results);
-      res.json(results);
+    else{
+      //console.log(results);
+      res.send(results);
+    }
   });
   //console.log();
 });

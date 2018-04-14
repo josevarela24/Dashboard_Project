@@ -1734,16 +1734,16 @@ function getMap(){
 
 $('#one').change(function() {
     var val = $("#one option:selected").text();
-    alert(val);
+    //alert(val);
     var id = 'one';
-    alert(id);
+    //alert(id);
     $.ajax({
         type: "POST",
         url: "/sss", //Your required php page
         data: {val, id}, //pass your required data here
         dataType: 'JSON',
-        success: function (result) { //You obtain the response that you echo from your controller
-            console.log(result);
+        success: function () { //You obtain the response that you echo from your controller
+            console.log('success');
             //GDP(data);
         },
         error: function (ts) {
@@ -1751,4 +1751,11 @@ $('#one').change(function() {
             alert(val);
         }
     }
-)});
+).done(function (results){
+    results = JSON.stringify(results);
+    var chart = $('#char1').highcharts();
+    //chart.series[0].setData([], true);
+    chart.series[0].setData([129, 140, 170]);
+    //chart.redraw();
+    alert(results);
+})});
