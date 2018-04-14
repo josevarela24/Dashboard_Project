@@ -21,6 +21,19 @@ router.get('/',
     uploadController.get_detail
 );
 
+router.get('/sss', function(req, res, next){
+  console.log("sss");
+  
+  var s = function(yr, callback){
+    uploadController.getGDPfunc(yr, callback);
+  }
+
+  s(2017, function(err,results){
+    console.log(results);
+  });
+  //console.log();
+});
+
 router.get('/login', function(req, res, next){
   return res.render('login', {title: 'Log In'});
 });

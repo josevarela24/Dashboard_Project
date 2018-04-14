@@ -5,6 +5,33 @@ var Country = require('../models/country');
 //*fixed..this upload does not delete what is already inside db, need to implement drop feature
 var async = require('async');
 
+exports.getGDPfunc = function(yr,callback){
+	console.log("UPINHURR");
+	Country.aggregate([
+		{			
+			$match: {
+				// $and: [
+				// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
+				// 	{year: 2017}
+				// ]
+				year: yr
+			}
+		},
+		{
+			$sort: {
+				"nominalGDP": -1
+			}
+		},
+		{
+			$project: {
+			_id: 0,
+			name: 1,
+			'y' : '$nominalGDP'
+			}
+		}		
+	], callback);
+};
+
 exports.get_detail = function(req, res, next) {
 	
 	async.parallel({
@@ -38,29 +65,7 @@ exports.get_detail = function(req, res, next) {
 		},
 		*/
 		one: function(callback){
-			Country.aggregate([
-				{			
-					$match: {
-						// $and: [
-						// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
-						// 	{year: 2017}
-						// ]
-						year: 2017
-					}
-				},
-				{
-					$sort: {
-						"nominalGDP": -1
-					}
-				},
-				{
-					$project: {
-					_id: 0,
-					name: 1,
-					'y' : '$nominalGDP'
-					}
-				}		
-				], callback);
+			module.exports.getGDPfunc(2017,callback);
 		},
 
 		two: function(callback){
