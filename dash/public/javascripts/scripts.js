@@ -1754,6 +1754,5 @@ $('#one').change(function() {
     .done(function (results){
         var chart = $('#char1').highcharts();
         chart.series[0].setData(results);
-        alert(results);
     })
 });
