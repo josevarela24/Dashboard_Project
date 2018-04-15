@@ -22,9 +22,7 @@ router.get('/',
 );
 
 router.post('/sss', function(req, res, next){
-  console.log("sss");
   var yr = req.body.val;
-  console.log(yr);
 
   var funnn = function(year, callback){
     uploadController.getGDPfunc(year, callback);
@@ -33,11 +31,9 @@ router.post('/sss', function(req, res, next){
   funnn(Number(yr), function(err,results){
     if(err) console.log("err");
     else{
-      //console.log(results);
       res.send(results);
     }
   });
-  //console.log();
 });
 
 router.get('/login', function(req, res, next){

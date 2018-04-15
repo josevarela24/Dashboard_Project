@@ -1101,8 +1101,6 @@ exports.get_detail = function(req, res, next) {
 			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven, year:results.thirtytwo});
 		} else {
 			console.log("I am NOT admin") 
-			console.log(results.one);
-			//console.log(results.seven)
 			res.render('hello', { title: 'Test', gdp:results.one, ppp:results.two,pop: results.three, 
 			liv:results.four, spend:results.five, ease:results.six,
 			gdpreal:results.seven, 

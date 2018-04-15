@@ -1750,12 +1750,10 @@ $('#one').change(function() {
             alert(ts.responseText);
             alert(val);
         }
-    }
-).done(function (results){
-    results = JSON.stringify(results);
-    var chart = $('#char1').highcharts();
-    //chart.series[0].setData([], true);
-    chart.series[0].setData([129, 140, 170]);
-    //chart.redraw();
-    alert(results);
-})});
+    })
+    .done(function (results){
+        var chart = $('#char1').highcharts();
+        chart.series[0].setData(results);
+        alert(results);
+    })
+});
