@@ -286,14 +286,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$realGDPGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -314,14 +315,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$realGDPGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -342,14 +344,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$cpiGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -370,14 +373,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$cpiGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -398,14 +402,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$realGDPGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -426,14 +431,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$cpiGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -542,14 +548,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$realGDPGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -570,14 +577,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$cpiGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -686,14 +694,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$realGDPGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -714,14 +723,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						realGDPGrowth: {$push: "$realGDPGrowth"}
+						data: {$push: {x: "$year", y: "$cpiGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$realGDPGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -874,14 +884,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						unemployment: {$push: "$unemployment"}
+						data: {$push: {x: "$year", y: "$unemployment"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$unemployment'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -902,14 +913,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						unemployment: {$push: "$unemployment"}
+						data: {$push: {x: "$year", y: "$unemployment"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$unemployment'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -930,14 +942,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						unemployment: {$push: "$unemployment"}
+						data: {$push: {x: "$year", y: "$unemployment"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$unemployment'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -958,14 +971,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						unemployment: {$push: "$unemployment"}
+						data: {$push: {x: "$year", y: "$unemployment"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$unemployment'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -986,14 +1000,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						retailSalesGrowth: {$push: "$retailSalesGrowth"}
+						data: {$push: {x: "$year", y: "$retailSalesGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$retailSalesGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -1014,14 +1029,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						retailSalesGrowth: {$push: "$retailSalesGrowth"}
+						data: {$push: {x: "$year", y: "$retailSalesGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$retailSalesGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -1042,14 +1058,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						retailSalesGrowth: {$push: "$retailSalesGrowth"}
+						data: {$push: {x: "$year", y: "$retailSalesGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$retailSalesGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -1070,14 +1087,15 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group: {
 						_id: '$name',
-						retailSalesGrowth: {$push: "$retailSalesGrowth"}
+						data: {$push: {x: "$year", y: "$retailSalesGrowth"}}
 					}
 				}, 
 				{
 					$project: {
 					_id: 0,
 					name: "$_id",
-					'data' : '$retailSalesGrowth'
+					data: 1
+					//'data' : '$data'
 					}
 				}
 				], callback);
@@ -1101,6 +1119,8 @@ exports.get_detail = function(req, res, next) {
 			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven, year:results.thirtytwo});
 		} else {
 			console.log("I am NOT admin") 
+			console.log(results.ten)
+			console.log(results.twelve)
 			res.render('hello', { title: 'Test', gdp:results.one, ppp:results.two,pop: results.three, 
 			liv:results.four, spend:results.five, ease:results.six,
 			gdpreal:results.seven, 

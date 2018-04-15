@@ -486,8 +486,7 @@ function G7realGDP1(g7gdp1){
             series: {
                 label: {
                     connectorAllowed: false
-                },
-            pointStart: 2010
+                }
             }
         },
         series: g7gdp1,
