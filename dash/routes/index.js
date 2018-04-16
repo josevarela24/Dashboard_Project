@@ -53,6 +53,7 @@ router.post('/login', function(req, res, next){
   };
    if(req.body.email && req.body.password && userData.confirm){
     userLogin.authenticate(req.body.email, req.body.password, function(error,user){
+     if(user.confirm){
       if (error || !user){
        var err = new Error('Wrong email or password,');
        err.status = 401;
@@ -65,6 +66,9 @@ router.post('/login', function(req, res, next){
         req.session.userid = user._id;
         loggedIn = 1;
         res.redirect('/admin');
+       }
+      }else{
+        res.redirect('/deny');
       }
     });
    
@@ -80,6 +84,7 @@ router.post('/login', function(req, res, next){
 router.get('/confirm', function(req, res, next){
   if ( loggedIn) {
     return res.render('confirm', {title: 'confirm'});
+    
   }else {
     return res.redirect('/deny');
   }
@@ -191,6 +196,40 @@ router.post('/registrationComplete', function(req, res, next) {
   if(req.body.type == 'c'){
     User.update({email: req.body.confirmEmail}, {$set: {confirm: true}}, function(err, user){
       console.log(user);
+      const nodemailer = require('nodemailer');
+      // Generate test SMTP service account from ethereal.email
+      // Only needed if you don't have a real mail account for testing
+      nodemailer.createTestAccount((err, account) => {
+          // create reusable transporter object using the default SMTP transport
+          let transporter = nodemailer.createTransport({
+              service: 'Gmail',
+                 auth: {
+                  user: 'alliancedashboard@gmail.com', // generated ethereal user
+                  pass: 'Spring2018!' // generated ethereal password
+              }
+          });
+      
+          // setup email data with unicode symbols
+          let mailOptions = {
+              from: '"Alliance Data Dashboard" <alliancedashboard@gmail.com>', // sender address
+              to: req.body.confirmEmail, // list of receivers
+              subject: 'Registration Complete', // Subject line        
+              html: '<form> "Registration complete you may now log in to alliance-board.com" </form>' 
+          };
+      
+          // send mail with defined transport object
+          transporter.sendMail(mailOptions, (error, info) => {
+              if (error) {
+                  return console.log(error);
+              }
+              console.log('Message sent: %s', info.messageId);
+              // Preview only available when sending through an Ethereal account
+              console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      
+              // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+              // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+          });
+      });
       res.redirect('/registrationComplete');
     });
   } else if(req.body.type == 'd'){
