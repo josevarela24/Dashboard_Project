@@ -756,7 +756,7 @@ function BRIC_CPI(briccpi){
 }
 
 //India, China
-function BRICpop1(bricpop1a, bricpop1b){
+function BRICpop1(bricpop1){
 
     Highcharts.chart('char16', {
         chart: {
@@ -810,18 +810,12 @@ function BRICpop1(bricpop1a, bricpop1b){
                 showInLegend: true
             }
         },
-        series: [{
-            name: 'India',
-            data: bricpop1a
-        }, {
-            name: 'China',
-            data: bricpop1b
-        }]
+        series: bricpop1
     });
 }
 
 //Brazil, Russia
-function BRICpop2(bricpop2a, bricpop2b){
+function BRICpop2(bricpop2){
 
     Highcharts.chart('char17', {
         chart: {
@@ -875,13 +869,7 @@ function BRICpop2(bricpop2a, bricpop2b){
                 showInLegend: true
             }
         },
-        series: [{
-            name: 'Brazil',
-            data: bricpop2a
-        }, {
-            name: 'Russia',
-            data: bricpop2b
-        }]
+        series: bricpop2
     });
 }
 
@@ -983,7 +971,7 @@ function MIST_CPI(mistcpi){
     });
 }
 
-function MISTpop(mistpopa, mistpopb, mistpopc, mistpopd){
+function MISTpop(mistpop){
 
     Highcharts.chart('char20', {
         chart: {
@@ -1037,19 +1025,7 @@ function MISTpop(mistpopa, mistpopb, mistpopc, mistpopd){
                 showInLegend: true
             }
         },
-        series: [{
-            name: 'Mexico',
-            data: mistpopa
-        }, {
-            name: 'Indonesia',
-            data: mistpopb
-        },{  
-            name: 'South Korea',
-            data: mistpopc
-        }, {
-            name: 'Turkey',
-            data: mistpopd
-        }]
+        series: mistpop
     });
 }
 
@@ -1151,7 +1127,7 @@ function Tier4_CPI(cpi4){
     });
 }
 
-function Tier4pop(pop4a, pop4b, pop4c, pop4d, pop4e, pop4f){
+function Tier4pop(pop4){
 
     Highcharts.chart('char23', {
         chart: {
@@ -1205,25 +1181,7 @@ function Tier4pop(pop4a, pop4b, pop4c, pop4d, pop4e, pop4f){
                 showInLegend: true
             }
         },
-        series: [{
-            name: 'Singapore',
-            data: pop4a
-        }, {
-            name: 'Hong Kong',
-            data: pop4b
-        },{  
-            name: 'Australia',
-            data: pop4c
-        },{  
-            name: 'South Africa',
-            data: pop4d
-        },{  
-            name: 'Nigeria',
-            data: pop4e    
-        }, {
-            name: 'Saudi Arabia',
-            data: pop4f
-        }]
+        series: pop4
     });
 }
 
