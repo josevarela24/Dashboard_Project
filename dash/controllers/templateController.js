@@ -6,6 +6,7 @@ exports.get = function(req, res) {
 	var fields = [
 		'name',
 		'year',
+		'group',
 		'nominalGDP',
 		'realGDP',
 		'nominalGDPGrowth',

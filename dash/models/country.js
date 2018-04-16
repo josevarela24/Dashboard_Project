@@ -10,6 +10,7 @@ var countrySchema = mongoose.Schema({
         type: Number, 
         required: true
     },
+    group: String,
     nominalGDP: Number,
     realGDP: Number, 
     nominalGDPGrowth: Number,
