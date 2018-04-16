@@ -3,6 +3,7 @@ var router = express.Router();
 var userLogin = require('../models/userLogin');
 var mid = require('../Logout/Logout');
 var email = require('../models/email');
+var loggedIn = 0;
 
 var User = require('../models/userLogin');
 //var MongoClient = require('mongodb').MongoClient
@@ -62,6 +63,7 @@ router.post('/login', function(req, res, next){
        } else {
         req.session = {}; //dangerous??
         req.session.userid = user._id;
+        loggedIn = 1;
         res.redirect('/admin');
       }
     });
@@ -75,6 +77,25 @@ router.post('/login', function(req, res, next){
     }
 });
 
+router.get('/confirm', function(req, res, next){
+  if ( loggedIn) {
+    return res.render('confirm', {title: 'confirm'});
+  }else {
+    return res.redirect('/deny');
+  }
+ });
+
+ router.get('/admin', 
+ function(req, res, next){
+    if(loggedIn){ 
+    res.locals.admin=true
+     next()
+    } else {
+      res.redirect('/deny');
+    }
+ } ,
+ uploadController.get_detail
+);
 // GET /register
 router.get('/register', mid.loggedOut, function(req, res, next) {
  return res.render('register', { title: 'Sign Up' });
@@ -110,15 +131,15 @@ router.post('/register', function(req, res, next) {
           let transporter = nodemailer.createTransport({
               service: 'Gmail',
                  auth: {
-                  user: 'naomihbeltrand@gmail.com', // generated ethereal user
-                  pass: '3583nhbJA' // generated ethereal password
+                  user: 'alliancedashboard@gmail.com', // generated ethereal user
+                  pass: 'Spring2018!' // generated ethereal password
               }
           });
       
           // setup email data with unicode symbols
           let mailOptions = {
-              from: '"Alliance Data Dashboard" <naomihbeltrand@gmail.com>', // sender address
-              to: 'naomihbeltrand@gmail.com', // list of receivers
+              from: '"Alliance Data Dashboard" <alliancedashboard@gmail.com>', // sender address
+              to: 'alliancedashboard@gmail.com', // list of receivers
               subject: 'Confirm Registration of ' + req.body.email, // Subject line        
               html: '<form> http://localhost:3000/login" </form>' 
           };
@@ -160,16 +181,8 @@ router.post('/register', function(req, res, next) {
 
 // GET /logout
 router.get('/logout', function(req, res, next) {
-  if (req.session) {
-    // delete session object
-    req.session.destroy(function(err) {
-      if(err) {
-        return next(err);
-      } else {
-        return res.redirect('/');
-      }
-    });
-  }
+    loggedIn = 0;
+    return res.redirect('/');
 });
 
 router.post('/registrationComplete', function(req, res, next) {
@@ -186,46 +199,6 @@ router.post('/registrationComplete', function(req, res, next) {
       res.redirect('/deny');
     });
   }
-
-  
-
-  
-
-  //   req.session = {}; //is this dangerous?
-  //   req.session.userId = user._id;
-  //  // user.email = req.session.confirmEmail
-   
-  //   app.put('../models/userLogin', function(req, res) {
-  //     var user = {
-  //       email: req.body.confirmEmail,
-  //       password: 'password',
-  //       confrim: true
-  //     }
-  //     userLogin.update({_id: req.params.id}, user, function(err, raw) {
-  //       if (err) {
-  //         res.send(err);
-  //       }
-  //       res.send(raw);
-  //     });
-  //   });
-    /* 
-    MongoClient.connect('mongodb://127.0.0.1:27017/Userlogin', function(err, db) {
-    if(err) throw err;
-
-  db.collection('Userlogin').findAndModify(
-    {email: confirmEmail}, // query
- //    [['_id','asc']],  // sort order
-      {$set: {confirm: true}}, // replacement, replaces only the field "hi"
-     //   {}, // options
-      function(err, object) {
-         if (err){
-          console.warn(err.message);  // returns error if no matching object found
-        }else{
-          console.dir(object);
-        }
-      });
-    });
- // userLogin.update({userId}, {confirm:true});*/
 });
 
 router.get('/registrationComplete', function(req, res, next){
@@ -236,17 +209,7 @@ router.get('/registrationComplete', function(req, res, next){
   return res.render('deny', {title: 'deny'});
  });
 
-// router.get('/admin', function(req, res, next){
-//  return res.render('admin', {title: 'admin'});
-// });
 
-router.get('/admin', 
-    function(req, res, next){
-        res.locals.admin=true
-        next()
-    } ,
-    uploadController.get_detail
-);
 
 router.post('/admin', uploadController.post_detail);
 
@@ -254,8 +217,6 @@ router.get('/success', function(req, res, next){
   return res.render('success', {title: 'success'});
  });
 
- router.get('/confirm', function(req, res, next){
-  return res.render('confirm', {title: 'confirm'});
- });
+ 
 
 module.exports = router;
