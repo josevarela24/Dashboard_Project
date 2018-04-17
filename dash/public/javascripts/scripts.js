@@ -179,7 +179,7 @@ function livStand(liv){
             useHTML: true
         },
         xAxis:{
-            categories: null,
+            type: 'category',
             title:{
                 text:['Countries']
             },
@@ -205,11 +205,11 @@ function livStand(liv){
                 dataLabels: {
                     enabled: false
                 },
-                showInLegend: true
+                showInLegend: false
             }
         },
         series: [{
-            name: 'GDP',
+            name: 'GDP per Capita',
             colorByPoint: true,
             data: liv
         }]
@@ -241,14 +241,15 @@ function cSpend(spend){
             useHTML: true
         },
         xAxis:{
-            categories: null,
+            type: 'category',
+            labels: {
+                rotation: -45},
             title:{
                 text:['Countries']
             },
             crosshair: true
         },
         yAxis: {
-            min: 0,
             title:{
                 text: '$USD',
                 align: 'high'}
@@ -267,11 +268,11 @@ function cSpend(spend){
                 dataLabels: {
                     enabled: false
                 },
-                showInLegend: true
+                showInLegend: false
             }
         },
         series: [{
-            name: 'GDP',
+            name: 'Consumer Spending as a Percent of GDP',
             colorByPoint: true,
             data: spend
         }]
@@ -303,7 +304,7 @@ function easeDB(ease){
             useHTML: true
         },
         xAxis:{
-            categories: null,
+            type: 'category',
             title:{
                 text:['Countries']
             },
@@ -329,11 +330,11 @@ function easeDB(ease){
                 dataLabels: {
                     enabled: false
                 },
-                showInLegend: true
+                showInLegend: false
             }
         },
         series: [{
-            name: 'GDP',
+            name: 'Burden',
             colorByPoint: true,
             data: ease
         }]
