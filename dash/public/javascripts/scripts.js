@@ -66,7 +66,7 @@ function GDP(gdp){
             text: 'Nominal GDP'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>${point.y:.1f}</b>'
+            pointFormat: '{series.name}: <b>${point.y:.1f}T</b>'
         },
         plotOptions: {
             pie: {
@@ -100,7 +100,7 @@ function PPP(ppp){
             text: 'GDP PPP'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>${point.y:.1f}</b>'
+            pointFormat: '{series.name}: <b>${point.y:.1f}T</b>'
         },
         plotOptions: {
             pie: {
@@ -134,7 +134,7 @@ function Popul(pop){
             text: 'Population'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>${point.y:.1f}</b>'
+            pointFormat: '{series.name}: <b>{point.y:.1f}M</b>'
         },
         plotOptions: {
             pie: {
@@ -173,7 +173,7 @@ function livStand(liv){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}k</b></td></tr>',
+                '<td style="padding:0"><b>${point.y:.1f}USD</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -251,7 +251,7 @@ function cSpend(spend){
         },
         yAxis: {
             title:{
-                text: '$USD',
+                text: ' ',
                 align: 'high'}
                 ,
                 labels: {
@@ -298,7 +298,7 @@ function easeDB(ease){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -313,7 +313,7 @@ function easeDB(ease){
         yAxis: {
             min: 0,
             title:{
-                text: '$USD',
+                text: ' ',
                 align: 'high'}
                 ,
                 labels: {
@@ -416,7 +416,7 @@ function GroupPop(graph){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}k</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1fk}B/b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -431,7 +431,7 @@ function GroupPop(graph){
         yAxis: {
             min: 0,
             title:{
-                text: '$USD',
+                text: 'Million',
                 align: 'high'}
                 ,
                 labels: {
@@ -574,7 +574,7 @@ function G7_CPI1(g7cpi1){
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'CPI'
             }
         },
         legend: {
@@ -624,7 +624,7 @@ function G7_CPI2(g7cpi2){
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'CPI'
             }
         },
         legend: {
@@ -722,7 +722,7 @@ function BRIC_CPI(briccpi){
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'CPI YOY'
             }
         },
         legend: {
@@ -776,7 +776,7 @@ function BRICpop1(bricpop1){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -791,7 +791,7 @@ function BRICpop1(bricpop1){
         yAxis: {
             min: 0,
             title:{
-                text: '$USD',
+                text: 'Million',
                 align: 'high'}
                 ,
                 labels: {
@@ -835,7 +835,7 @@ function BRICpop2(bricpop2){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -850,7 +850,7 @@ function BRICpop2(bricpop2){
         yAxis: {
             min: 0,
             title:{
-                text: '$USD',
+                text: 'Million',
                 align: 'high'}
                 ,
                 labels: {
@@ -938,7 +938,7 @@ function MIST_CPI(mistcpi){
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'CPI'
             }
         },
         legend: {
@@ -991,7 +991,7 @@ function MISTpop(mistpop){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -1006,7 +1006,7 @@ function MISTpop(mistpop){
         yAxis: {
             min: 0,
             title:{
-                text: '$USD',
+                text: 'Million',
                 align: 'high'}
                 ,
                 labels: {
@@ -1094,7 +1094,7 @@ function Tier4_CPI(cpi4){
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'CPI YOY'
             }
         },
         legend: {
@@ -1147,7 +1147,7 @@ function Tier4pop(pop4){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -1162,7 +1162,7 @@ function Tier4pop(pop4){
         yAxis: {
             min: 0,
             title:{
-                text: '$USD',
+                text: 'Millions',
                 align: 'high'}
                 ,
                 labels: {
@@ -1446,7 +1446,7 @@ function BRICretail(retbric){
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: ' '
             }
         },
         legend: {
@@ -1495,7 +1495,7 @@ function MISTretail(retmist){
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: ' '
             }
         },
         legend: {
@@ -1544,7 +1544,7 @@ function Tier4retail(ret4){
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: ' '
             }
         },
         legend: {
