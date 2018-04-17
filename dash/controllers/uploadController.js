@@ -26,7 +26,48 @@ exports.getGDPfunc = function(yr,callback){
 			$project: {
 			_id: 0,
 			name: 1,
-			'y' : '$nominalGDP'
+			'y' : '$nominalGDP',
+			color: {
+				$cond: { 
+					if: 
+						{ $lte: [ "$nominalGDPGrowth", .01 ] }
+					
+					,then: "#E9FFDD", 
+					else: 
+						{
+							$cond:{
+								if: 
+								{ $lte: [ "$nominalGDPGrowth", .02 ] }
+								,then: "#C3E2B2",
+								else:	{
+									$cond:{
+										if: 
+										{ $lte: [ "$nominalGDPGrowth", .03 ] }
+										,then: "#93BD7C",
+										else:	{	
+											$cond:{
+												if: 
+												{ $lte: [ "$nominalGDPGrowth", .04 ] }
+												,then: "#78B05A",
+												else:	{	
+													$cond:{
+														if: 
+														{ $lte: [ "$nominalGDPGrowth", .05 ] }
+														,then: "#406C29",
+														else:	"#375824"
+													}
+												}
+											}
+										}
+									}
+								} 
+						} 
+					}
+					
+				}
+			}	
+			
+			
 			}
 		}		
 	], callback);
@@ -114,7 +155,25 @@ exports.get_detail = function(req, res, next) {
 					$project: {
 					_id: 0,
 					name: 1,
-					'y' : '$population'
+					'y' : '$population',
+					color: {
+						$cond: { 
+							if: 
+								{ $lte: [ "$populationGrowth", 0 ] }
+							
+							,then: "#FCC3AE", 
+							else: 
+								{
+									$cond:{
+										if: 
+										{ $gte: [ "$populationGrowth", .02 ] }
+										,then: "#214449",
+										else:	"#9EE0EA"
+								} 
+							}
+							
+						}
+					}	
 					}
 				}		
 				], callback);
