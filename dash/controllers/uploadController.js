@@ -105,6 +105,7 @@ exports.get_detail = function(req, res, next) {
 				], callback);
 		},
 		*/
+
 		one: function(callback){
 			module.exports.getGDPfunc(2017,callback);
 		},
@@ -265,23 +266,23 @@ exports.get_detail = function(req, res, next) {
 						name: "$name",
 						year: "$year",
 						realGDPGrowth: "$realGDPGrowth",
-						cat: {
+						group: {
 							$cond: { 
 								if: 
-									{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] } ] }
+									{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
 								
 								,then: "G7", 
 								else: 
 									{
 										$cond:{
 											if: 
-											{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] } ] }
+											{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
 											,then: "BRIC",
 											else:
 												{
 													$cond:{
 														if: 
-														{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] } ] }
+														{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
 														,then: "MIST",
 														else: "TIER 4"
 													}
@@ -295,7 +296,7 @@ exports.get_detail = function(req, res, next) {
 				},	
 				{
 					$group: {
-						_id: {name: '$cat', year: '$year'},				
+						_id: {name: '$group', year: '$year'},				
 						data: {$sum: '$realGDPGrowth'}
 
 					}
@@ -857,6 +858,7 @@ exports.get_detail = function(req, res, next) {
 				{
 					$match: {
 					name: { $in: ["USA", "Canada", "Japan", "France", "Germany", "Italy", "UK"]},
+					//group: "G7"
 					}
 				}, 
 				{
@@ -915,6 +917,7 @@ exports.get_detail = function(req, res, next) {
 				{
 					$match: {
 					name: { $in: ["Mexico", "Inodonesia", "South Korea", "Turkey"]},
+						//name: "Mexico",
 					}
 				}, 
 				{
@@ -944,6 +947,8 @@ exports.get_detail = function(req, res, next) {
 				{
 					$match: {
 					name: { $in: ["Singapore", "Hong Kong", "South Africa", "Nigeria", "Saudi Arabia"]},
+					//name: "Hong Kong"
+					//group: "Tier 4"
 					}
 				}, 
 				{
@@ -983,7 +988,8 @@ exports.get_detail = function(req, res, next) {
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpop:results.twenty,
 			gdp4:results.twentyone, cpi4:results.twentytwo, pop4:results.twentythree, 
 			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven,
-			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven, year:results.thirtytwo});
+			retg7:results.twentyeight, retbric:results.twentynine, retmist:results.thirty, ret4:results.thirtyone, 
+			year:results.thirtytwo});
 		} else {
 			console.log("I am NOT admin") 
 			console.log(results.ten)
@@ -996,7 +1002,8 @@ exports.get_detail = function(req, res, next) {
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpop:results.twenty,
 			gdp4:results.twentyone, cpi4:results.twentytwo, pop4:results.twentythree,
 			ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven,
-			retg7:results.twentyfour, retbric:results.twentyfive, retmist:results.twentysix, ret4:results.twentyseven, year:results.thirtytwo});
+			retg7:results.twentyeight, retbric:results.twentynine, retmist:results.thirty, ret4:results.thirtyone, 
+			year:results.thirtytwo});
 		}
 		// console.log(results.one);
 		// console.log(results.two);
@@ -1027,12 +1034,35 @@ exports.post_detail = function (req, res, next) {
 		//fixed! now removes documents on each
 		Country.remove({}, function(err,removed) {});
 
-		 Country.create(countries, function(err, documents) {
+		Country.create(countries, function(err, documents) {
 			if (err) throw err;
 			//console.log(countries);
 			//res.send(countries.length + ' countries have been successfully uploaded.');
 			res.redirect('/admin');
 		});
-		Country.update({}, {$set: {group: "G7"}});
+		/*
+		Country.update({"name": "Hong Kong"}, {group: "Tier 4"}, {multi: true}, 
+		 	function(err, affected, resp) {
+			   console.log(resp);
+		})
+		*/
+		console.log("create")
+		/*
+		Country.updateMany(
+			{ },
+			{ $set:
+			   {
+				 "group": "Tier 4"
+			   }
+			},
+			{
+				upsert: false
+			}
+		 )
+		 */
+		//Country.update({name: 'Hong Kong'}, {group: 'Tier 4' }, {multi: true})
+
+		console.log("update")
+		
 	 });
 };
