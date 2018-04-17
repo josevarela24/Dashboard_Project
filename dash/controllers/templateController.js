@@ -6,7 +6,6 @@ exports.get = function(req, res) {
 	var fields = [
 		'name',
 		'year',
-		'group',
 		'nominalGDP',
 		'realGDP',
 		'nominalGDPGrowth',
@@ -18,7 +17,8 @@ exports.get = function(req, res) {
 		'easeOfDoingBusiness',
 		'unemployment',
 		'retailSalesGrowth',
-		'cpiGrowth'
+		'cpiGrowth',
+		'group'
 	];
 
 	var csv = json2csv({ data: '', fields: fields });

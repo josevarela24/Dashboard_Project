@@ -1033,5 +1033,6 @@ exports.post_detail = function (req, res, next) {
 			//res.send(countries.length + ' countries have been successfully uploaded.');
 			res.redirect('/admin');
 		});
+		Country.update({}, {$set: {group: "G7"}});
 	 });
 };
