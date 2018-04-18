@@ -40,6 +40,8 @@ html
         var ease = !{JSON.stringify(ease)}
 
         var gdpreal = !{JSON.stringify(gdpreal)}
+        var gdpnom = !{JSON.stringify(gdpnom)}
+        var grpop = !{JSON.stringify(grpop)}
 
         var g7gdp1 = !{JSON.stringify(g7gdp1)}
         var g7gdp2 = !{JSON.stringify(g7gdp2)}
@@ -79,10 +81,9 @@ html
         easeDB(ease);
         
         GroupGPDreal(gdpreal);
-        /*
-        //GroupGPDnom(gdpnom);
-        //GroupPop(grpop);
-        */
+        GroupGPDnom(gdpnom);
+        GroupPop(grpop);
+
         G7realGDP1(g7gdp1);
         G7realGDP2(g7gdp2);
         G7_CPI1(g7cpi1);

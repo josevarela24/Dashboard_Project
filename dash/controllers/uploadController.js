@@ -114,10 +114,6 @@ exports.get_detail = function(req, res, next) {
 			Country.aggregate([
 				{			
 					$match: {
-						// $and: [
-						// 	{name: { $in: ["USA", "China", "India", "France", "Japan"]}},
-						// 	{year: 2017}
-						// ]
 						year: 2017
 					}
 				},
@@ -130,7 +126,33 @@ exports.get_detail = function(req, res, next) {
 					$project: {
 					_id: 0,
 					name: 1,
-					'y' : '$gdpPpp'
+					'y' : '$gdpPpp',
+					color: {
+						$cond: { 
+							if: 
+								{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
+							
+							,then: "#F7BC4E", 
+							else: 
+								{
+									$cond:{
+										if: 
+										{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
+										,then: "#70FF6E",
+										else:
+											{
+												$cond:{
+													if: 
+													{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
+													,then: "#050A05",
+													else: "#6ED1FF"
+												}
+											}
+								} 
+							}
+							
+						}
+					}	
 					}
 				}		
 				], callback);
@@ -200,7 +222,33 @@ exports.get_detail = function(req, res, next) {
 					$project: {
 					_id: 0,
 					name: 1,
-					'y' : '$nominalGDP'
+					'y' : '$nominalGDP',
+					color: {
+						$cond: { 
+							if: 
+								{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
+							
+							,then: "#F7BC4E", 
+							else: 
+								{
+									$cond:{
+										if: 
+										{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
+										,then: "#70FF6E",
+										else:
+											{
+												$cond:{
+													if: 
+													{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
+													,then: "#050A05",
+													else: "#6ED1FF"
+												}
+											}
+								} 
+							}
+							
+							}
+						}	
 					}
 				}		
 				], callback);
@@ -226,7 +274,33 @@ exports.get_detail = function(req, res, next) {
 					$project: {
 					_id: 0,
 					name: 1,
-					'y' : '$nominalGDP'
+					'y' : '$nominalGDP',
+					color: {
+						$cond: { 
+							if: 
+								{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
+							
+							,then: "#F7BC4E", 
+							else: 
+								{
+									$cond:{
+										if: 
+										{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
+										,then: "#70FF6E",
+										else:
+											{
+												$cond:{
+													if: 
+													{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
+													,then: "#050A05",
+													else: "#6ED1FF"
+												}
+											}
+								} 
+							}
+							
+							}
+						}	
 					}
 				}		
 				], callback);
@@ -252,7 +326,33 @@ exports.get_detail = function(req, res, next) {
 					$project: {
 					_id: 0,
 					name: 1,
-					'y' : '$easeOfDoingBusiness'
+					'y' : '$easeOfDoingBusiness',
+					color: {
+						$cond: { 
+							if: 
+								{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
+							
+							,then: "#F7BC4E", 
+							else: 
+								{
+									$cond:{
+										if: 
+										{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
+										,then: "#70FF6E",
+										else:
+											{
+												$cond:{
+													if: 
+													{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
+													,then: "#050A05",
+													else: "#6ED1FF"
+												}
+											}
+								} 
+							}
+							
+							}
+						}	
 					}
 				}		
 				], callback);
@@ -317,7 +417,153 @@ exports.get_detail = function(req, res, next) {
 				{
 					$group:{
 						_id: '$name',
-						data: {$push: '$data'}
+						data: {$push: {y: '$data', x: '$year'}}
+					}
+				},
+				{
+					$project: {
+						_id: 0,
+						name: '$_id',
+						data: '$data'
+					}
+				},
+				
+				], callback);
+		},
+
+		eight: function(callback){
+			Country.aggregate([
+				{
+					$project:{
+						id: 1,
+						name: "$name",
+						year: "$year",
+						nominalGDP: "$nominalGDP",
+						group: {
+							$cond: { 
+								if: 
+									{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
+								
+								,then: "G7", 
+								else: 
+									{
+										$cond:{
+											if: 
+											{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
+											,then: "BRIC",
+											else:
+												{
+													$cond:{
+														if: 
+														{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
+														,then: "MIST",
+														else: "TIER 4"
+													}
+												}
+									} 
+								}
+								
+							}
+						}					
+					}
+				},	
+				{
+					$group: {
+						_id: {name: '$group', year: '$year'},				
+						data: {$sum: '$nominalGDP'}
+
+					}
+				},
+				{
+					$project: {
+						_id: 0,
+						name: '$_id.name',
+						year: '$_id.year',
+						data: '$data'
+					}
+				},
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group:{
+						_id: '$name',
+						data: {$push: {y: '$data', x: '$year'}}
+					}
+				},
+				{
+					$project: {
+						_id: 0,
+						name: '$_id',
+						data: '$data'
+					}
+				},
+				
+				], callback);
+		},
+
+		nine: function(callback){
+			Country.aggregate([
+				{
+					$project:{
+						id: 1,
+						name: "$name",
+						year: "$year",
+						population: "$population",
+						group: {
+							$cond: { 
+								if: 
+									{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
+								
+								,then: "G7", 
+								else: 
+									{
+										$cond:{
+											if: 
+											{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
+											,then: "BRIC",
+											else:
+												{
+													$cond:{
+														if: 
+														{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
+														,then: "MIST",
+														else: "TIER 4"
+													}
+												}
+									} 
+								}
+								
+							}
+						}					
+					}
+				},	
+				{
+					$group: {
+						_id: {name: '$group', year: '$year'},				
+						data: {$sum: '$population'}
+
+					}
+				},
+				{
+					$project: {
+						_id: 0,
+						name: '$_id.name',
+						year: '$_id.year',
+						data: '$data'
+					}
+				},
+				{
+					$sort: {
+						year: 1
+					}
+				},
+				{
+					$group:{
+						_id: '$name',
+						data: {$push: {y: '$data', x: '$year'}}
 					}
 				},
 				{
@@ -982,7 +1228,7 @@ exports.get_detail = function(req, res, next) {
 			console.log("I am admin")
 			res.render('admin', { title: 'Test', gdp:results.one, ppp:results.two,pop: results.three, 
 			liv:results.four, spend:results.five, ease:results.six,
-			gdpreal:results.seven,
+			gdpreal:results.seven, gdpnom:results.eight, grpop:results.nine,
 			g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, 
 			bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1:results.sixteen, bricpop2:results.seventeen,
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpop:results.twenty,
@@ -994,9 +1240,10 @@ exports.get_detail = function(req, res, next) {
 			console.log("I am NOT admin") 
 			console.log(results.ten)
 			console.log(results.twelve)
+			console.log(results.eight)
 			res.render('hello', { title: 'Test', gdp:results.one, ppp:results.two,pop: results.three, 
 			liv:results.four, spend:results.five, ease:results.six,
-			gdpreal:results.seven, 
+			gdpreal:results.seven, gdpnom:results.eight, grpop:results.nine,
 			g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, 
 			bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1:results.sixteen, bricpop2:results.seventeen,
 			mistgdp:results.eighteen, mistcpi:results.ninteen, mistpop:results.twenty,
