@@ -30,5 +30,5 @@ a {
 }
 
 .ch {
-  min-width: 310px; height: 600px; max-width: 600px; margin: 0 auto;
+  min-width: 310px; height: 600px; max-width: 600px; margin: 0 auto; border-left: 2px solid black; border-top: 2px solid black; border-right: 2px solid black;
 }
