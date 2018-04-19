@@ -24,16 +24,6 @@ var countrySchema = mongoose.Schema({
     retailSalesGrowth: Number,
     cpiGrowth: Number
 });
-//custom method, can even do queries here I think
-//dudify is method name
-countrySchema.methods.dudify = function() {
-    // add some stuff to the users name
-    this.name = this.name + '-dude'; 
-  
-    return this.name;
-  };
-
-
 
 var Country = mongoose.model('Country', countrySchema);
 

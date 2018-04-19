@@ -1714,3 +1714,128 @@ $('#one').change(function() {
         chart.series[0].setData(results);
     })
 });
+
+$('#two').change(function() {
+    var val = $("#two option:selected").text();
+    //alert(val);
+    var id = 'two';
+    //alert(id);
+    $.ajax({
+        type: "POST",
+        url: "/sss", //Your required php page
+        data: {val, id}, //pass your required data here
+        dataType: 'JSON',
+        success: function () { //You obtain the response that you echo from your controller
+            console.log('success');
+            //GDP(data);
+        },
+        error: function (ts) {
+            alert(ts.responseText);
+            alert(val);
+        }
+    })
+    .done(function (results){
+        var chart = $('#char2').highcharts();
+        chart.series[0].setData(results);
+    })
+});
+
+$('#three').change(function() {
+    var val = $("#three option:selected").text();
+    //alert(val);
+    var id = 'three';
+    //alert(id);
+    $.ajax({
+        type: "POST",
+        url: "/sss", //Your required php page
+        data: {val, id}, //pass your required data here
+        dataType: 'JSON',
+        success: function () { //You obtain the response that you echo from your controller
+            console.log('success');
+            //GDP(data);
+        },
+        error: function (ts) {
+            alert(ts.responseText);
+            alert(val);
+        }
+    })
+    .done(function (results){
+        var chart = $('#char3').highcharts();
+        chart.series[0].setData(results);
+    })
+});
+
+$('#four').change(function() {
+    var val = $("#four option:selected").text();
+    //alert(val);
+    var id = 'four';
+    //alert(id);
+    $.ajax({
+        type: "POST",
+        url: "/sss", //Your required php page
+        data: {val, id}, //pass your required data here
+        dataType: 'JSON',
+        success: function () { //You obtain the response that you echo from your controller
+            console.log('success');
+            //GDP(data);
+        },
+        error: function (ts) {
+            alert(ts.responseText);
+            alert(val);
+        }
+    })
+    .done(function (results){
+        var chart = $('#char4').highcharts();
+        chart.series[0].setData(results);
+    })
+});
+
+$('#five').change(function() {
+    var val = $("#five option:selected").text();
+    //alert(val);
+    var id = 'five';
+    //alert(id);
+    $.ajax({
+        type: "POST",
+        url: "/sss", //Your required php page
+        data: {val, id}, //pass your required data here
+        dataType: 'JSON',
+        success: function () { //You obtain the response that you echo from your controller
+            console.log('success');
+            //GDP(data);
+        },
+        error: function (ts) {
+            alert(ts.responseText);
+            alert(val);
+        }
+    })
+    .done(function (results){
+        var chart = $('#char5').highcharts();
+        chart.series[0].setData(results);
+    })
+});
+
+$('#six').change(function() {
+    var val = $("#six option:selected").text();
+    //alert(val);
+    var id = 'six';
+    //alert(id);
+    $.ajax({
+        type: "POST",
+        url: "/sss", //Your required php page
+        data: {val, id}, //pass your required data here
+        dataType: 'JSON',
+        success: function () { //You obtain the response that you echo from your controller
+            console.log('success');
+            //GDP(data);
+        },
+        error: function (ts) {
+            alert(ts.responseText);
+            alert(val);
+        }
+    })
+    .done(function (results){
+        var chart = $('#char6').highcharts();
+        chart.series[0].setData(results);
+    })
+});

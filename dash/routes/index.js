@@ -24,17 +24,97 @@ router.get('/',
 
 router.post('/sss', function(req, res, next){
   var yr = req.body.val;
+  var fid = req.body.id;
+  
+  // var funnn = function(year, callback){
+  //   uploadController.getPPPfunc(year, callback);
+  // }
 
-  var funnn = function(year, callback){
-    uploadController.getGDPfunc(year, callback);
+  // funnn(Number(yr), function(err,results){
+  //   if(err) console.log("err");
+  //   else{
+  //     res.send(results);
+  //   }
+  // });
+
+  switch(fid){
+    case "one":  
+        var funnn = function(year, callback){
+        uploadController.getGDPfunc(year, callback);
+      }
+      funnn(Number(yr), function(err,results){
+        if(err) console.log("err");
+        else{
+          res.send(results);
+          console.log("inside case 1");
+        }
+      });
+      break;
+    case "two":
+        var funnn = function(year, callback){
+        uploadController.getPPPfunc(year, callback);
+      }  
+      funnn(Number(yr), function(err,results){
+        if(err) console.log("err");
+        else{
+          res.send(results);
+          console.log("inside case 2");
+        }
+      });
+      break;
+    case "three":  
+        var funnn = function(year, callback){
+        uploadController.getPopfunc(year, callback);
+      }
+      funnn(Number(yr), function(err,results){
+        if(err) console.log("err");
+        else{
+          res.send(results);
+          console.log("inside case 3");
+        }
+      });
+      break;
+    case "four":  
+        var funnn = function(year, callback){
+        uploadController.getNGDPfunc(year, callback);
+      }
+      funnn(Number(yr), function(err,results){
+        if(err) console.log("err");
+        else{
+          res.send(results);
+          console.log("inside case 4");
+        }
+      });
+      break;
+    case "five":
+      var funnn = function(year, callback){
+        uploadController.getNFGDPfunc(year, callback);
+      }  
+      funnn(Number(yr), function(err,results){
+        if(err) console.log("err");
+        else{
+          res.send(results);
+          console.log("inside case 5");
+        }
+      });
+      break;
+    case "six":  
+      var funnn = function(year, callback){
+        uploadController.getEasefunc(year, callback);
+      }
+      funnn(Number(yr), function(err,results){
+        if(err) console.log("err");
+        else{
+          res.send(results);
+          console.log("inside case 6");
+        }
+      });
+      break;
+
+    default: console.log("didn't work");
+      break;
   }
 
-  funnn(Number(yr), function(err,results){
-    if(err) console.log("err");
-    else{
-      res.send(results);
-    }
-  });
 });
 
 router.get('/login', function(req, res, next){
