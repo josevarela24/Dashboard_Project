@@ -1,56 +1,5 @@
 //js file that holds the chart scripts
 
-//line chart function
-/*
-function makeLine(data){
-    console.log("***************");
-
-    Highcharts.chart('char1', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Nominal GDP'
-        },
-        subtitle: {
-            text: 'World Economy Dashboard'
-        },
-        yAxis: {
-            title: {
-                text: 'Nominal GDP'
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: data,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-*/
 //pie chart function
 function GDP(gdp){
 
