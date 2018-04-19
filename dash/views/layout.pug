@@ -196,7 +196,7 @@ html
           label Year  
             select#one 
               if year
-                each yr in year
+                each yr in year.sort().reverse()
                   option #{yr}
           br
           #char2.ch
