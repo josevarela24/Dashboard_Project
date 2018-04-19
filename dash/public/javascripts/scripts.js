@@ -392,14 +392,53 @@ function GroupGPDreal(gdpreal){
 }
 
 //8
-function GroupGPDnom(){
+function GroupGPDnom(gdpnom){
     //stacked area chart
+    Highcharts.chart('char8', {
+        chart: {
+            type: 'area',
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Historic and Estimated Worldwide Population Growth by Region'
+        },
+        subtitle: {
+            text: 'Source: Wikipedia.org'
+        },
+        xAxis: {
+            tickmarkPlacement: 'on',
+            title: {
+                enabled: false
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Billions'
+            },
+        },
+        tooltip: {
+            split: true,
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            area: {
+                stacking: 'normal',
+                //lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    //lineColor: '#666666'
+                }
+            }
+        },
+        series: gdpnom
+    });
 }
 
 //9
-function GroupPop(graph){
+function GroupPop(grpop){
 
-    Highcharts.chart('char4', {
+    Highcharts.chart('char9', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -408,15 +447,15 @@ function GroupPop(graph){
             type: 'column'
         },
         title: {
-            text: 'Standard of Living'
+            text: 'Population'
         },
         subtitle: {
-            text: 'GDP per Capita in US dollars on a purchasing power parity(PPP)'
+            text: ' '
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1fk}B/b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -451,11 +490,7 @@ function GroupPop(graph){
                 showInLegend: true
             }
         },
-        series: [{
-            name: 'GDP',
-            colorByPoint: true,
-            data: graph
-        }]
+        series: grpop
     });
 }
 
