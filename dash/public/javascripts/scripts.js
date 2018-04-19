@@ -396,7 +396,8 @@ function GroupGPDnom(gdpnom){
     //stacked area chart
     Highcharts.chart('char8', {
         chart: {
-            type: 'area'
+            type: 'area',
+            backgroundColor: 'transparent'
         },
         title: {
             text: 'Historic and Estimated Worldwide Population Growth by Region'
