@@ -15,7 +15,7 @@ function GDP(gdp){
             text: 'Nominal GDP'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>${point.y:.1f}T</b>'
+            pointFormat: '{series.name}: <b>${point.y:1f}</b>'
         },
         plotOptions: {
             pie: {
@@ -49,7 +49,7 @@ function PPP(ppp){
             text: 'GDP PPP'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>${point.y:.1f}T</b>'
+            pointFormat: '{series.name}: <b>${point.y:1f}</b>'
         },
         plotOptions: {
             pie: {
@@ -83,7 +83,7 @@ function Popul(pop){
             text: 'Population'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.y:.1f}M</b>'
+            pointFormat: '{series.name}: <b>{point.y:1f}M</b>'
         },
         plotOptions: {
             pie: {
@@ -122,7 +122,7 @@ function livStand(liv){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>${point.y:.1f}USD</b></td></tr>',
+                '<td style="padding:0"><b>${point.y:1f}USD</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -247,7 +247,7 @@ function easeDB(ease){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:1f}</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -301,13 +301,18 @@ function GroupGPDreal(gdpreal){
         title: {
             text: 'Real GDP YOY Growth'
         },
-        subtitle: {
-            text: 'World Economy Dashboard'
-        },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -349,10 +354,7 @@ function GroupGPDnom(gdpnom){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Historic and Estimated Worldwide Population Growth by Region'
-        },
-        subtitle: {
-            text: 'Source: Wikipedia.org'
+            text: 'Nominal GDP in USD'
         },
         xAxis: {
             tickmarkPlacement: 'on',
@@ -362,12 +364,20 @@ function GroupGPDnom(gdpnom){
         },
         yAxis: {
             title: {
-                text: 'Billions'
+                text: 'Millions'
             },
         },
+        //tooltip: {
+        //    split: true,
+        //    valuePrefix: '$'
+        //},
         tooltip: {
-            split: true,
-            valueSuffix: ' millions'
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>${point.y:1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
         },
         plotOptions: {
             area: {
@@ -404,7 +414,7 @@ function GroupPop(grpop){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:1f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -419,8 +429,7 @@ function GroupPop(grpop){
         yAxis: {
             min: 0,
             title:{
-                text: 'Million',
-                align: 'high'}
+                text: 'Million'}
                 ,
                 labels: {
                     overflow: 'justify'
@@ -452,15 +461,23 @@ function G7realGDP1(g7gdp1){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'G7 Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'Real GDP YOY Growth'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%M</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -501,15 +518,23 @@ function G7realGDP2(g7gdp2){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'G7 Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'Real GDP YOY Growth'
         },
         yAxis: {
             title: {
                 text: 'GDP'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -551,15 +576,23 @@ function G7_CPI1(g7cpi1){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'CPI YOY Change'
+            text: 'G7 Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'CPI YOY Change'
         },
         yAxis: {
             title: {
-                text: 'CPI'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -601,15 +634,23 @@ function G7_CPI2(g7cpi2){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'CPI YOY Change'
+            text: 'G7 Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'CPI YOY Change'
         },
         yAxis: {
             title: {
-                text: 'CPI'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -650,15 +691,23 @@ function BRICrealGDP(bricgdp){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'BRIC Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'Real GDP YOY Growth'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -699,15 +748,23 @@ function BRIC_CPI(briccpi){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'CPI YOY Change'
+            text: 'BRIC Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'CPI YOY Change'
         },
         yAxis: {
             title: {
-                text: 'CPI YOY'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -752,15 +809,15 @@ function BRICpop1(bricpop1){
             type: 'column'
         },
         title: {
-            text: 'Population'
+            text: 'BRIC Nations'
         },
         subtitle: {
-            text: ' '
+            text: 'Population'
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -775,8 +832,7 @@ function BRICpop1(bricpop1){
         yAxis: {
             min: 0,
             title:{
-                text: 'Million',
-                align: 'high'}
+                text: 'Million'}
                 ,
                 labels: {
                     overflow: 'justify'
@@ -811,15 +867,15 @@ function BRICpop2(bricpop2){
             type: 'column'
         },
         title: {
-            text: 'Population'
+            text: 'BRIC Nations'
         },
         subtitle: {
-            text: ' '
+            text: 'Population'
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -834,8 +890,7 @@ function BRICpop2(bricpop2){
         yAxis: {
             min: 0,
             title:{
-                text: 'Million',
-                align: 'high'}
+                text: 'Million'}
                 ,
                 labels: {
                     overflow: 'justify'
@@ -866,15 +921,23 @@ function MISTrealGDP(mistgdp){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'MIST Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'Real GDP YOY Growth'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -915,15 +978,23 @@ function MIST_CPI(mistcpi){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'CPI YOY Change'
+            text: 'MIST Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'CPI YOY Change'
         },
         yAxis: {
             title: {
-                text: 'CPI'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -967,15 +1038,15 @@ function MISTpop(mistpop){
             type: 'column'
         },
         title: {
-            text: 'Population'
+            text: 'MIST Nations'
         },
         subtitle: {
-            text: ' '
+            text: 'Population'
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -990,8 +1061,7 @@ function MISTpop(mistpop){
         yAxis: {
             min: 0,
             title:{
-                text: 'Million',
-                align: 'high'}
+                text: 'Million'}
                 ,
                 labels: {
                     overflow: 'justify'
@@ -1022,15 +1092,23 @@ function Tier4realGDP(gdp4){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Real GDP YOY Growth'
+            text: 'Tier 4 Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'Real GDP YOY Growth'
         },
         yAxis: {
             title: {
-                text: 'GDP'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -1071,15 +1149,23 @@ function Tier4_CPI(cpi4){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'CPI YOY Change'
+            text: 'Tier 4 Nations'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'CPI YOY Change'
         },
         yAxis: {
             title: {
-                text: 'CPI YOY'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -1123,15 +1209,15 @@ function Tier4pop(pop4){
             type: 'column'
         },
         title: {
-            text: 'Population'
+            text: 'Tier 4 Nations'
         },
         subtitle: {
-            text: 'Domestic demand is normally more stable than exports, buffering a nation from price shocks and barriers.'
+            text: 'Population'
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}M</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -1146,8 +1232,7 @@ function Tier4pop(pop4){
         yAxis: {
             min: 0,
             title:{
-                text: 'Millions',
-                align: 'high'}
+                text: 'Millions'}
                 ,
                 labels: {
                     overflow: 'justify'
@@ -1178,20 +1263,28 @@ function G7unemp(ug7){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'G7'
+            text: 'Unemployment'
         },
         subtitle: {
-            text: 'World Economy Dashboard'
+            text: 'G7'
         },
         yAxis: {
             title: {
-                text: 'Unemployment'
+                text: 'Percentage'
             }
         },
         legend: {
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'middle'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         plotOptions: {
             series: {
@@ -1234,13 +1327,21 @@ function BRICunemp(ubric){
         },
         yAxis: {
             title: {
-                text: 'Unemployment'
+                text: 'Percentage'
             }
         },
         legend: {
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'middle'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         plotOptions: {
             series: {
@@ -1283,8 +1384,16 @@ function MISTunemp(umist){
         },
         yAxis: {
             title: {
-                text: 'Unemployment'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -1332,8 +1441,16 @@ function Tier4unemp(u4){
         },
         yAxis: {
             title: {
-                text: 'Unemployment'
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -1374,20 +1491,28 @@ function G7retail(retg7){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Retail Sales'
+            text: 'Retail Sales - YOY Change'
         },
         subtitle: {
             text: 'G7'
         },
         yAxis: {
             title: {
-                text: ''
+                text: 'Percentage'
             }
         },
         legend: {
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'middle'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         plotOptions: {
             series: {
@@ -1423,20 +1548,28 @@ function BRICretail(retbric){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Retail Sales'
+            text: 'Retail Sales - YOY Change'
         },
         subtitle: {
             text: 'BRIC'
         },
         yAxis: {
             title: {
-                text: ' '
+                text: 'Percentage'
             }
         },
         legend: {
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'middle'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         plotOptions: {
             series: {
@@ -1472,15 +1605,23 @@ function MISTretail(retmist){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Retail Sales'
+            text: 'Retail Sales - YOY Change'
         },
         subtitle: {
             text: 'MIST'
         },
         yAxis: {
             title: {
-                text: ' '
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
@@ -1521,15 +1662,23 @@ function Tier4retail(ret4){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'Retail Sales'
+            text: 'Retail Sales - YOY Change'
         },
         subtitle: {
             text: 'Tier 4'
         },
         yAxis: {
             title: {
-                text: ' '
+                text: 'Percentage'
             }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
         },
         legend: {
             layout: 'vertical',
