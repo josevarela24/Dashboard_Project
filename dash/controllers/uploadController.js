@@ -695,36 +695,7 @@ exports.get_detail = function(req, res, next) {
 					Country.aggregate([
 						{
 							$match: {
-							name: { $in: ["USA", "Japan", "Canada"]},
-							}
-						}, 
-						{
-							$sort: {
-								year: 1
-							}
-						},
-						{
-							$group: {
-								_id: '$name',
-								data: {$push: {x: "$year", y: "$realGDPGrowth"}}
-							}
-						}, 
-						{
-							$project: {
-							_id: 0,
-							name: "$_id",
-							data: 1
-							//'data' : '$data'
-							}
-						}
-						], callback);
-				},
-		
-				eleven: function(callback){
-					Country.aggregate([
-						{
-							$match: {
-							name: { $in: ["France", "Germany", "Italy", "UK"]},
+							name: { $in: ["USA", "Japan", "Canada", "France", "Germany", "Italy", "UK"]},
 							}
 						}, 
 						{
@@ -753,36 +724,7 @@ exports.get_detail = function(req, res, next) {
 					Country.aggregate([
 						{
 							$match: {
-							name: { $in: ["USA", "Japan", "Canada"]},
-							}
-						}, 
-						{
-							$sort: {
-								year: 1
-							}
-						},
-						{
-							$group: {
-								_id: '$name',
-								data: {$push: {x: "$year", y: "$cpiGrowth"}}
-							}
-						}, 
-						{
-							$project: {
-							_id: 0,
-							name: "$_id",
-							data: 1
-							//'data' : '$data'
-							}
-						}
-						], callback);
-				},
-		
-				thirteen: function(callback){
-					Country.aggregate([
-						{
-							$match: {
-							name: { $in: ["France", "Germany", "Italy", "UK"]},
+							name: { $in: ["USA", "Japan", "Canada", "France", "Germany", "Italy", "UK"]},
 							}
 						}, 
 						{
@@ -869,7 +811,7 @@ exports.get_detail = function(req, res, next) {
 					Country.aggregate([
 						{			
 							$match: {
-							name: { $in: ["India", "China"]},		
+							name: { $in: ["Brazil", "Russia", "India", "China"]},		
 							}
 						},
 						{
@@ -891,35 +833,6 @@ exports.get_detail = function(req, res, next) {
 							//'data' : '$data'
 							}
 						}	
-						], callback);
-				},
-		
-				seventeen: function(callback){
-					Country.aggregate([
-						{			
-							$match: {
-							name: { $in: ["Brazil", "Russia"]},		
-							}
-						},
-						{
-							$sort: {
-								year: 1
-							}
-						},
-						{
-							$group: {
-								_id: '$name',
-								data: {$push: {x: "$year", y: "$population"}}
-							}
-						}, 
-						{
-							$project: {
-							_id: 0,
-							name: "$_id",
-							data: 1
-							//'data' : '$data'
-							}
-						}		
 						], callback);
 				},
 		
@@ -1159,7 +1072,7 @@ exports.get_detail = function(req, res, next) {
 					Country.aggregate([
 						{
 							$match: {
-							name: { $in: ["Mexico", "Inodonesia", "South Korea", "Turkey"]},
+							name: { $in: ["Mexico", "Indonesia", "South Korea", "Turkey"]},
 							}
 						}, 
 						{
@@ -1188,7 +1101,7 @@ exports.get_detail = function(req, res, next) {
 					Country.aggregate([
 						{
 							$match: {
-							name: { $in: ["Singaore", "Hong Kong", "South Africa", "Nigeria", "Saudi Arabia"]},
+							name: { $in: ["Singapore", "Hong Kong", "South Africa", "Nigeria", "Saudi Arabia", "Australia"]},
 							}
 						}, 
 						{
@@ -1276,7 +1189,7 @@ exports.get_detail = function(req, res, next) {
 					Country.aggregate([
 						{
 							$match: {
-							name: { $in: ["Mexico", "Inodonesia", "South Korea", "Turkey"]},
+							name: { $in: ["Mexico", "Indonesia", "South Korea", "Turkey"]},
 								//name: "Mexico",
 							}
 						}, 
@@ -1306,7 +1219,7 @@ exports.get_detail = function(req, res, next) {
 					Country.aggregate([
 						{
 							$match: {
-							name: { $in: ["Singapore", "Hong Kong", "South Africa", "Nigeria", "Saudi Arabia"]},
+							name: { $in: ["Singapore", "Hong Kong", "South Africa", "Nigeria", "Saudi Arabia", "Australia"]},
 							//name: "Hong Kong"
 							//group: "Tier 4"
 							}
@@ -1343,27 +1256,23 @@ exports.get_detail = function(req, res, next) {
 					res.render('admin', { title: 'Test', gdp:results.one, ppp:results.two,pop: results.three, 
 					liv:results.four, spend:results.five, ease:results.six,
 					gdpreal:results.seven, gdpnom:results.eight, grpop:results.nine,
-					g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, 
-					bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1:results.sixteen, bricpop2:results.seventeen,
-					mistgdp:results.eighteen, mistcpi:results.ninteen, mistpop:results.twenty,
-					gdp4:results.twentyone, cpi4:results.twentytwo, pop4:results.twentythree, 
-					ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven,
-					retg7:results.twentyeight, retbric:results.twentynine, retmist:results.thirty, ret4:results.thirtyone, 
+					g7gdp:results.ten, g7cpi:results.twelve, ug7:results.twentyfour, retg7:results.twentyeight,
+					bricgdp:results.fourteen, briccpi:results.fifteen, bricpop:results.sixteen, ubric:results.twentyfive, retbric:results.twentynine, 
+					mistgdp:results.eighteen, mistcpi:results.ninteen, mistpop:results.twenty, umist:results.twentysix, retmist:results.thirty, 
+					gdp4:results.twentyone, cpi4:results.twentytwo, pop4:results.twentythree, u4:results.twentyseven, ret4:results.thirtyone, 
 					year:results.thirtytwo});
 				} else {
 					console.log("I am NOT admin") 
-					console.log(results.ten)
-					console.log(results.twelve)
+					//console.log(results.ten)
+					//console.log(results.twelve)
 					console.log(results.eight)
 					res.render('hello', { title: 'Test', gdp:results.one, ppp:results.two,pop: results.three, 
 					liv:results.four, spend:results.five, ease:results.six,
 					gdpreal:results.seven, gdpnom:results.eight, grpop:results.nine,
-					g7gdp1:results.ten, g7gdp2:results.eleven, g7cpi1:results.twelve, g7cpi2:results.thirteen, 
-					bricgdp:results.fourteen, briccpi:results.fifteen, bricpop1:results.sixteen, bricpop2:results.seventeen,
-					mistgdp:results.eighteen, mistcpi:results.ninteen, mistpop:results.twenty,
-					gdp4:results.twentyone, cpi4:results.twentytwo, pop4:results.twentythree,
-					ug7:results.twentyfour, ubric:results.twentyfive, umist:results.twentysix, u4:results.twentyseven,
-					retg7:results.twentyeight, retbric:results.twentynine, retmist:results.thirty, ret4:results.thirtyone, 
+					g7gdp:results.ten, g7cpi:results.twelve, ug7:results.twentyfour, retg7:results.twentyeight,
+					bricgdp:results.fourteen, briccpi:results.fifteen, bricpop:results.sixteen, ubric:results.twentyfive, retbric:results.twentynine, 
+					mistgdp:results.eighteen, mistcpi:results.ninteen, mistpop:results.twenty, umist:results.twentysix, retmist:results.thirty, 
+					gdp4:results.twentyone, cpi4:results.twentytwo, pop4:results.twentythree, u4:results.twentyseven, ret4:results.thirtyone, 
 					year:results.thirtytwo});
 				}
 				// console.log(results.one);

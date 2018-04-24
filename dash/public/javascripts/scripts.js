@@ -452,8 +452,8 @@ function GroupPop(grpop){
     });
 }
 
-//US, Canada, Japan
-function G7realGDP1(g7gdp1){
+
+function G7realGDP(g7gdp){
     console.log("***************");
 
     Highcharts.chart('char10', {
@@ -461,10 +461,10 @@ function G7realGDP1(g7gdp1){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'G7 Nations'
+            text: 'Real GDP YOY Growth'
         },
         subtitle: {
-            text: 'Real GDP YOY Growth'
+            text: 'G7'
         },
         yAxis: {
             title: {
@@ -476,7 +476,7 @@ function G7realGDP1(g7gdp1){
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.3f}%M</b></td></tr>',
             footerFormat: '</table>',
-            shared: false,
+            shared: true,
             useHTML: true
         },
         legend: {
@@ -491,7 +491,7 @@ function G7realGDP1(g7gdp1){
                 }
             }
         },
-        series: g7gdp1,
+        series: g7gdp,
         responsive: {
             rules: [{
                 condition: {
@@ -509,8 +509,7 @@ function G7realGDP1(g7gdp1){
     });
 }
 
-//France, Germany, Italy, UK
-function G7realGDP2(g7gdp2){
+function G7_CPI(g7cpi){
     console.log("***************");
 
     Highcharts.chart('char11', {
@@ -518,126 +517,10 @@ function G7realGDP2(g7gdp2){
             backgroundColor: 'transparent'
         },
         title: {
-            text: 'G7 Nations'
-        },
-        subtitle: {
-            text: 'Real GDP YOY Growth'
-        },
-        yAxis: {
-            title: {
-                text: 'GDP'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: g7gdp2,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-//US, Canada, Japan
-function G7_CPI1(g7cpi1){
-    console.log("***************");
-
-    Highcharts.chart('char12', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'G7 Nations'
-        },
-        subtitle: {
             text: 'CPI YOY Change'
         },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: g7cpi1,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-//France, Germany, Italy, UK
-function G7_CPI2(g7cpi2){
-    console.log("***************");
-
-    Highcharts.chart('char13', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'G7 Nations'
-        },
         subtitle: {
-            text: 'CPI YOY Change'
+            text: 'G7'
         },
         yAxis: {
             title: {
@@ -648,297 +531,10 @@ function G7_CPI2(g7cpi2){
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: g7cpi2,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function BRICrealGDP(bricgdp){
-    console.log("***************");
-
-    Highcharts.chart('char14', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'BRIC Nations'
-        },
-        subtitle: {
-            text: 'Real GDP YOY Growth'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: bricgdp,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function BRIC_CPI(briccpi){
-    console.log("***************");
-
-    Highcharts.chart('char15', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'BRIC Nations'
-        },
-        subtitle: {
-            text: 'CPI YOY Change'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: briccpi,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-//India, China
-function BRICpop1(bricpop1){
-
-    Highcharts.chart('char16', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            backgroundColor: 'transparent',
-            type: 'column'
-        },
-        title: {
-            text: 'BRIC Nations'
-        },
-        subtitle: {
-            text: 'Population'
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
         },
-        xAxis:{
-            categories: null,
-            title:{
-                text:['Countries']
-            },
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
-            title:{
-                text: 'Million'}
-                ,
-                labels: {
-                    overflow: 'justify'
-                }
-            }
-        ,
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth:0,
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: bricpop1
-    });
-}
-
-//Brazil, Russia
-function BRICpop2(bricpop2){
-
-    Highcharts.chart('char17', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            backgroundColor: 'transparent',
-            type: 'column'
-        },
-        title: {
-            text: 'BRIC Nations'
-        },
-        subtitle: {
-            text: 'Population'
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        xAxis:{
-            categories: null,
-            title:{
-                text:['Countries']
-            },
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
-            title:{
-                text: 'Million'}
-                ,
-                labels: {
-                    overflow: 'justify'
-                }
-            }
-        ,
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth:0,
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: bricpop2
-    });
-}
-
-function MISTrealGDP(mistgdp){
-    console.log("***************");
-
-    Highcharts.chart('char18', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'MIST Nations'
-        },
-        subtitle: {
-            text: 'Real GDP YOY Growth'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
         legend: {
             layout: 'vertical',
             align: 'right',
@@ -952,7 +548,7 @@ function MISTrealGDP(mistgdp){
             pointStart: 2010
             }
         },
-        series: mistgdp,
+        series: g7cpi,
         responsive: {
             rules: [{
                 condition: {
@@ -967,291 +563,6 @@ function MISTrealGDP(mistgdp){
                 }
             }]
         }
-    });
-}
-
-function MIST_CPI(mistcpi){
-    console.log("***************");
-
-    Highcharts.chart('char19', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'MIST Nations'
-        },
-        subtitle: {
-            text: 'CPI YOY Change'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: mistcpi,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function MISTpop(mistpop){
-
-    Highcharts.chart('char20', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            backgroundColor: 'transparent',
-            type: 'column'
-        },
-        title: {
-            text: 'MIST Nations'
-        },
-        subtitle: {
-            text: 'Population'
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        xAxis:{
-            categories: null,
-            title:{
-                text:['Countries']
-            },
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
-            title:{
-                text: 'Million'}
-                ,
-                labels: {
-                    overflow: 'justify'
-                }
-            }
-        ,
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth:0,
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: mistpop
-    });
-}
-
-function Tier4realGDP(gdp4){
-    console.log("***************");
-
-    Highcharts.chart('char21', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Tier 4 Nations'
-        },
-        subtitle: {
-            text: 'Real GDP YOY Growth'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: gdp4,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function Tier4_CPI(cpi4){
-    console.log("***************");
-
-    Highcharts.chart('char22', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Tier 4 Nations'
-        },
-        subtitle: {
-            text: 'CPI YOY Change'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: cpi4,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function Tier4pop(pop4){
-
-    Highcharts.chart('char23', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            backgroundColor: 'transparent',
-            type: 'column'
-        },
-        title: {
-            text: 'Tier 4 Nations'
-        },
-        subtitle: {
-            text: 'Population'
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        xAxis:{
-            categories: null,
-            title:{
-                text:['Countries']
-            },
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
-            title:{
-                text: 'Millions'}
-                ,
-                labels: {
-                    overflow: 'justify'
-                }
-            }
-        ,
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth:0,
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: pop4
     });
 }
 
@@ -1283,7 +594,7 @@ function G7unemp(ug7){
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
             footerFormat: '</table>',
-            shared: false,
+            shared: true,
             useHTML: true
         },
         plotOptions: {
@@ -1295,177 +606,6 @@ function G7unemp(ug7){
             }
         },
         series: ug7,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function BRICunemp(ubric){
-    console.log("***************");
-
-    Highcharts.chart('char25', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Unemployment'
-        },
-        subtitle: {
-            text: 'BRIC'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: ubric,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function MISTunemp(umist){
-    console.log("***************");
-
-    Highcharts.chart('char26', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Unemployment'
-        },
-        subtitle: {
-            text: 'MIST'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: umist,
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-}
-
-function Tier4unemp(u4){
-    console.log("***************");
-
-    Highcharts.chart('char27', {
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        title: {
-            text: 'Unemployment'
-        },
-        subtitle: {
-            text: 'Tier 4'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-            pointStart: 2010
-            }
-        },
-        series: u4,
         responsive: {
             rules: [{
                 condition: {
@@ -1511,7 +651,7 @@ function G7retail(retg7){
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
             footerFormat: '</table>',
-            shared: false,
+            shared: true,
             useHTML: true
         },
         plotOptions: {
@@ -1523,6 +663,235 @@ function G7retail(retg7){
             }
         },
         series: retg7,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+
+function BRICrealGDP(bricgdp){
+    console.log("***************");
+
+    Highcharts.chart('char14', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'BRIC'
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: bricgdp,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function BRIC_CPI(briccpi){
+    console.log("***************");
+
+    Highcharts.chart('char15', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'CPI YOY Change'
+        },
+        subtitle: {
+            text: 'BRIC'
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: briccpi,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function BRICpop(bricpop){
+
+    Highcharts.chart('char16', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Population'
+        },
+        subtitle: {
+            text: 'BRIC'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: 'Million'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: bricpop
+    });
+}
+
+function BRICunemp(ubric){
+    console.log("***************");
+
+    Highcharts.chart('char25', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Unemployment'
+        },
+        subtitle: {
+            text: 'BRIC'
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: ubric,
         responsive: {
             rules: [{
                 condition: {
@@ -1568,7 +937,7 @@ function BRICretail(retbric){
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
             footerFormat: '</table>',
-            shared: false,
+            shared: true,
             useHTML: true
         },
         plotOptions: {
@@ -1580,6 +949,235 @@ function BRICretail(retbric){
             }
         },
         series: retbric,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+
+function MISTrealGDP(mistgdp){
+    console.log("***************");
+
+    Highcharts.chart('char18', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'MIST'
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: mistgdp,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function MIST_CPI(mistcpi){
+    console.log("***************");
+
+    Highcharts.chart('char19', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'CPI YOY Change'
+        },
+        subtitle: {
+            text: 'MIST'
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: mistcpi,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function MISTpop(mistpop){
+
+    Highcharts.chart('char20', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Population'
+        },
+        subtitle: {
+            text: 'MIST'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: 'Million'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: mistpop
+    });
+}
+
+function MISTunemp(umist){
+    console.log("***************");
+
+    Highcharts.chart('char26', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Unemployment'
+        },
+        subtitle: {
+            text: 'MIST'
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: umist,
         responsive: {
             rules: [{
                 condition: {
@@ -1620,7 +1218,7 @@ function MISTretail(retmist){
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
             footerFormat: '</table>',
-            shared: false,
+            shared: true,
             useHTML: true
         },
         legend: {
@@ -1637,6 +1235,235 @@ function MISTretail(retmist){
             }
         },
         series: retmist,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+
+function Tier4realGDP(gdp4){
+    console.log("***************");
+
+    Highcharts.chart('char21', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Real GDP YOY Growth'
+        },
+        subtitle: {
+            text: 'Tier 4'
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: gdp4,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function Tier4_CPI(cpi4){
+    console.log("***************");
+
+    Highcharts.chart('char22', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'CPI YOY Change'
+        },
+        subtitle: {
+            text: 'Tier 4'
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: cpi4,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+function Tier4pop(pop4){
+
+    Highcharts.chart('char23', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
+        title: {
+            text: 'Population'
+        },
+        subtitle: {
+            text: 'Tier 4'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.0f}M</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        xAxis:{
+            categories: null,
+            title:{
+                text:['Countries']
+            },
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title:{
+                text: 'Millions'}
+                ,
+                labels: {
+                    overflow: 'justify'
+                }
+            }
+        ,
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth:0,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: pop4
+    });
+}
+
+function Tier4unemp(u4){
+    console.log("***************");
+
+    Highcharts.chart('char27', {
+        chart: {
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: 'Unemployment'
+        },
+        subtitle: {
+            text: 'Tier 4'
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            pointStart: 2010
+            }
+        },
+        series: u4,
         responsive: {
             rules: [{
                 condition: {
@@ -1677,7 +1504,7 @@ function Tier4retail(ret4){
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.3f}%</b></td></tr>',
             footerFormat: '</table>',
-            shared: false,
+            shared: true,
             useHTML: true
         },
         legend: {
