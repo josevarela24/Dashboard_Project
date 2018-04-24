@@ -290,7 +290,8 @@ function easeDB(ease){
     });
 }
 
-//7
+
+
 function GroupGPDreal(gdpreal){
     console.log("***************");
 
@@ -345,7 +346,6 @@ function GroupGPDreal(gdpreal){
     });
 }
 
-//8
 function GroupGPDnom(gdpnom){
     //stacked area chart
     Highcharts.chart('char8', {
@@ -394,7 +394,6 @@ function GroupGPDnom(gdpnom){
     });
 }
 
-//9
 function GroupPop(grpop){
 
     Highcharts.chart('char9', {
@@ -451,6 +450,7 @@ function GroupPop(grpop){
         series: grpop
     });
 }
+
 
 
 function G7realGDP(g7gdp){
@@ -569,7 +569,7 @@ function G7_CPI(g7cpi){
 function G7unemp(ug7){
     console.log("***************");
 
-    Highcharts.chart('char24', {
+    Highcharts.chart('char12', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -626,7 +626,7 @@ function G7unemp(ug7){
 function G7retail(retg7){
     console.log("***************");
 
-    Highcharts.chart('char28', {
+    Highcharts.chart('char13', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -679,6 +679,7 @@ function G7retail(retg7){
         }
     });
 }
+
 
 
 function BRICrealGDP(bricgdp){
@@ -855,7 +856,7 @@ function BRICpop(bricpop){
 function BRICunemp(ubric){
     console.log("***************");
 
-    Highcharts.chart('char25', {
+    Highcharts.chart('char17', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -912,7 +913,7 @@ function BRICunemp(ubric){
 function BRICretail(retbric){
     console.log("***************");
 
-    Highcharts.chart('char29', {
+    Highcharts.chart('char18', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -967,10 +968,11 @@ function BRICretail(retbric){
 }
 
 
+
 function MISTrealGDP(mistgdp){
     console.log("***************");
 
-    Highcharts.chart('char18', {
+    Highcharts.chart('char19', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -1027,7 +1029,7 @@ function MISTrealGDP(mistgdp){
 function MIST_CPI(mistcpi){
     console.log("***************");
 
-    Highcharts.chart('char19', {
+    Highcharts.chart('char20', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -1083,7 +1085,7 @@ function MIST_CPI(mistcpi){
 
 function MISTpop(mistpop){
 
-    Highcharts.chart('char20', {
+    Highcharts.chart('char21', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -1141,7 +1143,7 @@ function MISTpop(mistpop){
 function MISTunemp(umist){
     console.log("***************");
 
-    Highcharts.chart('char26', {
+    Highcharts.chart('char22', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -1198,7 +1200,7 @@ function MISTunemp(umist){
 function MISTretail(retmist){
     console.log("***************");
 
-    Highcharts.chart('char30', {
+    Highcharts.chart('char23', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -1253,10 +1255,11 @@ function MISTretail(retmist){
 }
 
 
+
 function Tier4realGDP(gdp4){
     console.log("***************");
 
-    Highcharts.chart('char21', {
+    Highcharts.chart('char24', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -1313,7 +1316,7 @@ function Tier4realGDP(gdp4){
 function Tier4_CPI(cpi4){
     console.log("***************");
 
-    Highcharts.chart('char22', {
+    Highcharts.chart('char25', {
         chart: {
             backgroundColor: 'transparent'
         },
@@ -1369,7 +1372,7 @@ function Tier4_CPI(cpi4){
 
 function Tier4pop(pop4){
 
-    Highcharts.chart('char23', {
+    Highcharts.chart('char26', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -1484,7 +1487,7 @@ function Tier4unemp(u4){
 function Tier4retail(ret4){
     console.log("***************");
 
-    Highcharts.chart('char31', {
+    Highcharts.chart('char28', {
         chart: {
             backgroundColor: 'transparent'
         },
