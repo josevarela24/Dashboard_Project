@@ -1266,7 +1266,7 @@ exports.get_detail = function(req, res, next) {
 					//console.log(results.ten)
 					//console.log(results.twelve)
 					//console.log(results.eight)
-					res.render('admin', { title: 'Test', gdp:results.one, ppp:results.two, pop:results.three, 
+					res.render('hello', { title: 'Test', gdp:results.one, ppp:results.two, pop:results.three, 
 					liv:results.four, spend:results.five, ease:results.six,
 					gdpreal:results.seven, gdpnom:results.eight, grpop:results.nine,
 					g7gdp:results.ten, g7cpi:results.eleven, ug7:results.twelve, retg7:results.thirteen,
