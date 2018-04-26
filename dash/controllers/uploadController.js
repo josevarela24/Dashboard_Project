@@ -246,20 +246,20 @@ exports.get_detail = function(req, res, next) {
 									if: 
 										{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
 									
-									,then: "#F7BC4E", 
+									,then: "#f7a35c", 
 									else: 
 										{
 											$cond:{
 												if: 
 												{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
-												,then: "#70FF6E",
+												,then: "#434348",
 												else:
 													{
 														$cond:{
 															if: 
 															{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
-															,then: "#050A05",
-															else: "#6ED1FF"
+															,then: "#7CB5EC",
+															else: "#90ED7D"
 														}
 													}
 										} 
@@ -342,20 +342,20 @@ exports.get_detail = function(req, res, next) {
 									if: 
 										{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
 									
-									,then: "#F7BC4E", 
+									,then: "#f7a35c", 
 									else: 
 										{
 											$cond:{
 												if: 
 												{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
-												,then: "#70FF6E",
+												,then: "#434348",
 												else:
 													{
 														$cond:{
 															if: 
 															{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
-															,then: "#050A05",
-															else: "#6ED1FF"
+															,then: "#7CB5EC",
+															else: "#90ED7D"
 														}
 													}
 										} 
@@ -394,20 +394,20 @@ exports.get_detail = function(req, res, next) {
 									if: 
 										{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
 									
-									,then: "#F7BC4E", 
+									,then: "#f7a35c", 
 									else: 
 										{
 											$cond:{
 												if: 
 												{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
-												,then: "#70FF6E",
+												,then: "#434348",
 												else:
 													{
 														$cond:{
 															if: 
 															{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
-															,then: "#050A05",
-															else: "#6ED1FF"
+															,then: "#7CB5EC",
+															else: "#90ED7D"
 														}
 													}
 										} 
@@ -446,20 +446,20 @@ exports.get_detail = function(req, res, next) {
 									if: 
 										{ $or: [ { $eq: [ "$name", "USA" ] }, { $eq: [ "$name", "Japan" ]}, { $eq: [ "$name", "Germany" ] }, { $eq: [ "$name", "Canada" ] }, { $eq: [ "$name", "Italy" ] }, { $eq: [ "$name", "UK" ] }, { $eq: [ "$name", "France" ] } ] }
 									
-									,then: "#F7BC4E", 
+									,then: "#f7a35c", 
 									else: 
 										{
 											$cond:{
 												if: 
 												{ $or: [ { $eq: [ "$name", "China" ] }, { $eq: [ "$name", "India" ] }, { $eq: [ "$name", "Brazil" ] }, { $eq: [ "$name", "Russia" ] } ] }
-												,then: "#70FF6E",
+												,then: "#434348",
 												else:
 													{
 														$cond:{
 															if: 
 															{ $or: [ { $eq: [ "$name", "Mexico" ] }, { $eq: [ "$name", "Indonesia" ] }, { $eq: [ "$name", "South Korea" ] }, { $eq: [ "$name", "Turkey" ] } ] }
-															,then: "#050A05",
-															else: "#6ED1FF"
+															,then: "#7CB5EC",
+															else: "#90ED7D"
 														}
 													}
 										} 
