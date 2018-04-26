@@ -144,14 +144,14 @@ exports.getNGDPfunc = function(yr,callback){
 		},
 		{
 			$sort: {
-				"nominalGDP": -1
+				"gdpPerCapita": -1
 			}
 		},
 		{
 			$project: {
 			_id: 0,
 			name: 1,
-			'y' : '$nominalGDP'
+			'y' : '$gdpPerCapita'
 		}
 	}], callback);
 };
@@ -170,14 +170,14 @@ exports.getNFGDPfunc = function(yr,callback){
 		},
 		{
 			$sort: {
-				"nominalGDP": -1
+				"consumerSpending": -1
 			}
 		},
 		{
 			$project: {
 			_id: 0,
 			name: 1,
-			'y' : '$nominalGDP'
+			'y' : '$consumerSpending'
 		}
 	}], callback);
 };
@@ -329,14 +329,14 @@ exports.get_detail = function(req, res, next) {
 						},
 						{
 							$sort: {
-								"nominalGDP": -1
+								"gdpPerCapita": -1
 							}
 						},
 						{
 							$project: {
 							_id: 0,
 							name: 1,
-							'y' : '$nominalGDP',
+							'y' : '$gdpPerCapita',
 							color: {
 								$cond: { 
 									if: 
@@ -381,14 +381,14 @@ exports.get_detail = function(req, res, next) {
 						},
 						{
 							$sort: {
-								"nominalGDP": -1
+								"consumerSpending": -1
 							}
 						},
 						{
 							$project: {
 							_id: 0,
 							name: 1,
-							'y' : '$nominalGDP',
+							'y' : '$consumerSpending',
 							color: {
 								$cond: { 
 									if: 

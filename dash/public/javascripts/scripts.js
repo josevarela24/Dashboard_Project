@@ -15,7 +15,9 @@ function GDP(gdp){
             text: 'Nominal GDP'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>${point.y:1f}</b>'
+            valueDecimals: 1,
+            valuePrefix: '$',
+            valueSuffix: ' Billions'
         },
         plotOptions: {
             pie: {
@@ -49,7 +51,9 @@ function PPP(ppp){
             text: 'GDP PPP'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>${point.y:1f}</b>'
+            valueDecimals: 1,
+            valuePrefix: '$',
+            valueSuffix: ' Billions'
         },
         plotOptions: {
             pie: {
@@ -83,7 +87,7 @@ function Popul(pop){
             text: 'Population'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.y:1f}M</b>'
+            pointFormat: '{series.name}: <b>{point.y:.0f} Million</b>',
         },
         plotOptions: {
             pie: {
@@ -96,7 +100,7 @@ function Popul(pop){
             }
         },
         series: [{
-            name: 'GDP PPP',
+            name: 'Population',
             colorByPoint: true,
             data: pop
         }]
@@ -120,10 +124,9 @@ function livStand(liv){
             text: 'GDP per Capita in US dollars on a purchasing power parity(PPP)'
         },
         tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>${point.y:1f}USD</b></td></tr>',
-            footerFormat: '</table>',
+            valueDecimals: 0,
+            valuePrefix: '$',
+            padding: 0,
             shared: true,
             useHTML: true
         },
@@ -247,7 +250,7 @@ function easeDB(ease){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:1f}</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:0f}</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true

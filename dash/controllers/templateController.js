@@ -17,7 +17,8 @@ exports.get = function(req, res) {
 		'easeOfDoingBusiness',
 		'unemployment',
 		'retailSalesGrowth',
-		'cpiGrowth'
+		'cpiGrowth',
+		'gdpPerCapita'
 	];
 
 	var csv = json2csv({ data: '', fields: fields });
