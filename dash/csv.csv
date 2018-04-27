@@ -1,4 +1,4 @@
-﻿name,year,group,nominalGDP,realGDP,nominalGDPGrowth,realGDPGrowth,gdpPpp,population,populationGrowth,consumerSpending,easeOfDoingBusiness,unemployment,retailSalesGrowth,cpiGrowth
+﻿name,year,group,nominalGDP,realGDP,nominalGDPGrowth,realGDPGrowth,gdpPpp,population,populationGrowth,consumerSpending,easeOfDoingBusiness,unemployment,retailSalesGrowth,cpiGrowth,gdpPerCapita
 USA,2017,,19.4,16,2.1,2,19.4,326,0.8,67,5,4,1,5
 China,2017,,20,17,6.8,6,23.2,1388,0.4,37,78,3,2,3
 Japan,2017,,17,16,0.8,0.6,5.4,126,0.2,58,36,6,3,7
