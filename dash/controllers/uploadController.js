@@ -34,29 +34,29 @@ exports.getGDPfunc = function(yr,callback){
 			color: {
 				$cond: { 
 					if: 
-						{ $lte: [ "$nominalGDPGrowth", .01 ] }
+						{ $lte: [ "$nominalGDPGrowth", 1 ] }
 					
 					,then: "#E9FFDD", 
 					else: 
 						{
 							$cond:{
 								if: 
-								{ $lte: [ "$nominalGDPGrowth", .02 ] }
+								{ $lte: [ "$nominalGDPGrowth", 2 ] }
 								,then: "#C3E2B2",
 								else:	{
 									$cond:{
 										if: 
-										{ $lte: [ "$nominalGDPGrowth", .03 ] }
+										{ $lte: [ "$nominalGDPGrowth", 3 ] }
 										,then: "#93BD7C",
 										else:	{	
 											$cond:{
 												if: 
-												{ $lte: [ "$nominalGDPGrowth", .04 ] }
+												{ $lte: [ "$nominalGDPGrowth", 4 ] }
 												,then: "#78B05A",
 												else:	{	
 													$cond:{
 														if: 
-														{ $lte: [ "$nominalGDPGrowth", .05 ] }
+														{ $lte: [ "$nominalGDPGrowth", 5 ] }
 														,then: "#406C29",
 														else:	"#375824"
 													}
@@ -303,7 +303,7 @@ exports.get_detail = function(req, res, next) {
 										{
 											$cond:{
 												if: 
-												{ $gte: [ "$populationGrowth", .02 ] }
+												{ $gte: [ "$populationGrowth", 2 ] }
 												,then: "#214449",
 												else:	"#9EE0EA"
 										} 

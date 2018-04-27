@@ -15,7 +15,7 @@ function GDP(gdp){
             text: 'Nominal GDP'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.y:.1f} Billion</b>',
+            pointFormat: '{series.name}: <b>${point.y:.1f} Billion</b>',
         },
         plotOptions: {
             pie: {
@@ -49,7 +49,7 @@ function PPP(ppp){
             text: 'GDP PPP'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.y:.1f} Billion</b>',
+            pointFormat: '{series.name}: <b>${point.y:.1f} Billion</b>',
         },
         plotOptions: {
             pie: {
@@ -134,8 +134,7 @@ function livStand(liv){
         yAxis: {
             min: 0,
             title:{
-                text: '$USD',
-                align: 'high'}
+                text: '$USD',}
                 ,
                 labels: {
                     overflow: 'justify'
@@ -194,8 +193,7 @@ function cSpend(spend){
         },
         yAxis: {
             title:{
-                text: ' ',
-                align: 'high'}
+                text: 'Percent'}
                 ,
                 labels: {
                     overflow: 'justify'
