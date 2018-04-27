@@ -6,8 +6,6 @@ var email = require('../models/email');
 var loggedIn = 0;
 
 var User = require('../models/userLogin');
-//var MongoClient = require('mongodb').MongoClient
-//var url = "mongodb://localhost:27017/UserLogin";
 
 const mailer = require('pug-mailer')
 
@@ -25,17 +23,6 @@ router.get('/',
 router.post('/sss', function(req, res, next){
   var yr = req.body.val;
   var fid = req.body.id;
-  
-  // var funnn = function(year, callback){
-  //   uploadController.getPPPfunc(year, callback);
-  // }
-
-  // funnn(Number(yr), function(err,results){
-  //   if(err) console.log("err");
-  //   else{
-  //     res.send(results);
-  //   }
-  // });
 
   switch(fid){
     case "one":  
@@ -133,7 +120,7 @@ router.post('/login', function(req, res, next){
   };
    if(req.body.email && req.body.password && userData.confirm){
     userLogin.authenticate(req.body.email, req.body.password, function(error,user){
-     if(user.confirm){
+    
       if (error || !user){
        var err = new Error('Wrong email or password,');
        err.status = 401;
@@ -142,22 +129,22 @@ router.post('/login', function(req, res, next){
         var err =  new Error('Registration not confirmed contact admin.');
         return next(err);
        } else {
-        req.session = {}; //dangerous??
-        req.session.userid = user._id;
-        loggedIn = 1;
-        res.redirect('/admin');
-       }
-      }else{
-        res.redirect('/deny');
+        if(user.confirm){
+          req.session = {}; //dangerous??
+          req.session.userid = user._id;
+          loggedIn = 1;
+          res.redirect('/admin');
+        }else{
+          res.redirect('/deny');
+        } 
       }
+      
     });
    
   } else {
-      if(req.body.email && req.body.password){
         var err =  new Error('Email and password are required.');
        err.status = 401;
        return next(err);
-      }
     }
 });
 
@@ -226,7 +213,7 @@ router.post('/register', function(req, res, next) {
               from: '"Alliance Data Dashboard" <alliancedashboard@gmail.com>', // sender address
               to: 'alliancedashboard@gmail.com', // list of receivers
               subject: 'Confirm Registration of ' + req.body.email, // Subject line        
-              html: '<form> http://localhost:3000/login" </form>' 
+              html: '<form> http://localhost:4485/login" </form>' 
           };
       
           // send mail with defined transport object
@@ -237,9 +224,6 @@ router.post('/register', function(req, res, next) {
               console.log('Message sent: %s', info.messageId);
               // Preview only available when sending through an Ethereal account
               console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-      
-              // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-              // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
           });
       });
 
